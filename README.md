@@ -1,11 +1,22 @@
 # ldp-workspace
 
-# prerequist semapps
+# prerequist
+- install semapps or solid community-server
+
+
+# install semapps
+- official docker version
+https://semapps.org/docs/guides/ldp-server#testing-your-ldp-server
+
+- hack without docker version
 https://dfaveris.medium.com/installer-semapps-sans-docker-b92f3574f07f
 
-- modifier dans semapps/services/ldp.services.js pour ajouter les containers suivants
+modifier dans semapps/services/ldp.services.js pour ajouter les containers suivants
 containers: [ '/persons', '/files', '/workspaces', '/bases', '/tables', '/records', '/fields', '/tasks'],
 
+# or install solid community-server
+- https://github.com/solid/community-server/
+- https://github.com/solid/community-server/issues/528
 
 
 # start from scratch
@@ -49,3 +60,5 @@ then for each commit
 ```
 npm run git -- "modif"
 ```
+### json pretty print in a vuejs component
+https://www.npmjs.com/package/vue-json-pretty
