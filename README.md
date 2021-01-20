@@ -11,6 +11,8 @@ containers: [ '/persons', '/files', '/workspaces', '/bases', '/tables', '/record
 # start from scratch
 https://dfaveris.medium.com/portfolio-comment-cr%C3%A9er-une-application-web-portfolio-bas%C3%A9e-sur-solid-avec-vue-js-c57b50502d21
 
+# axios Post patch...
+https://serversideup.net/post-put-patch-requests-with-vuejs-and-axios/
 
 ## Project setup
 ```
@@ -34,3 +36,16 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Build and publish on gh-pages
+remove /dist in .gitignore
+first commit :
+
+```
+npm run build
+git add dist -f && git commit -m "Initial dist subtree commit"
+```
+then for each commit
+```
+npm run git -- "modif"
+```

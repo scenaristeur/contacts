@@ -1,18 +1,24 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <LdpServer />
+    <AxiosPost />
+
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mapState } from 'vuex';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
-  }
+    'LdpServer': () => import('@/components/config/LdpServer'),
+    'AxiosPost': () => import('@/components/axios/AxiosPost'),
+    //  'MenuBar': () => import('@/components/layout/MenuBar'),
+    // 'Table': () => import('@/components/table/Table'),
+  },
+  computed: mapState({
+    ldp_server: s =>  s.ldp_store.ldp_server
+  }),
 }
 </script>
