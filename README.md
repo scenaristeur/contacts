@@ -1,8 +1,11 @@
 # ldp-workspace
 
 # prerequist
-- install semapps or solid community-server
+- install semapps or solid community-server and run with
+```
+npm start -- -c config/config-file.json -f /Documents/ -p 3005
 
+```
 
 # install semapps
 - official docker version
@@ -12,7 +15,8 @@ https://semapps.org/docs/guides/ldp-server#testing-your-ldp-server
 https://dfaveris.medium.com/installer-semapps-sans-docker-b92f3574f07f
 
 modifier dans semapps/services/ldp.services.js pour ajouter les containers suivants
-containers: [ '/persons', '/files', '/workspaces', '/bases', '/tables', '/records', '/fields', '/tasks'],
+containers: [ '/persons', '/files', '/workspaces', '/bases', '/tables', '/records', '/fields', '/tasks', '/documents'],
+
 
 # or install solid community-server
 - https://github.com/solid/community-server/

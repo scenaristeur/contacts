@@ -20,5 +20,10 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  created() {
+  store.dispatch('ldp_store/init');
+//  store.dispatch('field/init');
+//  store.commit('workspace/initializeStore');
+}
 }).$mount('#app')

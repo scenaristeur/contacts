@@ -2,44 +2,40 @@
   <div>
 
 
-
+    <!--
     <b-form-group
-          id="fieldset-1"
-          description="In which container ?"
-          label="Path"
-          label-for="path"
-        >
-          <b-input id="path" v-model="post.path" placeholder="path, ex: persons "/>
-        </b-form-group>
-
-        <b-form-group
-      id="fieldset-1"
-      description="Select the type of the Resource."
-      label="Type"
-      label-for="type"
+    id="fieldset-1"
+    description="In which container ?"
+    label="Path"
+    label-for="path"
     >
-    <b-input id="type" v-model="post.data.type" placeholder="type, ex: Person "/>
-    </b-form-group>
+    <b-input id="path" v-model="post.path" placeholder="path, ex: persons "/>
+  </b-form-group> -->
 
-    <b-form-group
-      id="fieldset-1"
-      description="Enter the name of the Resource."
-      label="Name"
-      label-for="name"
-    >
-    <b-input id="name" v-model="post.data.name" placeholder="name, ex: 'Bobby Cool'" />
-    </b-form-group>
-
-
+  <b-form-group
+  id="fieldset-1"
+  description="Select the type of the Resource."
+  label="Type"
+  label-for="type"
+  >
+  <b-form-select v-model="post.data.type" :options="models" :selected="models[0]" ></b-form-select>
+  <!-- <b-input id="type" v-model="post.data.type" placeholder="type, ex: Person "/> -->
 
 
+</b-form-group>
+
+<b-form-group
+id="fieldset-1"
+description="Enter the name of the Resource."
+label="Name"
+label-for="name"
+>
+<b-input id="name" v-model="post.data.name" placeholder="name, ex: 'Bobby Cool'" />
+</b-form-group>
 
 
-
-
-
-    <b-button @click="post_action">Post</b-button>
-  </div>
+<b-button @click="post_action">Post</b-button>
+</div>
 </template>
 
 <script>
@@ -50,20 +46,52 @@ export default {
   name: 'AxiosPost',
   data() {
     return {
+      models:[
+        {value:{name: 'Workspace', type: 'http://purl.org/vocab/lifecycle/schema#TaskGroup', path:'workspaces'}, text: 'Workspace'},
+        {value:{name: 'Base', type: 'https://www.w3.org/ns/activitystreams#Base', path:'bases'}, text: 'Base'},
+        {value:{name: 'Table', type: 'https://www.w3.org/ns/activitystreams#Table', path:'tables'}, text: 'Table'},
+        {value:{name: 'Field', type: 'https://www.w3.org/ns/activitystreams#Field', path:'fields'}, text: 'Field'},
+        {value:{name: 'Record', type: 'https://www.w3.org/ns/activitystreams#Record', path:'records'}, text: 'Record'},
+        {value:{name: 'Task', type: 'https://www.w3.org/ns/activitystreams#Task', path:'tasks'}, text: 'Task'},
+        {value:{name: 'Person', type: 'https://www.w3.org/ns/activitystreams#Person', path:'persons'}, text: 'Person'},
+        {value:{name: 'Document', type: 'https://www.w3.org/ns/activitystreams#Document', path:'documents'}, text: 'Document'},
+      ],
       post: {
-        path: 'persons',
         data: {
-          "@context": "https://www.w3.org/ns/activitystreams",
-          "type": "Person",
-          "name": "Guillaume Cousin"
+          "@context":
+          {
+            as: "https://www.w3.org/ns/activitystreams",
+            schema: "https://schema.org/"
+          },
+          "name": "Guillaume Cousin",
+          type: {}
         },
-      }
+        meta: {}
+      },
+      //       {
+      //   "@context": "https://json-ld.org/contexts/person.jsonld",
+      //   "@id": "http://dbpedia.org/resource/John_Lennon",
+      //   "name": "John Lennon",
+      //   "born": "1940-10-09",
+      //   "spouse": "http://dbpedia.org/resource/Cynthia_Lennon"
+      // }
     };
   },
   methods: {
     post_action() {
-      axios.post(this.ldp_server.url+'/'+this.post.path+'/', this.post.data, {/* Config*/}
-      );
+      console.log(this.post)
+      this.post.data.dateCreated = new Date().toISOString()
+      axios.post(
+        this.ldp_server.url+'/'+this.post.data.type.path+'/',
+        this.post.data,
+        {header: {'Content-Type': 'application/ld+json'}}
+      ).then((response) => {
+        console.log(response);
+        this.$store.dispatch('ldp_store/update', this.post.data.type.path)
+        //  console.log(response.headers.get('Location'))
+      }, (error) => {
+        console.log(error);
+      });
     },
   },
   computed: mapState({
