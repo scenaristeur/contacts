@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ldp-workspace/precache-manifest.877172eeb829b316193c843b83fdf774.js"
+  "/ldp-workspace/precache-manifest.7870e64cdcad482903ffe76938d32bf7.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "ldp-workspace"});
