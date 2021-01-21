@@ -1,7 +1,18 @@
 <template>
   <div id="config">
     ldp_server : {{ ldp_server}}<br>
-    app: {{ app }}
+
+
+    <p v-for="(container, c) in Object.keys(app)" :key="c">
+      <b>{{ container }}</b><br>
+      {{ app[container]}}
+
+
+
+
+    </p>
+
+        app: {{ app }}
 
   </div>
 </template>

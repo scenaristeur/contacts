@@ -66,3 +66,6 @@ npm run git -- "modif"
 ```
 ### json pretty print in a vuejs component
 https://www.npmjs.com/package/vue-json-pretty
+
+## common pattern solid Axios
+https://www.codingame.com/playgrounds/51181/common-patterns-with-solid/managing-notifications

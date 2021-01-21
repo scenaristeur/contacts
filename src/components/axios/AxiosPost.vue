@@ -18,7 +18,7 @@
   label="Type"
   label-for="type"
   >
-  <b-form-select v-model="post.data.type" :options="models" :selected="models[0]" ></b-form-select>
+  <b-form-select v-model="post.meta.type" :options="models" :selected="models[0]" ></b-form-select>
   <!-- <b-input id="type" v-model="post.data.type" placeholder="type, ex: Person "/> -->
 
 
@@ -30,7 +30,7 @@ description="Enter the name of the Resource."
 label="Name"
 label-for="name"
 >
-<b-input id="name" v-model="post.data.name" placeholder="name, ex: 'Bobby Cool'" />
+<b-input id="name" v-model="post.data['schema:name']" placeholder="name, ex: 'Bobby Cool'" />
 </b-form-group>
 
 
@@ -39,7 +39,7 @@ label-for="name"
 </template>
 
 <script>
-import axios from 'axios';
+//import axios from 'axios';
 import { mapState } from 'vuex';
 
 export default {
@@ -61,10 +61,10 @@ export default {
           "@context":
           {
             as: "https://www.w3.org/ns/activitystreams",
-            schema: "https://schema.org/"
+            schema: "http://schema.org/"
           },
-          "name": "Guillaume Cousin",
-          type: {}
+          "schema:name": "Guillaume Cousin",
+          '@type': ""
         },
         meta: {}
       },
@@ -80,18 +80,51 @@ export default {
   methods: {
     post_action() {
       console.log(this.post)
-      this.post.data.dateCreated = new Date().toISOString()
-      axios.post(
-        this.ldp_server.url+'/'+this.post.data.type.path+'/',
-        this.post.data,
-        {header: {'Content-Type': 'application/ld+json'}}
-      ).then((response) => {
-        console.log(response);
-        this.$store.dispatch('ldp_store/update', this.post.data.type.path)
-        //  console.log(response.headers.get('Location'))
-      }, (error) => {
-        console.log(error);
-      });
+      this.post.data['schema:dateCreated'] = new Date().toISOString()
+      this.post.data['@type'] = this.post.meta.type.type
+      console.log(JSON.stringify(this.post.data))
+      let store = this.$store
+      let container = this.post.meta.type.path
+
+      fetch(this.ldp_server.url+'/'+this.post.meta.type.path+'/',
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify(this.post.data)
+      })
+      .then(function(res){
+        console.log(res)
+        store.dispatch('ldp_store/update', container)
+      })
+      .catch(function(res){ console.log(res) })
+
+      // axios.post(
+      //   this.ldp_server.url+'/'+this.post.data.type.path+'/',
+      //   this.post.data,
+      //   {header: {'Content-Type': 'application/ld+json'}}
+      // )
+      //  let data =  { '@context': "https://www.w3.org/ns/activitystreams", '@type': "Person", 'name': "POL2"}
+
+      //   axios.post(this.ldp_server.url+'/'+this.post.data.type.path+'/',
+      //   {
+      //     '@context': "https://www.w3.org/ns/activitystreams", '@type': "Person", 'name': "POL2"},
+      //   {
+      //     header: {
+      //       'Content-Type': 'application/ld+json',
+      //       'Accept': 'application/ld+json'
+      //     }
+      //   }
+      // )
+      // .then((response) => {
+      //   console.log(response);
+      //   //  this.$store.dispatch('ldp_store/update', this.post.data.type.path)
+      //   //  console.log(response.headers.get('Location'))
+      // }, (error) => {
+      //   console.log(error);
+      // });
     },
   },
   computed: mapState({
