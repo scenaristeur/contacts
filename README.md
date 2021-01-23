@@ -15,7 +15,14 @@ https://semapps.org/docs/guides/ldp-server#testing-your-ldp-server
 https://dfaveris.medium.com/installer-semapps-sans-docker-b92f3574f07f
 
 modifier dans semapps/services/ldp.services.js pour ajouter les containers suivants
-containers: [ '/persons', '/files', '/workspaces', '/bases', '/tables', '/records', '/fields', '/tasks', '/documents'],
+containers: [ '/persons', '/files',
+  '/workspaces', '/bases',
+  '/tables', '/records',
+  '/fields', '/tasks',
+  '/documents', '/tags',
+  '/offers', '/needs',
+  '/things', '/skills',
+  '/categories'],
 
 
 # or install solid community-server
