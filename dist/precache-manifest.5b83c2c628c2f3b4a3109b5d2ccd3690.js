@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "729409de498461a30e15",
+    "revision": "a1d51639b198005c970b",
     "url": "/ldp-workspace/css/app.4478ea10.css"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/css/chunk-vendors.378af094.css"
   },
   {
-    "revision": "0377e5137b6bf85e2110d906e80469bc",
+    "revision": "4fc665999327fbf106078cc4d268f004",
     "url": "/ldp-workspace/index.html"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/about.205580bf.js"
   },
   {
-    "revision": "729409de498461a30e15",
-    "url": "/ldp-workspace/js/app.07bb2785.js"
+    "revision": "a1d51639b198005c970b",
+    "url": "/ldp-workspace/js/app.4bfa3044.js"
   },
   {
     "revision": "ce0f93431849f811e418",

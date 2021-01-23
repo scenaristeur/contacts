@@ -24,6 +24,7 @@ const actions = {
   async update (context, container){
     let url = context.state.ldp_server.url+'/'+container+'/'
     console.log('update',url)
+
     axios.get(
       url,
       {header: {'Accept': 'application/ld+json'}}
@@ -37,6 +38,22 @@ const actions = {
     }, (error) => {
       console.log(error);
     });
+
+    // fetch(url,
+    // {
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //
+    // })
+    // .then(function(response){
+    //   console.log(response)
+    //   let data = {container: container, items: response.data['ldp:contains']}
+    //   context.commit('setItems', data)
+    //
+    // })
+    // .catch(function(res){ console.log(res) })
   },
   async init(context){
     Object.keys(context.state.app).forEach((k) => {

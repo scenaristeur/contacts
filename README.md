@@ -69,3 +69,6 @@ https://www.npmjs.com/package/vue-json-pretty
 
 ## common pattern solid Axios
 https://www.codingame.com/playgrounds/51181/common-patterns-with-solid/managing-notifications
+
+## don't use axios for POST to semapps ldp
+axios uses xmlhttprequest and don't post correct json-ld
