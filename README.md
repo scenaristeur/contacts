@@ -25,6 +25,7 @@ containers: [ '/persons', '/files',
   '/categories'],
 
 
+
 # or install solid community-server
 - https://github.com/solid/community-server/
 - https://github.com/solid/community-server/issues/528
@@ -79,3 +80,6 @@ https://www.codingame.com/playgrounds/51181/common-patterns-with-solid/managing-
 
 ## don't use axios for POST to semapps ldp
 axios uses xmlhttprequest and don't post correct json-ld
+
+## tables vuetify
+https://vuetifyjs.com/en/components/data-tables/#crud-actions

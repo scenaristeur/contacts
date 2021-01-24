@@ -15,12 +15,16 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 //https://bootswatch.com/
 import "bootswatch/dist/superhero/bootstrap.min.css";
 
+import vuetify from './plugins/vuetify';
+
 Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
   render: h => h(App),
+  vuetify,
+
   created() {
   store.dispatch('ldp_store/init');
 //  store.dispatch('field/init');
