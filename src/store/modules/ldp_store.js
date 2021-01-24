@@ -12,7 +12,13 @@ const state = () => ({
     records: [],
     fields: [],
     documents: [],
-    tasks: []
+    tasks: [],
+    tags: [],
+    offers: [],
+    needs: [],
+    things: [],
+    skills: [],
+    categories: []
   }
 })
 
@@ -40,65 +46,65 @@ const actions = {
     // });
 
     fetch(url,
-    {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
 
-    })
+      })
       .then(response => response.json())
       .then(d => {
-      console.log(d)
-      let data = {container: container, items: d['ldp:contains']}
-      context.commit('setItems', data)
+        console.log(d)
+        let data = {container: container, items: d['ldp:contains']}
+        context.commit('setItems', data)
 
-    })
-    .catch(function(response){ console.log(response) })
+      })
+      .catch(function(response){ console.log(response) })
 
 
-  },
-  async init(context){
-    Object.keys(context.state.app).forEach((k) => {
-      console.log(k)
-      context.dispatch('update',k)
-    });
+    },
+    async init(context){
+      Object.keys(context.state.app).forEach((k) => {
+        console.log(k)
+        context.dispatch('update',k)
+      });
 
-  }
-  // async setWebId (context, webId) {
-  //   //  console.log(webId)
-  //   context.commit('setWebId', webId)
-  //   //  context.dispatch('inbox/setWebId', webId, { root: true })
-  //   if ( webId != null ){
-  //     context.commit('setWebId', webId)
-  //   //  console.log (ldflex)
-  //    let storage =  await ldflex[webId].storage
-  //     context.commit('setStorage', `${storage}`)
-  //   }else{
-  //     context.commit('setWebId', null)
-  //     //   let storage =  await ldflex.data[webId].storage
-  //     context.commit('setStorage', null)
-  //   }
-  // }
-}
-
-// mutations
-const mutations = {
-  setServer(state, s){
-    console.log(s)
-    state.ldp_server = s
-  },
-  setItems(state, data){
-    console.log(data)
-    state.app[data.container] = data.items
+    }
+    // async setWebId (context, webId) {
+    //   //  console.log(webId)
+    //   context.commit('setWebId', webId)
+    //   //  context.dispatch('inbox/setWebId', webId, { root: true })
+    //   if ( webId != null ){
+    //     context.commit('setWebId', webId)
+    //   //  console.log (ldflex)
+    //    let storage =  await ldflex[webId].storage
+    //     context.commit('setStorage', `${storage}`)
+    //   }else{
+    //     context.commit('setWebId', null)
+    //     //   let storage =  await ldflex.data[webId].storage
+    //     context.commit('setStorage', null)
+    //   }
+    // }
   }
 
-}
+  // mutations
+  const mutations = {
+    setServer(state, s){
+      console.log(s)
+      state.ldp_server = s
+    },
+    setItems(state, data){
+      console.log(data)
+      state.app[data.container] = data.items
+    }
 
-export default {
-  namespaced: true,
-  state,
-  getters,
-  actions,
-  mutations
-}
+  }
+
+  export default {
+    namespaced: true,
+    state,
+    getters,
+    actions,
+    mutations
+  }

@@ -55,6 +55,14 @@ export default {
         {value:{name: 'Task', type: 'https://www.w3.org/ns/activitystreams#Task', path:'tasks'}, text: 'Task'},
         {value:{name: 'Person', type: 'https://www.w3.org/ns/activitystreams#Person', path:'persons'}, text: 'Person'},
         {value:{name: 'Document', type: 'https://www.w3.org/ns/activitystreams#Document', path:'documents'}, text: 'Document'},
+        {value:{name: 'File', type: 'https://www.w3.org/ns/activitystreams#File', path:'files'}, text: 'File'},
+        {value:{name: 'Tag', type: 'https://www.w3.org/ns/activitystreams#Tag', path:'tags'}, text: 'Tag'},
+        {value:{name: 'Offer', type: 'https://www.w3.org/ns/activitystreams#Offer', path:'offers'}, text: 'Offer'},
+        {value:{name: 'Need', type: 'https://www.w3.org/ns/activitystreams#Need', path:'needs'}, text: 'Need'},
+        {value:{name: 'Thing', type: 'https://www.w3.org/ns/activitystreams#Thing', path:'things'}, text: 'Thing'},
+        {value:{name: 'Skill', type: 'https://www.w3.org/ns/activitystreams#Skill', path:'skills'}, text: 'Skill'},
+        {value:{name: 'Category', type: 'https://www.w3.org/ns/activitystreams#Category', path:'categories'}, text: 'Category'},
+        
       ],
       post: {
         data: {
