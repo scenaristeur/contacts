@@ -5,20 +5,20 @@
 const state = () => ({
   ldp_server: {name: 'Semapps Local Server', url: 'http://localhost:3000'},
   app: {
-  //  persons :[],
-  //  workspaces: [],
-    // bases: [],
-    // tables: [],
-    // records: [],
-     fields: [],
-    // documents: [],
-    // tasks: [],
-    // tags: [],
-    // offers: [],
-    // needs: [],
-    // things: [],
-     skills: [],
-    // categories: []
+    persons :[],
+    workspaces: [],
+    bases: [],
+    tables: [],
+    records: [],
+    fields: [],
+    documents: [],
+    tasks: [],
+    tags: [],
+    offers: [],
+    needs: [],
+    things: [],
+    skills: [],
+    categories: []
   }
 })
 

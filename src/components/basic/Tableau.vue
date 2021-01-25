@@ -264,6 +264,10 @@ export default {
     formTitle () {
       return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
     },
+    fields: {
+      get: function() { return this.$store.state.ldp_store.app.fields},
+      set: function() {}
+    },
   },
 
   watch: {
@@ -393,6 +397,7 @@ export default {
       // ]
     },
     add(){
+      console.log(this.fields)
       //  console.log(this.donnees)
       //  this.donnees.forEach(item => { item.cols.push(0) })
       this.headers.push({text:this.index, value:this.index})
