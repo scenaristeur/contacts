@@ -4,6 +4,7 @@
     <v-data-table
     :headers="headers"
     :items="donnees"
+    :search="search"
     sort-by="calories"
     class="elevation-1"
     >
@@ -18,6 +19,16 @@
       vertical
       ></v-divider>
       <v-spacer></v-spacer>
+      <v-text-field
+      v-model="search"
+      append-icon="mdi-magnify"
+      label="Search"
+      single-line
+      hide-details
+      ></v-text-field>
+
+
+
       <v-dialog
       v-model="dialog"
       max-width="500px"
@@ -174,22 +185,23 @@ export default {
   name: 'Tableau',
   props: ['donnees'],
   data: () => ({
+    search: '',
     dialog: false,
     dialogDelete: false,
     headers: [
       {text: 'Name', value: 'name'},
       {text: '@id', value: '@id'},
       {text: '@type', value: '@type'},
-      // {
-      //   text: 'Dessert (100g serving)',
-      //   align: 'start',
-      //   sortable: false,
-      //   value: 'name',
-      // },
-      // { text: 'Calories', value: 'calories' },
-      // { text: 'Fat (g)', value: 'fat' },
-      // { text: 'Carbs (g)', value: 'carbs' },
-      // { text: 'Protein (g)', value: 'protein' },
+      {
+        text: 'Dessert (100g serving)',
+        align: 'start',
+        sortable: false,
+        value: 'name',
+      },
+      { text: 'Calories', value: 'calories' },
+      { text: 'Fat (g)', value: 'fat' },
+      { text: 'Carbs (g)', value: 'carbs' },
+      { text: 'Protein (g)', value: 'protein' },
       { text: 'Actions', value: 'actions', sortable: false },
     ],
     //  desserts: [],
@@ -309,14 +321,14 @@ export default {
       // ]
     },
     add(){
-    //  console.log(this.donnees)
-    //  this.donnees.forEach(item => { item.cols.push(0) })
+      //  console.log(this.donnees)
+      //  this.donnees.forEach(item => { item.cols.push(0) })
       this.headers.push({text:this.index, value:this.index})
       this.index++
     },
     remove(){
       this.headers.pop()
-    //  this.donnees.forEach(item => { item.cols.pop() })
+      //  this.donnees.forEach(item => { item.cols.pop() })
       this.index--
     },
     editItem (item) {
