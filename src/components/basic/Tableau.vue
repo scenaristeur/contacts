@@ -315,6 +315,7 @@ export default {
   methods: {
     handleClick(row) {
       console.log(row)
+          this.$router.push({name: 'ItemVue', query: {item: row}})
     },
     // mergeUnique(arr1, arr2){
     //   return arr1.concat(arr2.filter(function (item) {
@@ -400,7 +401,8 @@ export default {
       console.log(this.fields)
       //  console.log(this.donnees)
       //  this.donnees.forEach(item => { item.cols.push(0) })
-      this.headers.push({text:this.index, value:this.index})
+      let new_field = "new_field"
+      this.headers.push({text:new_field, value:new_field})
       this.index++
     },
     remove(){

@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["itemvue"],{"9d71":function(t,e,i){"use strict";i.r(e);var n=function(){var t=this,e=t.$createElement,i=t._self._c||e;return i("div",[t._v(" ItemVue "+t._s(t.item)+" ")])},u=[],r={name:"ItemVue",data:function(){return{item:{}}},created:function(){this.init(this.$route.query)},methods:{init:function(t){this.item=t.item}},watch:{$route:function(t){this.init(t.query)}}},c=r,o=i("2877"),s=Object(o["a"])(c,n,u,!1,null,null,null);e["default"]=s.exports}}]);
+//# sourceMappingURL=itemvue.3382aa52.js.map
