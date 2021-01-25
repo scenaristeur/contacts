@@ -1,14 +1,24 @@
 <template>
   <v-container>
     <v-row><v-btn @click="add">ADD</v-btn><v-btn @click="remove">REMOVE</v-btn></v-row>
+
+
     <v-data-table
     :headers="headers"
     :items="donnees"
     :search="search"
-    sort-by="calories"
+    sort-by="schema:name"
     class="elevation-1"
     @click:row="handleClick"
+    fixed-header
+
     >
+    <!--
+      sort-by.sync="schema:name"
+        sort-desc.sync="true"
+         height="300px" -->
+
+
     <template v-slot:top>
       <v-toolbar
       flat
@@ -190,19 +200,19 @@ export default {
     dialog: false,
     dialogDelete: false,
     headers: [
-      {text: 'Name', value: 'name'},
+      {text: 'Name', value: 'schema:name'},
       {text: '@id', value: '@id'},
       {text: '@type', value: '@type'},
-      {
-        text: 'Dessert (100g serving)',
-        align: 'start',
-        sortable: false,
-        value: 'name',
-      },
-      { text: 'Calories', value: 'calories' },
-      { text: 'Fat (g)', value: 'fat' },
-      { text: 'Carbs (g)', value: 'carbs' },
-      { text: 'Protein (g)', value: 'protein' },
+      // // {
+      // //   text: 'Dessert (100g serving)',
+      // //   align: 'start',
+      // //   sortable: false,
+      // //   value: 'name',
+      // // },
+      // // { text: 'Calories', value: 'calories' },
+      // // { text: 'Fat (g)', value: 'fat' },
+      // // { text: 'Carbs (g)', value: 'carbs' },
+      // // { text: 'Protein (g)', value: 'protein' },
       { text: 'Actions', value: 'actions', sortable: false },
     ],
     //  desserts: [],
@@ -239,6 +249,33 @@ export default {
     dialogDelete (val) {
       val || this.closeDelete()
     },
+    donnees(don){
+      //  this.headers = []
+
+      let keys_all = this.headers.map(header => (header.value))
+      console.log("avant", keys_all)
+      console.log('donnees',this.donnees)
+      don.forEach((d) => {
+        let keys = Object.keys(d)
+        //  console.log("KEYS", keys)
+        keys_all = [...new Set([...keys_all, ...keys])]; // concat withjout duplicate
+        // keys.forEach((k) => {
+        //   const search =  this.headers.find(element => element.value === k);
+        //   console.log('k', search)
+        // });
+
+
+      });
+      console.log("Apres", keys_all)
+      //  {text: '@type', value: '@type'},
+      this.headers = keys_all.map(key => (
+        key != "schema:name" ? { text: key, value: key } : { text: "Name", value: key, fixed: true }
+
+      ))
+      //    this.headers.push({ text: 'Actions', value: 'actions', sortable: false })
+      console.log(this.headers)
+
+    }
   },
 
   created () {
@@ -247,8 +284,13 @@ export default {
 
   methods: {
     handleClick(row) {
-    console.log(row)
-},
+      console.log(row)
+    },
+    // mergeUnique(arr1, arr2){
+    //   return arr1.concat(arr2.filter(function (item) {
+    //     return arr1.indexOf(item) === -1;
+    //   }));
+    // },
     initialize () {
       console.log("init à virer")
       // this.desserts = [
@@ -419,5 +461,16 @@ export default {
 </script>
 
 <style>
-
+/* fixed column
+table > tbody > tr > td:nth-child(1),
+table > thead > tr > th:nth-child(1) {
+position: sticky !important;
+position: -webkit-sticky !important;
+left: 0;
+z-index: 8;
+background: white;
+}
+table > thead > tr > th:nth-child(1) {
+z-index: 9;
+}*/
 </style>
