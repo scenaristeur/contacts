@@ -6,7 +6,7 @@
     <p v-for="(container, c) in Object.keys(app)" :key="c">
       <b>{{ container }}</b><br>
       <!-- {{ app[container]}} -->
-      <Tableau :donnees="app[container]" />
+      <Tableau :donnees="app[container]" data-app />
 
     </p>
 

@@ -309,6 +309,7 @@ export default {
       // ]
     },
     add(){
+      console.log(this.donnees)
       this.donnees.forEach(item => { item.cols.push(0) })
       this.headers.push({text:this.index, value:this.index})
       this.index++

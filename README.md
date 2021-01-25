@@ -14,6 +14,8 @@ https://semapps.org/docs/guides/ldp-server#testing-your-ldp-server
 - hack without docker version
 https://dfaveris.medium.com/installer-semapps-sans-docker-b92f3574f07f
 
+- créer un dataset Fuseki /localData
+
 modifier dans semapps/services/ldp.services.js pour ajouter les containers suivants
 containers: [ '/persons', '/files',
   '/workspaces', '/bases',
