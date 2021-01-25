@@ -7,6 +7,7 @@
     :search="search"
     sort-by="calories"
     class="elevation-1"
+    @click:row="handleClick"
     >
     <template v-slot:top>
       <v-toolbar
@@ -245,6 +246,9 @@ export default {
   },
 
   methods: {
+    handleClick(row) {
+    console.log(row)
+},
     initialize () {
       console.log("init à virer")
       // this.desserts = [
