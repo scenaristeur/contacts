@@ -14,9 +14,9 @@
 
     >
     <!--
-      sort-by.sync="schema:name"
-        sort-desc.sync="true"
-         height="300px" -->
+    sort-by.sync="schema:name"
+    sort-desc.sync="true"
+    height="300px" -->
 
 
     <template v-slot:top>
@@ -59,63 +59,87 @@
       <v-card-title>
         <span class="headline">{{ formTitle }}</span>
       </v-card-title>
-
       <v-card-text>
         <v-container>
-          <v-row>
-            <v-col
-            cols="12"
-            sm="6"
-            md="4"
-            >
-            <v-text-field
-            v-model="editedItem.name"
-            label="Dessert name"
-            ></v-text-field>
-          </v-col>
+          <!-- <v-row>
           <v-col
           cols="12"
           sm="6"
           md="4"
-          >
-          <v-text-field
-          v-model="editedItem.calories"
-          label="Calories"
-          ></v-text-field>
-        </v-col>
-        <v-col
-        cols="12"
-        sm="6"
-        md="4"
-        >
-        <v-text-field
-        v-model="editedItem.fat"
-        label="Fat (g)"
-        ></v-text-field>
-      </v-col>
-      <v-col
-      cols="12"
-      sm="6"
-      md="4"
-      >
-      <v-text-field
-      v-model="editedItem.carbs"
-      label="Carbs (g)"
-      ></v-text-field>
-    </v-col>
-    <v-col
-    cols="12"
-    sm="6"
-    md="4"
-    >
-    <v-text-field
-    v-model="editedItem.protein"
-    label="Protein (g)"
-    ></v-text-field>
-  </v-col>
+          > -->
+          <span v-for="h in headers" :key="h.value">
+            <!-- {{h}} -->
+            <span v-if="h.value != '@id' && h.value != '@type' && h.value != 'actions' && h.value != 'schema:dateCreated'">
+              <b-form-group
+              description="Let us know your name."
+              :label="h.text"
+              :label-for="h.value"
+              >
+              <b-form-input id="h.value" v-model="editedItem[h.value]" trim></b-form-input>
+            </b-form-group>
+          </span>
+        </span>
+        <!-- </v-col>
+      </v-row> -->
+    </v-container>
+  </v-card-text>
+  <!--
+  <v-card-text>
+  <v-container>
+  <v-row>
+  <v-col
+  cols="12"
+  sm="6"
+  md="4"
+  >
+  <v-text-field
+  v-model="editedItem.name"
+  label="Dessert name"
+  ></v-text-field>
+</v-col>
+<v-col
+cols="12"
+sm="6"
+md="4"
+>
+<v-text-field
+v-model="editedItem.calories"
+label="Calories"
+></v-text-field>
+</v-col>
+<v-col
+cols="12"
+sm="6"
+md="4"
+>
+<v-text-field
+v-model="editedItem.fat"
+label="Fat (g)"
+></v-text-field>
+</v-col>
+<v-col
+cols="12"
+sm="6"
+md="4"
+>
+<v-text-field
+v-model="editedItem.carbs"
+label="Carbs (g)"
+></v-text-field>
+</v-col>
+<v-col
+cols="12"
+sm="6"
+md="4"
+>
+<v-text-field
+v-model="editedItem.protein"
+label="Protein (g)"
+></v-text-field>
+</v-col>
 </v-row>
 </v-container>
-</v-card-text>
+</v-card-text> -->
 
 <v-card-actions>
   <v-spacer></v-spacer>
@@ -255,17 +279,19 @@ export default {
       let keys_all = this.headers.map(header => (header.value))
       console.log("avant", keys_all)
       console.log('donnees',this.donnees)
-      don.forEach((d) => {
-        let keys = Object.keys(d)
-        //  console.log("KEYS", keys)
-        keys_all = [...new Set([...keys_all, ...keys])]; // concat withjout duplicate
-        // keys.forEach((k) => {
-        //   const search =  this.headers.find(element => element.value === k);
-        //   console.log('k', search)
-        // });
+      if(don != undefined) {
+        don.forEach((d) => {
+          let keys = Object.keys(d)
+          //  console.log("KEYS", keys)
+          keys_all = [...new Set([...keys_all, ...keys])]; // concat withjout duplicate
+          // keys.forEach((k) => {
+          //   const search =  this.headers.find(element => element.value === k);
+          //   console.log('k', search)
+          // });
 
 
-      });
+        });
+      }
       console.log("Apres", keys_all)
       //  {text: '@type', value: '@type'},
       this.headers = keys_all.map(key => (
@@ -412,6 +438,7 @@ export default {
 
     save () {
       if (this.editedIndex > -1) {
+        console.log("EDITEDITEM", this.editedItem)
         Object.assign(this.donnees[this.editedIndex], this.editedItem)
       } else {
         this.donnees.push(this.editedItem)

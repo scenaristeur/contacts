@@ -6,18 +6,18 @@ const state = () => ({
   ldp_server: {name: 'Semapps Local Server', url: 'http://localhost:3000'},
   app: {
   //  persons :[],
-    workspaces: [],
+  //  workspaces: [],
     // bases: [],
     // tables: [],
     // records: [],
-    // fields: [],
+     fields: [],
     // documents: [],
     // tasks: [],
     // tags: [],
     // offers: [],
     // needs: [],
     // things: [],
-    // skills: [],
+     skills: [],
     // categories: []
   }
 })

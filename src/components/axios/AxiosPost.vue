@@ -62,7 +62,7 @@ export default {
         {value:{name: 'Thing', type: 'https://www.w3.org/ns/activitystreams#Thing', path:'things'}, text: 'Thing'},
         {value:{name: 'Skill', type: 'https://www.w3.org/ns/activitystreams#Skill', path:'skills'}, text: 'Skill'},
         {value:{name: 'Category', type: 'https://www.w3.org/ns/activitystreams#Category', path:'categories'}, text: 'Category'},
-        
+
       ],
       post: {
         data: {
@@ -93,6 +93,7 @@ export default {
       console.log(JSON.stringify(this.post.data))
       let store = this.$store
       let container = this.post.meta.type.path
+      let post_data = this.post.data
 
       fetch(this.ldp_server.url+'/'+this.post.meta.type.path+'/',
       {
@@ -106,6 +107,7 @@ export default {
       .then(function(res){
         console.log(res)
         store.dispatch('ldp_store/update', container)
+        post_data['schema:name'] = ''
       })
       .catch(function(res){ console.log(res) })
 
