@@ -18,7 +18,10 @@ const state = () => ({
     needs: [],
     things: [],
     skills: [],
-    categories: []
+    categories: [],
+    models: [],
+    collections: [],
+    views: []
   }
 })
 

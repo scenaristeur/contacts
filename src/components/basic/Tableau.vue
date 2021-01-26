@@ -74,8 +74,9 @@
               description="Let us know your name."
               :label="h.text"
               :label-for="h.value"
+
               >
-              <b-form-input id="h.value" v-model="editedItem[h.value]" trim></b-form-input>
+              <b-form-input id="h.value" variant="primary" v-model="editedItem[h.value]" trim></b-form-input>
             </b-form-group>
           </span>
         </span>
@@ -315,7 +316,7 @@ export default {
   methods: {
     handleClick(row) {
       console.log(row)
-          this.$router.push({name: 'ItemVue', query: {item: row}})
+          this.$router.push({name: 'ItemVue', params: {item: row}})
     },
     // mergeUnique(arr1, arr2){
     //   return arr1.concat(arr2.filter(function (item) {

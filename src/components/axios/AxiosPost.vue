@@ -62,6 +62,9 @@ export default {
         {value:{name: 'Thing', type: 'https://www.w3.org/ns/activitystreams#Thing', path:'things'}, text: 'Thing'},
         {value:{name: 'Skill', type: 'https://www.w3.org/ns/activitystreams#Skill', path:'skills'}, text: 'Skill'},
         {value:{name: 'Category', type: 'https://www.w3.org/ns/activitystreams#Category', path:'categories'}, text: 'Category'},
+        {value:{name: 'Model', type: 'https://www.w3.org/ns/activitystreams#Model', path:'models'}, text: 'Model'},
+        {value:{name: 'Collection', type: 'https://www.w3.org/ns/activitystreams#Collection', path:'collections'}, text: 'Collection'},
+        {value:{name: 'View', type: 'https://www.w3.org/ns/activitystreams#View', path:'views'}, text: 'View'},
 
       ],
       post: {

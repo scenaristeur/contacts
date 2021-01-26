@@ -18,13 +18,16 @@ https://dfaveris.medium.com/installer-semapps-sans-docker-b92f3574f07f
 
 modifier dans semapps/services/ldp.services.js pour ajouter les containers suivants
 containers: [ '/persons', '/files',
-  '/workspaces', '/bases',
-  '/tables', '/records',
-  '/fields', '/tasks',
-  '/documents', '/tags',
-  '/offers', '/needs',
-  '/things', '/skills',
-  '/categories'],
+'/workspaces', '/bases',
+'/tables', '/records',
+'/fields', '/tasks',
+'/documents', '/tags',
+'/offers', '/needs',
+'/things', '/skills',
+'/categories',
+'/models', '/collections',
+'/views'
+],
 
 
 
@@ -37,7 +40,14 @@ containers: [ '/persons', '/files',
 https://dfaveris.medium.com/portfolio-comment-cr%C3%A9er-une-application-web-portfolio-bas%C3%A9e-sur-solid-avec-vue-js-c57b50502d21
 
 # axios Post patch...
-https://serversideup.net/post-put-patch-requests-with-vuejs-and-axios/
+axios ne passe pas , préférer fetch https://serversideup.net/post-put-patch-requests-with-vuejs-and-axios/
+
+# models
+- https://backbonejs.org/#Getting-started
+- backbone + https://www.npmjs.com/package/backbone-json-schema et https://github.com/jashkenas/backbone/blob/master/examples/todos/todos.js
+-> a voir pour l'installer sans jquery https://github.com/jashkenas/backbone/wiki/Using-Backbone-without-jQuery
+(- https://forum.vuejs.org/t/model-collection-conventions/8193/5
+ - https://github.com/laoshu133/v-model )
 
 ## Project setup
 ```
