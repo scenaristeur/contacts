@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d22c696"],{f2b6:function(e,n,c){"use strict";c.r(n);var t=function(){var e=this,n=e.$createElement,c=e._self._c||n;return c("b-container",[c("h1",[e._v("Test BAckbone Models & collection")]),c("small",[e._v("https://github.com/Reggino/backbone-json-schema#readme")])])},o=[],a={name:"Backbone",created:function(){}},l=a,s=c("2877"),u=Object(s["a"])(l,t,o,!1,null,null,null);n["default"]=u.exports}}]);
+//# sourceMappingURL=chunk-2d22c696.6190a742.js.map
