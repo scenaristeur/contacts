@@ -9,7 +9,7 @@
     :search="search"
     sort-by="schema:name"
     class="elevation-1"
-    @click:row="handleClick"
+    @click:row.self="handleClick"
     fixed-header
 
     >

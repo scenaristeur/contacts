@@ -13,19 +13,15 @@
   </b-form-group> -->
 
   <b-form-group
-  id="fieldset-1"
   description="Select the type of the Resource."
   label="Type"
   label-for="type"
   >
   <b-form-select v-model="post.meta.type" :options="models" :selected="models[0]" ></b-form-select>
   <!-- <b-input id="type" v-model="post.data.type" placeholder="type, ex: Person "/> -->
-
-
 </b-form-group>
 
 <b-form-group
-id="fieldset-1"
 description="Enter the name of the Resource."
 label="Name"
 label-for="name"
@@ -46,27 +42,7 @@ export default {
   name: 'AxiosPost',
   data() {
     return {
-      models:[
-        {value:{name: 'Workspace', type: 'http://purl.org/vocab/lifecycle/schema#TaskGroup', path:'workspaces'}, text: 'Workspace'},
-        {value:{name: 'Base', type: 'https://www.w3.org/ns/activitystreams#Base', path:'bases'}, text: 'Base'},
-        {value:{name: 'Table', type: 'https://www.w3.org/ns/activitystreams#Table', path:'tables'}, text: 'Table'},
-        {value:{name: 'Field', type: 'https://www.w3.org/ns/activitystreams#Field', path:'fields'}, text: 'Field'},
-        {value:{name: 'Record', type: 'https://www.w3.org/ns/activitystreams#Record', path:'records'}, text: 'Record'},
-        {value:{name: 'Task', type: 'https://www.w3.org/ns/activitystreams#Task', path:'tasks'}, text: 'Task'},
-        {value:{name: 'Person', type: 'https://www.w3.org/ns/activitystreams#Person', path:'persons'}, text: 'Person'},
-        {value:{name: 'Document', type: 'https://www.w3.org/ns/activitystreams#Document', path:'documents'}, text: 'Document'},
-        {value:{name: 'File', type: 'https://www.w3.org/ns/activitystreams#File', path:'files'}, text: 'File'},
-        {value:{name: 'Tag', type: 'https://www.w3.org/ns/activitystreams#Tag', path:'tags'}, text: 'Tag'},
-        {value:{name: 'Offer', type: 'https://www.w3.org/ns/activitystreams#Offer', path:'offers'}, text: 'Offer'},
-        {value:{name: 'Need', type: 'https://www.w3.org/ns/activitystreams#Need', path:'needs'}, text: 'Need'},
-        {value:{name: 'Thing', type: 'https://www.w3.org/ns/activitystreams#Thing', path:'things'}, text: 'Thing'},
-        {value:{name: 'Skill', type: 'https://www.w3.org/ns/activitystreams#Skill', path:'skills'}, text: 'Skill'},
-        {value:{name: 'Category', type: 'https://www.w3.org/ns/activitystreams#Category', path:'categories'}, text: 'Category'},
-        {value:{name: 'Model', type: 'https://www.w3.org/ns/activitystreams#Model', path:'models'}, text: 'Model'},
-        {value:{name: 'Collection', type: 'https://www.w3.org/ns/activitystreams#Collection', path:'collections'}, text: 'Collection'},
-        {value:{name: 'View', type: 'https://www.w3.org/ns/activitystreams#View', path:'views'}, text: 'View'},
-
-      ],
+      selected: {},
       post: {
         data: {
           "@context":
@@ -141,7 +117,9 @@ export default {
     },
   },
   computed: mapState({
-    ldp_server: s =>  s.ldp_store.ldp_server
+    ldp_server: s =>  s.ldp_store.ldp_server,
+    models: s =>  s.ldp_store.models
+
   }),
 
 }
