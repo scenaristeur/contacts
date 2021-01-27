@@ -147,14 +147,14 @@ label="Protein (g)"
   <v-btn
   color="blue darken-1"
   text
-  @click="close"
+  @click.stop="close"
   >
   Cancel
 </v-btn>
 <v-btn
 color="blue darken-1"
 text
-@click="save"
+@click.stop="save"
 >
 Save
 </v-btn>

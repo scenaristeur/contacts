@@ -34,7 +34,13 @@ containers: [ '/persons', '/files',
 # or install solid community-server
 - https://github.com/solid/community-server/
 - https://github.com/solid/community-server/issues/528
+- exemples : https://github.com/solid/community-server-demos/blob/main/solid-world-2020-sep/steps.sh
 
+```
+curl -X POST -H "Content-Type: text/turtle" -d "<ex:s> <ex:p> <ex:o>."  http://localhost:3000/
+curl -X PUTT -H "Content-Type: text/turtle" -d "<ex:s> <ex:p> <ex:o>."  http://localhost:3000/persons/
+curl -X POST -H "Content-Type: text/turtle" -d "<ex:s> <ex:p> <ex:o>."  http://localhost:3000/persons/
+```
 
 # start from scratch
 https://dfaveris.medium.com/portfolio-comment-cr%C3%A9er-une-application-web-portfolio-bas%C3%A9e-sur-solid-avec-vue-js-c57b50502d21
