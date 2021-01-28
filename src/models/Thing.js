@@ -1,5 +1,4 @@
 
-
 export default class Thing {
   constructor() {
     this['@context'] = {

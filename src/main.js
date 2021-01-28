@@ -17,6 +17,9 @@ import "bootswatch/dist/superhero/bootstrap.min.css";
 
 import vuetify from './plugins/vuetify';
 
+import VueVcard from 'vue-vcard';
+Vue.component('vueVcard', VueVcard);
+
 Vue.config.productionTip = false
 
 new Vue({

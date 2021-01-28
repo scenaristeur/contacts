@@ -3,6 +3,9 @@
     <LdpServer />
     <AxiosPost />
 
+
+<VCard />
+
     <p v-for="(container, c) in Object.keys(app)" :key="c">
       <b>{{ container }}</b><br>
       <!-- {{ app[container]}} -->
@@ -22,6 +25,7 @@ export default {
     'LdpServer': () => import('@/components/config/LdpServer'),
     'AxiosPost': () => import('@/components/axios/AxiosPost'),
     'Tableau': () => import('@/components/basic/Tableau'),
+    'VCard': () => import('@/components/basic/VCard'),
     //  'MenuBar': () => import('@/components/layout/MenuBar'),
     // 'Table': () => import('@/components/table/Table'),
   },

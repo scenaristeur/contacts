@@ -26,8 +26,10 @@ containers: [ '/persons', '/files',
 '/things', '/skills',
 '/categories',
 '/models', '/collections',
-'/views'
-],
+'/views',
+'/schemas',
+'/vcards',
+'/contexts'],
 
 
 
@@ -101,3 +103,33 @@ axios uses xmlhttprequest and don't post correct json-ld
 
 ## tables vuetify
 https://vuetifyjs.com/en/components/data-tables/#crud-actions
+
+# schema generator
+https://schema.pythonanywhere.com/Person
+
+# examples json-ld
+https://github.com/JayHoltslander/Structured-Data-JSON-LD
+https://search.google.com/structured-data/testing-tool?url=https://raw.githubusercontent.com/JayHoltslander/Structured-Data-JSON-LD/master/Person.json#url=https%3A%2F%2Fraw.githubusercontent.com%2FJayHoltslander%2FStructured-Data-JSON-LD%2Fmaster%2FPerson.json
+exemples schema:article https://search.google.com/structured-data/testing-tool?url=https://raw.githubusercontent.com/JayHoltslander/Structured-Data-JSON-LD/master/Article.json#url=https%3A%2F%2Fraw.githubusercontent.com%2FJayHoltslander%2FStructured-Data-JSON-LD%2Fmaster%2FArticle.json
+
+https://json-ld.org/contexts/person.html
+```
+{
+  "@context": "http://json-ld.org/contexts/person.jsonld",
+  "@id": "http://dbpedia.org/resource/John_Lennon",
+  "name": "John Lennon",
+  "born": "1940-10-09",
+  "spouse": "http://dbpedia.org/resource/Cynthia_Lennon"
+}
+```
+
+https://json-ld.org/contexts/person.html inclut vcard mais pas https://json-ld.org/contexts/person.jsonld
+
+# vcard
+https://github.com/enesser/vCards-js
+http://jsfiddle.net/totoe/vy2GL/
+https://medium.com/@404sd/building-your-vcard-using-bootstrap-4-a37f1ce57206
+
+
+#checkout
+https://lightit.io/blog/tailwind-vue-checkout-form/
