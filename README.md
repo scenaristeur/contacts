@@ -133,3 +133,12 @@ https://medium.com/@404sd/building-your-vcard-using-bootstrap-4-a37f1ce57206
 
 #checkout
 https://lightit.io/blog/tailwind-vue-checkout-form/
+
+# ultimate skeleton card
+https://vusc.surge.sh/guide/components.html#skeletonscaffold
+
+# simple card
+https://codepen.io/raphael_octau/pen/ePLPJW
+
+# card caroussel
+https://vuejsexamples.com/a-multi-item-card-carousel-in-vue/
