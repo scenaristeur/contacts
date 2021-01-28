@@ -12,6 +12,7 @@ const state = () => ({
     records: [],
     fields: [],
     documents: [],
+    files: [],
     tasks: [],
     tags: [],
     offers: [],
@@ -43,92 +44,97 @@ const state = () => ({
     {value:{name: 'Category', type: 'https://www.w3.org/ns/activitystreams#Category', path:'categories'}, text: 'Category'},
     {value:{name: 'Model', type: 'https://www.w3.org/ns/activitystreams#Model', path:'models'}, text: 'Model'},
     {value:{name: 'Collection', type: 'https://www.w3.org/ns/activitystreams#Collection', path:'collections'}, text: 'Collection'},
-    {value:{name: 'View', type: 'https://www.w3.org/ns/activitystreams#View', path:'views'}, text: 'View'},]
-  })
-
-  // getters
-  const getters = {}
-
-  // actions
-  const actions = {
-    async update (context, container){
-      let url = context.state.ldp_server.url+'/'+container+'/'
-      console.log('update',url)
-
-      // axios.get(
-      //   url,
-      //   {header: {'Accept': 'application/ld+json'}}
-      // ).then((response) => {
-      //   console.log(response);
-      //   console.log(response.data['ldp:contains'])
-      //   let data = {container: container, items: response.data['ldp:contains']}
-      //   context.commit('setItems', data)
-      //   //  this.$store.dispatch('ldp_store/update', this.post.data.type.path)
-      //   //  console.log(response.headers.get('Location'))
-      // }, (error) => {
-      //   console.log(error);
-      // });
-
-      fetch(url,
-        {
-          headers: {
-            'Accept': 'application/json',
-            //    'Content-Type': 'application/json'
-          },
-
-        })
-        .then(response => response.json())
-        .then(d => {
-          console.log(d)
-          let data = {container: container, items: d['ldp:contains']}
-          context.commit('setItems', data)
-
-        })
-        .catch(function(response){ console.log(response) })
+    {value:{name: 'View', type: 'https://www.w3.org/ns/activitystreams#View', path:'views'}, text: 'View'},
+    {value:{name: 'Vcard', type: 'http://www.w3.org/2006/vcard/ns#Vcard', path:'vcards'}, text: 'Vcard'},
+    {value:{name: 'Context', type: 'https://www.w3.org/ns/activitystreams#Context', path:'contexts'}, text: 'Context'}
+  ]
 
 
-      },
-      async init(context){
-        Object.keys(context.state.app).forEach((k) => {
-          console.log(k)
-          context.dispatch('update',k)
-        });
+})
 
-      }
-      // async setWebId (context, webId) {
-      //   //  console.log(webId)
-      //   context.commit('setWebId', webId)
-      //   //  context.dispatch('inbox/setWebId', webId, { root: true })
-      //   if ( webId != null ){
-      //     context.commit('setWebId', webId)
-      //   //  console.log (ldflex)
-      //    let storage =  await ldflex[webId].storage
-      //     context.commit('setStorage', `${storage}`)
-      //   }else{
-      //     context.commit('setWebId', null)
-      //     //   let storage =  await ldflex.data[webId].storage
-      //     context.commit('setStorage', null)
-      //   }
-      // }
-    }
+// getters
+const getters = {}
 
-    // mutations
-    const mutations = {
-      setServer(state, s){
-        console.log(s)
-        state.ldp_server = s
-      },
-      setItems(state, data){
-        console.log(data)
-        state.app[data.container] = data.items
-      }
+// actions
+const actions = {
+  async update (context, container){
+    let url = context.state.ldp_server.url+'/'+container+'/'
+    console.log('update',url)
+
+    // axios.get(
+    //   url,
+    //   {header: {'Accept': 'application/ld+json'}}
+    // ).then((response) => {
+    //   console.log(response);
+    //   console.log(response.data['ldp:contains'])
+    //   let data = {container: container, items: response.data['ldp:contains']}
+    //   context.commit('setItems', data)
+    //   //  this.$store.dispatch('ldp_store/update', this.post.data.type.path)
+    //   //  console.log(response.headers.get('Location'))
+    // }, (error) => {
+    //   console.log(error);
+    // });
+
+    fetch(url,
+      {
+        headers: {
+          'Accept': 'application/json',
+          //    'Content-Type': 'application/json'
+        },
+
+      })
+      .then(response => response.json())
+      .then(d => {
+        console.log(d)
+        let data = {container: container, items: d['ldp:contains']}
+        context.commit('setItems', data)
+
+      })
+      .catch(function(response){ console.log(response) })
+
+
+    },
+    async init(context){
+      Object.keys(context.state.app).forEach((k) => {
+        console.log(k)
+        context.dispatch('update',k)
+      });
 
     }
+    // async setWebId (context, webId) {
+    //   //  console.log(webId)
+    //   context.commit('setWebId', webId)
+    //   //  context.dispatch('inbox/setWebId', webId, { root: true })
+    //   if ( webId != null ){
+    //     context.commit('setWebId', webId)
+    //   //  console.log (ldflex)
+    //    let storage =  await ldflex[webId].storage
+    //     context.commit('setStorage', `${storage}`)
+    //   }else{
+    //     context.commit('setWebId', null)
+    //     //   let storage =  await ldflex.data[webId].storage
+    //     context.commit('setStorage', null)
+    //   }
+    // }
+  }
 
-    export default {
-      namespaced: true,
-      state,
-      getters,
-      actions,
-      mutations
+  // mutations
+  const mutations = {
+    setServer(state, s){
+      console.log(s)
+      state.ldp_server = s
+    },
+    setItems(state, data){
+      console.log(data)
+      state.app[data.container] = data.items
     }
+
+  }
+
+  export default {
+    namespaced: true,
+    state,
+    getters,
+    actions,
+    mutations
+  }
