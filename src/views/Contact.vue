@@ -17,17 +17,18 @@
         feed:, maps:, youtube:
         skype : callto:
         https://stackoverflow.com/questions/26088523/click-to-call-html-->
-        <b-button :href="'mailto:'+contact['vcard:hasURL']" class="col p-3" style="text-align:center">
-          <b-icon icon="envelope-fill" variant="success"></b-icon> {{ contact['vcard:hasEmail']}}
+        <b-button :href="'mailto:'+contact['vcard:hasEmail']" class="col p-3" style="text-align:center">
+          <b-icon icon="envelope-fill" :variant="contact['vcard:hasEmail'] != undefined ? 'success' : 'danger'"></b-icon>
+           {{ contact['vcard:hasEmail']}}
         </b-button>
         <b-button :href="contact['vcard:hasURL']" target="_blank" class="col p-3 button" style="text-align:center">
-          <b-icon icon="link"></b-icon> {{ contact['vcard:hasURL']}}
+          <b-icon icon="link"  :variant="contact['vcard:hasURL'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasURL']}}
         </b-button>
         <b-button :href="'tel:'+contact['vcard:hasTelephone']" class="col p-3" style="text-align:center">
-          <b-icon icon="telephone-fill"></b-icon> {{ contact['vcard:hasTelephone']}}
+          <b-icon icon="telephone-fill"  :variant="contact['vcard:hasTelephone'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasTelephone']}}
         </b-button>
         <b-button :href="'sms:'+contact['vcard:hasTelephone']" class="col p-3" style="text-align:center">
-          <b-icon icon="chat-left-fill"></b-icon> {{ contact['vcard:hasTelephone']}}
+          <b-icon icon="chat-left-fill"  :variant="contact['vcard:hasTelephone'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasTelephone']}}
         </b-button>
 
 
