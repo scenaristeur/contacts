@@ -20,9 +20,6 @@ export default class Vcard extends Thing {
     // assign options
     Object.assign(this, options)
 
-
-
-
     this.jsonld['@type'] = "vcard:VCard",
     this.jsonld['vcard:hasName'] = "__NEW__vcard:Name__"
 

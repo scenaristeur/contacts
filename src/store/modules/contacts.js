@@ -18,8 +18,22 @@ const actions = {
   async findAll(context){
     console.log('findAll')
     let path = context.rootState.solid.storage+'contacts/'
-    await fc.readFolder(path).then((f)=>{
-      console.log(f.files.length, f)
+    await fc.readFolder(path).then(async function(folder){
+      console.log(folder.files.length, folder)
+      //   let contacts = await folder.files.map(async function (f) {
+      //     let contact = {'@id': f.url, content: JSON.parse(await fc.readFile(f.url))}
+      // //  let content = await fc.readFile(f.url)
+      //     return contact
+      //   })
+      let contacts = await Promise.all(
+        folder.files.map(async f => {
+          let contact = await fc.readFile(f.url)
+          return JSON.parse(contact)
+        })
+      )
+      console.log(contacts)
+      context.commit('setContacts', contacts)
+
     })
 
   },
@@ -70,13 +84,13 @@ const actions = {
 
 
   },
-  async init(context){
-    Object.keys(context.state.app).forEach((k) => {
-      console.log(k)
-      context.dispatch('update',k)
-    });
-
-  }
+  // async init(context){
+  //   Object.keys(context.state.app).forEach((k) => {
+  //     console.log(k)
+  //     context.dispatch('update',k)
+  //   });
+  //
+  // }
   // async setWebId (context, webId) {
   //   //  console.log(webId)
   //   context.commit('setWebId', webId)
@@ -96,13 +110,10 @@ const actions = {
 
 // mutations
 const mutations = {
-  setServer(state, s){
-    console.log(s)
-    state.ldp_server = s
-  },
-  setItems(state, data){
-    console.log(data)
-    state.app[data.container] = data.items
+
+  setContacts(state, contacts){
+    console.log(contacts)
+    state.contacts = contacts
   }
 
 }
