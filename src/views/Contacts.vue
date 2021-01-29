@@ -13,18 +13,18 @@
     </b-list-group>
 
 
-      <!-- <button type="button" class="btn btn-info btn-fab btn-raised dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">save</i></button>
-      <ul class="dropdown-menu dropdown-menu-right" style="min-width:0; background-color:transparent;">
-      <li><a href="#" class="btn btn-danger btn-fab btn-raised"><i class="material-icons">clear</i></a></li>
-    </ul> -->
+    <!-- <button type="button" class="btn btn-info btn-fab btn-raised dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">save</i></button>
+    <ul class="dropdown-menu dropdown-menu-right" style="min-width:0; background-color:transparent;">
+    <li><a href="#" class="btn btn-danger btn-fab btn-raised"><i class="material-icons">clear</i></a></li>
+  </ul> -->
 
-<b-button>
-      <b-iconstack font-scale="4"  @click="editContact" class="floating-action-button">
-        <b-icon stacked icon="circle-fill" variant="primary"></b-icon>
-        <b-icon stacked icon="plus" scale="0.5" variant="white"></b-icon>
-        <b-icon stacked icon="circle" variant="secondary"></b-icon>
-      </b-iconstack>
-</b-button>
+
+  <b-iconstack font-scale="4"  @click="editContact" class="floating-action-button" type="button">
+    <b-icon stacked icon="circle-fill" variant="primary"></b-icon>
+    <b-icon stacked icon="plus" scale="0.5" variant="white"></b-icon>
+    <b-icon stacked icon="circle" variant="secondary"></b-icon>
+  </b-iconstack>
+
 
   <!-- <b-modal id="newContact" title="New Contact" @ok="createVcard">
   <EditContact :vcard="vcard"/>

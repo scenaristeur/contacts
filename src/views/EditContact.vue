@@ -28,13 +28,28 @@
 export default {
   name: 'EditContact',
   props: ['vcard'],
+  created(){
+  //  this.from = this.$route.from
+    console.log('route', this.$route)
+  //  console.log('router', this.$router)
+  },
   methods: {
     cancel() {
-      this.$router.back({params: { contact: this.vcard }})
+    //  console.log(this.$router.go(-1))
+     this.$router.go(-1) //, {params: { contact: this.vcard }})
+      //this.$router.back({params: { contact: this.vcard }})
     },
     save(){
       this.$store.dispatch('contacts/add',this.vcard)
         this.$router.push({ name: 'Contact', params: { contact: this.vcard } })
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      console.log("from",from)
+      console.log("to",to)
+    //  this.webId = to.params.webId || "me"
+      // réagir au changement de route...
     }
   }
 }

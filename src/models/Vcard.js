@@ -4,7 +4,7 @@ import VCardContext from '@/models/Vcard.jsonld.js'
 
 let default_options = {
   '@id': null,
-  'vcard:hasName': "__NEW__vcard:Name__",
+  'vcard:hasName': "",
   '@type': "vcard:VCard",
 }
 //https://raw.githubusercontent.com/lanthaler/vCardOntology/master/Vcard.jsonld

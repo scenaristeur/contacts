@@ -1,8 +1,7 @@
 <template>
   <div class="home">
-    <SolidLoginButton />
 
-    <Contacts />
+
     <!-- <LdpServer />
 
 
@@ -19,12 +18,12 @@
   </p>-->
   <SolidTrackSession />
 
-  <router-link to="/tests" >Tests</router-link>
+
 </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+//import { mapState } from 'vuex';
 
 export default {
   name: 'Home',
@@ -33,15 +32,15 @@ export default {
     // 'AxiosPost': () => import('@/components/axios/AxiosPost'),
     // 'Tableau': () => import('@/components/basic/Tableau'),
     // 'VCard': () => import('@/components/basic/VCard'),
-    'Contacts': () => import('@/views/Contacts'),
-    'SolidLoginButton': () => import('@/components/solid/SolidLoginButton'),
+
     'SolidTrackSession': () => import('@/components/solid/SolidTrackSession'),
     //  'MenuBar': () => import('@/components/layout/MenuBar'),
     // 'Table': () => import('@/components/table/Table'),
   },
-  computed: mapState({
-    //  ldp_server: s =>  s.ldp_store.ldp_server,
-    app: s => s.ldp_store.app
-  }),
+  // computed: mapState({
+  //   //  ldp_server: s =>  s.ldp_store.ldp_server,
+  //   app: s => s.ldp_store.app,
+  //
+  // }),
 }
 </script>
