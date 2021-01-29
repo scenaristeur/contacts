@@ -31,6 +31,7 @@ const actions = {
           return JSON.parse(contact)
         })
       )
+      contacts.sort(function (a, b) { return a['vcard:hasName'] > b['vcard:hasName']; });
       console.log(contacts)
       context.commit('setContacts', contacts)
 

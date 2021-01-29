@@ -80,6 +80,9 @@ export default {
   watch:{
     storage(){
       this.$store.dispatch('contacts/findAll')
+    },
+    $route(){
+      this.$store.dispatch('contacts/findAll')
     }
   },
   computed: mapState({
