@@ -8,7 +8,7 @@ webId<template>
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
-            <b-nav-item href="/about">About</b-nav-item>
+            <b-nav-item to="/about">About</b-nav-item>
             <!-- <b-nav-item href="#" disabled>Disabled</b-nav-item> -->
 
           </b-navbar-nav>
@@ -56,7 +56,7 @@ webId<template>
 
 </div>
 
-webid : {{ webId }}
+
 <!-- <div id="nav">
 <router-link to="/">Home</router-link> |
 <router-link to="/about">About</router-link>

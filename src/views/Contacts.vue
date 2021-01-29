@@ -54,6 +54,14 @@ export default {
       vcard: {}
     };
   },
+  created(){
+    // let contacts = JSON.stringify(localStorage.getItem('contacts'))
+    // if (contacts.length > 0 ){
+    // //  this.contacts = JSON.stringify(contacts)
+    //   console.log('from storage', contacts)
+    // }
+    this.$store.dispatch('contacts/findAll')
+  },
   methods: {
     editContact() {
       this.vcard = new Vcard()
@@ -81,9 +89,14 @@ export default {
     storage(){
       this.$store.dispatch('contacts/findAll')
     },
-    $route(){
-      this.$store.dispatch('contacts/findAll')
+    contacts(){
+
+      // TO DO store in localstorage or local pod
+    //  localStorage.setItem('contacts', JSON.stringify(this.contacts))
     }
+    // $route(){
+    //   this.$store.dispatch('contacts/findAll')
+    // }
   },
   computed: mapState({
     contacts: s =>  s.contacts.contacts,
