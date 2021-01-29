@@ -1,5 +1,7 @@
+const publicPath = process.env.NODE_ENV === 'production' ? '/ldp-workspace/' : '/'
+
 module.exports = {
-  "publicPath": "/",
+  "publicPath": publicPath,
   "pwa": {
     "name": "LDP Workspace",
     "themeColor": "#4db6ba",
