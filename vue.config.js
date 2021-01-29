@@ -10,7 +10,7 @@ module.exports = {
     "appleMobileWebAppStatusBarStyle": "black",
     "manifestOptions": {
       "share_target": {
-        "action": "/bookmarks",
+        "action": "/import",
         "method": "GET",
         "enctype": "application/x-www-form-urlencoded",
         "params": {

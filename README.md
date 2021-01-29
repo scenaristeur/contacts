@@ -152,3 +152,6 @@ https://vuejsexamples.com/a-multi-item-card-carousel-in-vue/
 https://www.bootdey.com/snippets/tagged/contacts
 https://www.bootdey.com/snippets/view/Contact-List
 https://bootsnipp.com/snippets/4l0k2
+
+# solid vocabularies
+http://solid.github.io/vocab/

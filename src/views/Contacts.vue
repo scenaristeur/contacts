@@ -8,7 +8,7 @@
       <b-list-group-item>Default list group item</b-list-group-item>
 
       <b-list-group-item v-for="c in contacts" :key="c['@id']" variant="light" class="text-dark mb-1" button @click="open(c)">
-        <b-img-lazy :src="c['picture']" alt="Image" fluid rounded="circle"   style="max-width: 3rem;"></b-img-lazy>
+        <b-img-lazy :src="c['picture']" alt="Image" fluid rounded="circle"   style="max-width: 1.5rem;"></b-img-lazy>
         {{c['vcard:hasName']}}
       </b-list-group-item>
 

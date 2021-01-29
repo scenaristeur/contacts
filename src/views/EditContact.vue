@@ -4,7 +4,9 @@
 
       <b-form-input v-model="vcard['vcard:hasName']"  placeholder="vcard:hasName"></b-form-input>
       <b-form-input v-model="vcard['vcard:hasEmail']"  placeholder="vcard:hasEmail"></b-form-input>
-      <b-form-input v-model="vcard['solid:hasWebId']"  placeholder="solid:hasWebId"></b-form-input>
+      <b-form-input v-model="vcard['vcard:hasURL']"  placeholder="vcard:hasURL"></b-form-input>
+      <b-form-input v-model="vcard['vcard:hasTelephone']"  placeholder="vcard:hasTelephone"></b-form-input>
+
     </div>
     <!-- {{ vcard }} -->
 

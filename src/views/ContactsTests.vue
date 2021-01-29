@@ -19,7 +19,7 @@
       <b-list-group-item variant="dark">Dark list group item</b-list-group-item>
     </b-list-group>
 
-    
+
     <b-card-group deck>
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
       <b-row no-gutters>
@@ -60,8 +60,8 @@
                 <span class="fa fa-comments text-muted c-info" data-toggle="tooltip" :title="c['vcard:hasEmail']"></span>
                 <span class="visible-xs"> <span class="text-muted">{{c['vcard:hasEmail']}}</span><br/></span>
 
-                <span class="fa fa-comments text-muted c-info" data-toggle="tooltip" :title="c['solid:hasWebId']"></span>
-                <span class="visible-xs"> <span class="text-muted">{{c['solid:hasWebId']}}</span><br/></span>
+                <span class="fa fa-comments text-muted c-info" data-toggle="tooltip" :title="c['vcard:hasURL']"></span>
+                <span class="visible-xs"> <span class="text-muted">{{c['vcard:hasURL']}}</span><br/></span>
               </div>
               <div class="clearfix"></div>
               <!-- {{c}} -->
