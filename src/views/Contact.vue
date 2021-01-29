@@ -21,52 +21,19 @@
 
   {{contact}}
 
-  <div id="toolbar" style="position: fixed; bottom: 0px; left: 0px; width: 100%;
-    color: #fff; background: #000;">
-  <!-- <b-button-group>
-    <b-button variant="outline-primary">
-      <b-icon icon="tools"></b-icon> Settings
-    </b-button>
-    <b-button variant="outline-primary">
-      <b-icon icon="person-fill"></b-icon> Account
-    </b-button>
-
-  </b-button-group> -->
-  <b-row>
-
-    <b-button variant="outline-light" class="col p-3" style="text-align:center">
+  <div id="toolbar" style="position: fixed; bottom: 0px; left: 0px; width: 100%; color: #fff; background: #000;">
+    <b-row>
+      <b-button variant="outline-light" class="col p-3" style="text-align:center">
         <b-icon icon="share"></b-icon> QR Code
       </b-button>
-
-        <b-button variant="outline-light" class="col p-3" style="text-align:center">
+      <b-button variant="outline-light" class="col p-3" style="text-align:center" @click="modify">
         <b-icon icon="pencil-fill"></b-icon> Modify
       </b-button>
-
       <b-button variant="outline-light" class="col p-3" style="text-align:center">
         <b-icon icon="share-fill"></b-icon> Share
       </b-button>
-
-  </b-row >
-  <div>
-
-</div>
-  <!-- rest of your toolbar stuff here -->
-</div>
-
-<!-- <b-navbar toggleable="lg" type="dark" variant="info" fixed="bottom" style="text-align='center'">
-<b-row>
-<b-col cols="4">
-1
-</b-col>
-<b-col cols="4">
-1
-</b-col>
-<b-col cols="4">
-1
-</b-col>
-
-</b-row>
-</b-navbar> -->
+    </b-row >
+  </div>
 
 </b-container>
 </template>
@@ -74,7 +41,13 @@
 <script>
 export default {
   name: 'Conatct',
-  props: ['contact']
+  props: ['contact'],
+  methods: {
+    modify() {
+      this.$router.push({ name: 'EditContact', params: { vcard: this.contact } })
+
+    }
+  }
 }
 </script>
 

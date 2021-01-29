@@ -2,7 +2,7 @@
   <b-container>
 
 
-    <b-button v-b-modal.newContact @click="initVcard">New Contact</b-button>
+    <b-button @click="editContact">New Contact</b-button>
 
     <b-list-group>
       <b-list-group-item>Default list group item</b-list-group-item>
@@ -14,10 +14,9 @@
 
     </b-list-group>
 
-    <b-modal id="newContact" title="New Contact" @ok="createVcard">
-      <!-- <p class="my-4">Hello from modal!</p> -->
-      <NewContact :vcard="vcard"/>
-    </b-modal>
+    <!-- <b-modal id="newContact" title="New Contact" @ok="createVcard">
+      <EditContact :vcard="vcard"/>
+    </b-modal> -->
 
   </b-container>
 </template>
@@ -33,7 +32,7 @@ export default {
     // 'AxiosPost': () => import('@/components/axios/AxiosPost'),
     // 'Tableau': () => import('@/components/basic/Tableau'),
     // 'VCard': () => import('@/components/basic/VCard'),
-    'NewContact': () => import('@/views/NewContact'),
+    //'EditContact': () => import('@/views/EditContact'),
 
     //  'MenuBar': () => import('@/components/layout/MenuBar'),
     // 'Table': () => import('@/components/table/Table'),
@@ -44,9 +43,10 @@ export default {
     };
   },
   methods: {
-    initVcard() {
+    editContact() {
       this.vcard = new Vcard()
       console.log("vcard", this.vcard)
+      this.$router.push({ name: 'EditContact', params: { vcard: this.vcard } })
 
       // this.options = this.vcard.jsonld['@context'].defines.filter(function(f) {
       //   return f['@type'] != 'owl:Class' && f.deprecated != true;
@@ -56,10 +56,10 @@ export default {
       // this.options.unshift({value: null, text:'Add a field'})
       // console.log("options", this.options)
     },
-    createVcard(){
-      console.log(this.vcard)
-      this.$store.dispatch('contacts/add',this.vcard)
-    },
+    // createVcard(){
+    //   console.log(this.vcard)
+    //   this.$store.dispatch('contacts/add',this.vcard)
+    // },
     open(c){
       console.log(c)
       this.$router.push({ name: 'Contact', params: { contact: c } })
