@@ -1,11 +1,9 @@
 <template>
   <b-container>
 
-
-    <b-button @click="editContact">New Contact</b-button>
+    <!-- <b-button @click="editContact">New Contact</b-button> -->
 
     <b-list-group>
-      <b-list-group-item>Default list group item</b-list-group-item>
 
       <b-list-group-item v-for="c in contacts" :key="c['@id']" variant="light" class="text-dark mb-1" button @click="open(c)">
         <b-img-lazy :src="c['picture']" alt="Image" fluid rounded="circle"   style="max-width: 1.5rem;"></b-img-lazy>
@@ -14,11 +12,25 @@
 
     </b-list-group>
 
-    <!-- <b-modal id="newContact" title="New Contact" @ok="createVcard">
-      <EditContact :vcard="vcard"/>
-    </b-modal> -->
 
-  </b-container>
+      <!-- <button type="button" class="btn btn-info btn-fab btn-raised dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">save</i></button>
+      <ul class="dropdown-menu dropdown-menu-right" style="min-width:0; background-color:transparent;">
+      <li><a href="#" class="btn btn-danger btn-fab btn-raised"><i class="material-icons">clear</i></a></li>
+    </ul> -->
+
+<b-button>
+      <b-iconstack font-scale="4"  @click="editContact" class="floating-action-button">
+        <b-icon stacked icon="circle-fill" variant="primary"></b-icon>
+        <b-icon stacked icon="plus" scale="0.5" variant="white"></b-icon>
+        <b-icon stacked icon="circle" variant="secondary"></b-icon>
+      </b-iconstack>
+</b-button>
+
+  <!-- <b-modal id="newContact" title="New Contact" @ok="createVcard">
+  <EditContact :vcard="vcard"/>
+</b-modal> -->
+
+</b-container>
 </template>
 
 <script>
@@ -80,5 +92,10 @@ export default {
 </script>
 
 <style>
-
+.floating-action-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index:3;
+}
 </style>
