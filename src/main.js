@@ -29,7 +29,7 @@ new Vue({
   vuetify,
 
   created() {
-  store.dispatch('ldp_store/init');
+//  store.dispatch('ldp_store/init');
 //  store.dispatch('field/init');
 //  store.commit('workspace/initializeStore');
 }

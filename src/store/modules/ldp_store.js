@@ -58,7 +58,7 @@ const getters = {}
 // actions
 const actions = {
   async update (context, container){
-    let url = context.state.ldp_server.url+'/'+container+'/'
+    let url = context.state.ldp_server.url.endsWith('/') ? context.state.ldp_server.url+container+'/' : context.state.ldp_server.url+'/'+container+'/'
     console.log('update',url)
 
     // axios.get(
@@ -74,6 +74,8 @@ const actions = {
     // }, (error) => {
     //   console.log(error);
     // });
+
+    console.log(context.rootState.solid.storage)
 
     fetch(url,
       {

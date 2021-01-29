@@ -37,6 +37,10 @@ label-for="name"
 <script>
 //import axios from 'axios';
 import { mapState } from 'vuex';
+import auth from 'solid-auth-client';
+import FC from 'solid-file-client'
+const fc = new FC( auth )
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
   name: 'AxiosPost',
@@ -65,7 +69,7 @@ export default {
     };
   },
   methods: {
-    post_action() {
+    async  post_action() {
       console.log(this.post)
       this.post.data['schema:dateCreated'] = new Date().toISOString()
       this.post.data['@type'] = this.post.meta.type.type
@@ -74,21 +78,42 @@ export default {
       let container = this.post.meta.type.path
       let post_data = this.post.data
 
-      fetch(this.ldp_server.url+'/'+this.post.meta.type.path+'/',
-      {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        method: "POST",
-        body: JSON.stringify(this.post.data)
-      })
-      .then(function(res){
-        console.log(res)
-        store.dispatch('ldp_store/update', container)
-        post_data['schema:name'] = ''
-      })
-      .catch(function(res){ console.log(res) })
+      console.log(this.storage)
+
+      if (this.storage == null){
+        fetch(this.ldp_server.url+'/'+this.post.meta.type.path+'/',
+        {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          method: "POST",
+          body: JSON.stringify(this.post.data)
+        })
+        .then(function(res){
+          console.log(res)
+          store.dispatch('ldp_store/update', container)
+          post_data['schema:name'] = ''
+        })
+        .catch(function(res){ console.log(res) })
+      }else{
+        try{
+          let url = this.ldp_server.url.endsWith('/') ? this.ldp_server.url+this.post.meta.type.path+'/'+uuidv4()+'.jsonld' : this.ldp_server.url+'/'+this.post.meta.type.path+'/'+uuidv4()+'.jsonld'
+          console.log(url)
+          console.log(this.post.data)
+          await fc.createFile(url, JSON.stringify(this.post.data), 'application/json' ).then((content) => {
+        console.log(content)
+    })
+    .catch(err => console.error(`Error: ${err}`))
+
+          alert(url+" sauvegardé")
+        }
+        catch(e){
+          alert(e)
+        }
+      }
+
+
 
       // axios.post(
       //   this.ldp_server.url+'/'+this.post.data.type.path+'/',
@@ -118,7 +143,8 @@ export default {
   },
   computed: mapState({
     ldp_server: s =>  s.ldp_store.ldp_server,
-    models: s =>  s.ldp_store.models
+    models: s =>  s.ldp_store.models,
+    storage: s =>  s.solid.storage
 
   }),
 

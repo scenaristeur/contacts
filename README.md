@@ -142,3 +142,13 @@ https://codepen.io/raphael_octau/pen/ePLPJW
 
 # card caroussel
 https://vuejsexamples.com/a-multi-item-card-carousel-in-vue/
+
+# data
+- https://data-techcico.semapps.org/organizations/
+- https://colibris.social/actors
+- http://fluidlog.gitlab.io/cartosemapps/#https://data-techcico.semapps.org/sparql
+
+# contacts list
+https://www.bootdey.com/snippets/tagged/contacts
+https://www.bootdey.com/snippets/view/Contact-List
+https://bootsnipp.com/snippets/4l0k2
