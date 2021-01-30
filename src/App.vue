@@ -39,13 +39,13 @@ webId<template>
   </b-navbar>
 </div>
 
-
-
+<br><br><br>
+<SolidTrackSession />
+<br>
 <div v-if="webId != null">
-  <br>
-  <br><br>
+
   <router-view />
-  <router-link to="/tests" >Tests</router-link>
+  <!-- <router-link to="/tests" >Tests</router-link> -->
 </div>
 <div v-else>
   <b-jumbotron header="Contacts" lead="Contacts store your Contacts on your Solid POD in the rootFolder/contacts/ folder.">
@@ -61,7 +61,7 @@ webId<template>
 <router-link to="/">Home</router-link> |
 <router-link to="/about">About</router-link>
 </div> -->
-<SolidTrackSession />
+
 <!-- <Config /> -->
 </div>
 </template>

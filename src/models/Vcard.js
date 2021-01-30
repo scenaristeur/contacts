@@ -6,6 +6,9 @@ let default_options = {
   '@id': null,
   'vcard:hasName': "",
   '@type': "vcard:VCard",
+  'vcard:given-name': "",
+  'vcard:family-name': "",
+
 }
 //https://raw.githubusercontent.com/lanthaler/vCardOntology/master/Vcard.jsonld
 

@@ -41,9 +41,19 @@ const actions = {
   }
 
   },
+  async delete (context, contact){
+    let path = context.rootState.solid.storage+'contacts/'
+    console.log('delete',path, contact)
+
+    await fc.deleteFile(contact['@id']).then((content) => {
+      console.log(content)
+    //  context.dispatch('findAll')
+    })
+    .catch(err => console.error(`Error: ${err}`))
+  },
   async add (context, contact){
     let path = context.rootState.solid.storage+'contacts/'
-    console.log('update',path, contact)
+    console.log('add',path, contact)
 
     contact['@id'] == null ? contact['@id'] = path+uuidv4()+'.jsonld' :''
 

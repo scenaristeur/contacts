@@ -7,59 +7,115 @@
 
     class="mb-2"
     >
-    <b-img-lazy :src="contact['picture']" alt="Image" thumbnail fluid rounded="circle"   style="max-width: 10rem;"></b-img-lazy>
-    <b-card-title>{{ contact['vcard:hasName']}}</b-card-title>
+    <!-- <b-button  style="position: absolute; top: 10px; right: 10px; width: 100; color: #fff; background: #000;">
+    <b-icon icon="menu-button-wide"></b-icon>
 
-    <b-card-sub-title>
-      <b-row>
-        <!-- tel: / sms: / mms: / camera / mail
-        https://developers.google.com/web/fundamentals/native-hardware/click-to-call
-        feed:, maps:, youtube:
-        skype : callto:
-        https://stackoverflow.com/questions/26088523/click-to-call-html-->
-        <b-button :href="'mailto:'+contact['vcard:hasEmail']" class="col p-3" style="text-align:center">
-          <b-icon icon="envelope-fill" :variant="contact['vcard:hasEmail'] != undefined ? 'success' : 'danger'"></b-icon>
-           {{ contact['vcard:hasEmail']}}
-        </b-button>
-        <b-button :href="contact['vcard:hasURL']" target="_blank" class="col p-3 button" style="text-align:center">
-          <b-icon icon="link"  :variant="contact['vcard:hasURL'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasURL']}}
-        </b-button>
-        <b-button :href="'tel:'+contact['vcard:hasTelephone']" class="col p-3" style="text-align:center">
-          <b-icon icon="telephone-fill"  :variant="contact['vcard:hasTelephone'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasTelephone']}}
-        </b-button>
-        <b-button :href="'sms:'+contact['vcard:hasTelephone']" class="col p-3" style="text-align:center">
-          <b-icon icon="chat-left-fill"  :variant="contact['vcard:hasTelephone'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasTelephone']}}
-        </b-button>
+  </b-button> -->
+
+  <b-dropdown id="dropdown-1"
+  dropleft
+  size="lg"  variant="link" toggle-class="text-decoration-none" no-caret
+  class="m-md-2"  style="position: absolute; top: 10px; right: 10px; width: 100; ">
+  <template #button-content>
+    <b-icon icon="menu-button-wide"></b-icon>
+  </template>
+  <b-dropdown-item v-b-modal.modalConfirmDelete variant="warning">Delete</b-dropdown-item>
+  <!-- <b-dropdown-item>Second Action</b-dropdown-item>
+  <b-dropdown-item>Third Action</b-dropdown-item>
+  <b-dropdown-divider></b-dropdown-divider>
+  <b-dropdown-item active>Active action</b-dropdown-item>
+  <b-dropdown-item disabled>Disabled action</b-dropdown-item> -->
+</b-dropdown>
 
 
 
-      </b-row>
-    </b-card-sub-title>
+<b-img-lazy :src="contact['picture']" alt="Image" thumbnail fluid rounded="circle"   style="max-width: 10rem;"></b-img-lazy>
+<b-card-title>{{ contact['vcard:hasName']}} <a :href="contact['@id']" target="_blank"><b-icon icon="link"></b-icon></a> </b-card-title>
+
+<b-card-sub-title>
+  <b-row>
+    <!-- tel: / sms: / mms: / camera / mail
+    https://developers.google.com/web/fundamentals/native-hardware/click-to-call
+    feed:, maps:, youtube:
+    skype : callto:
+    https://stackoverflow.com/questions/26088523/click-to-call-html-->
+    <b-button :href="'mailto:'+contact['vcard:hasEmail']" class="col p-3" style="text-align:center">
+      <b-icon icon="envelope-fill" :variant="contact['vcard:hasEmail'] != undefined ? 'success' : 'danger'"></b-icon>
+      {{ contact['vcard:hasEmail']}}
+    </b-button>
+    <b-button :href="contact['vcard:hasURL']" target="_blank" class="col p-3 button" style="text-align:center">
+      <b-icon icon="link"  :variant="contact['vcard:hasURL'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasURL']}}
+    </b-button>
+    <b-button :href="'tel:'+contact['vcard:hasTelephone']" class="col p-3" style="text-align:center">
+      <b-icon icon="telephone-fill"  :variant="contact['vcard:hasTelephone'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasTelephone']}}
+    </b-button>
+    <b-button :href="'sms:'+contact['vcard:hasTelephone']" class="col p-3" style="text-align:center">
+      <b-icon icon="chat-left-fill"  :variant="contact['vcard:hasTelephone'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasTelephone']}}
+    </b-button>
 
 
 
-    <b-card-text>
-      Some quick example text to build on the card title and make up the bulk of the card's content.
-    </b-card-text>
+  </b-row>
+</b-card-sub-title>
 
-    <b-button href="#" variant="primary">Go somewhere</b-button>
-  </b-card>
 
-  {{contact}}
 
-  <div id="toolbar" style="position: fixed; bottom: 0px; left: 0px; width: 100%; color: #fff; background: #000;">
-    <b-row>
-      <b-button  class="col p-3" style="text-align:center">
-        <b-icon icon="share"></b-icon> QR Code
-      </b-button>
-      <b-button  class="col p-3" style="text-align:center" @click="modify">
-        <b-icon icon="pencil-fill"></b-icon> Modify
-      </b-button>
-      <b-button  class="col p-3" style="text-align:center">
-        <b-icon icon="share-fill"></b-icon> Share
-      </b-button>
-    </b-row >
-  </div>
+<b-card-text>
+  GivenName  : {{ contact['vcard:given-name'] }}<br>
+  FamilyName : {{ contact['vcard:family-name'] }}
+</b-card-text>
+
+<!-- <b-button href="#" variant="primary">Go somewhere</b-button> -->
+</b-card>
+
+
+<!-- {{contact}} -->
+<br><br><br><br>
+
+<div id="toolbar" style="position: fixed; bottom: 0px; left: 0px; width: 100%; color: #fff; background: #000;">
+  <b-row>
+    <b-button  class="col p-3" style="text-align:center" v-b-modal.modalQR>
+      <b-icon icon="share"></b-icon> QR Code
+    </b-button>
+    <b-button  class="col p-3" style="text-align:center" @click="modify">
+      <b-icon icon="pencil-fill"></b-icon> Modify
+    </b-button>
+    <b-button  class="col p-3" style="text-align:center">
+      <b-icon icon="share-fill"></b-icon> Share
+    </b-button>
+  </b-row >
+</div>
+
+
+
+
+<b-modal id="modalQR">
+  <template #modal-title>
+    {{ contact['vcard:hasName']}}
+  </template>
+  <vueVcard
+  orgPost="00000"
+  orgStreet="Some Street"
+  orgRegion="Some Region"
+  orgCity="Some City"
+  orgCountry="LRK"
+  orgName="OrganizationName"
+  firstName="John"
+  lastName="Doe"
+  workPhone="5555555555"
+  homePhone="5555555555"
+  />
+</b-modal>
+
+<b-modal id="modalConfirmDelete" @ok="deleteContact">
+  <template #modal-title>
+    Are you sur you want to delete ?
+  </template>
+  <h1>{{ contact['vcard:hasName']}}</h1>
+
+  <p variant="danger">!!! This can not be undone !!!</p>
+
+</b-modal>
 
 </b-container>
 </template>
@@ -72,6 +128,10 @@ export default {
     modify() {
       this.$router.push({ name: 'EditContact', params: { vcard: this.contact } })
 
+    },
+    deleteContact(){
+      this.$store.dispatch('contacts/delete',this.contact)
+      this.$router.push({ name: 'Contacts' })
     }
   }
 }

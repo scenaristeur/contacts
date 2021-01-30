@@ -1,4 +1,3 @@
-<!-- <i18n src="@/common/locales.json"></i18n> -->
 <template>
   <span class="m-2">
     <b-button variant="success" v-if="webId == null" @click="login" size="sm">Login</b-button>
@@ -12,17 +11,13 @@ let popupUri = './solid-auth-login/popup.html';
 
 export default {
   name: 'SolidLogin',
-
   methods: {
     async login() {
-      console.log("login")
       let session = await auth.currentSession();
-      console.log(session)
       if (!session){session = await auth.popupLogin({ popupUri });}
     },
     async logout(){
-      console.log('logout')
-      await  auth.logout()
+      await auth.logout()
     }
   },
   computed:{
