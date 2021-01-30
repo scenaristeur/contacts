@@ -76,7 +76,7 @@ const routes = [
 //   routes
 // })
 
-const publicPath = process.env.NODE_ENV === 'production' ? '/ess-table' : ''
+const publicPath = process.env.NODE_ENV === 'production' ? '/ldp-workspace' : ''
 const router = new VueRouter({
   routes, mode: 'history', base: publicPath,  linkActiveClass: 'active'
 })

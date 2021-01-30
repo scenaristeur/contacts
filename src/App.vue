@@ -66,6 +66,7 @@ webId<template>
 </div> -->
 
 <!-- <Config /> -->
+<small><i>0.1</i></small>
 </div>
 </template>
 
