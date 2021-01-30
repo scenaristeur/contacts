@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4471196f0dffd06bf735",
+    "revision": "a3ca5b620b9b083fc462",
     "url": "/ldp-workspace/css/app.5565adf7.css"
   },
   {
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/css/tests.a66629a4.css"
   },
   {
-    "revision": "6bbb7f89289f33760bb48197b4672686",
+    "revision": "c745b0486e2f43abfcd2534e87ef80ac",
     "url": "/ldp-workspace/index.html"
   },
   {
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/about.800f0d4c.js"
   },
   {
-    "revision": "4471196f0dffd06bf735",
-    "url": "/ldp-workspace/js/app.ff97b17d.js"
+    "revision": "a3ca5b620b9b083fc462",
+    "url": "/ldp-workspace/js/app.69c9cce3.js"
   },
   {
     "revision": "af0c9a02fc222ea2991e",
@@ -92,8 +92,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/editContact.297bb3a4.js"
   },
   {
-    "revision": "401eccc00ea119f2d8d3",
-    "url": "/ldp-workspace/js/import.1ef9ff90.js"
+    "revision": "f77cdafa1ac90d4f7c48",
+    "url": "/ldp-workspace/js/import.8f8e8dd2.js"
   },
   {
     "revision": "3ed4ca0be9022e4b9233",

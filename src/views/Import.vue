@@ -21,10 +21,7 @@
         <b-form-checkbox
         :id="'checkbox-'+i"
         name="checkbox-1"
-        value="accepted"
         v-model="contact.checked"
-        unchecked-value="not_accepted"
-        checked
         >
         <h6>
           <b-button v-b-toggle="'collapse-2'+i" class="m-1" variant="info" size="sm">+</b-button>
@@ -37,7 +34,7 @@
 
       <!-- Element to collapse -->
       <b-collapse :id="'collapse-2'+i">
-        <b-card ><small>{{ contact.data }}</small></b-card>
+        <b-card >{{ contact.checked }}<small>{{ contact.data }}</small></b-card>
       </b-collapse>
 
       <!-- <b-button v-b-toggle="'collapse-'+i" class="m-1">show</b-button>
