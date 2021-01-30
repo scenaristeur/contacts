@@ -70,10 +70,15 @@ const routes = [
   }
 ]
 
+// const router = new VueRouter({
+//   mode: 'history',
+//   base: process.env.BASE_URL,
+//   routes
+// })
+
+const publicPath = process.env.NODE_ENV === 'production' ? '/ess-table' : ''
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+  routes, mode: 'history', base: publicPath,  linkActiveClass: 'active'
 })
 
 export default router
