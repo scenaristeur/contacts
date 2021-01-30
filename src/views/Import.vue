@@ -76,6 +76,9 @@ export default {
           //  console.log(evt.target.result)
           // one card  var card = new vCard().parse( evt.target.result )
           app.contacts = vCard.parse( evt.target.result )
+          app.contacts.forEach(function (c) {
+          c.checked = true;
+        });
           // app.contacts = app.contacts.map(function(el) {
           //   var o = Object.assign({}, el);
           //   o.checked = true;
@@ -164,7 +167,11 @@ export default {
       if(v.encoding == 'QUOTED-PRINTABLE'){
         //  console.log(v._data)
         return  utf8.decode(quotedPrintable.decode(v._data));
+      }else if(v.encoding == 'BASE64'){
+          console.log("todo ? decode base64 img or let the base 64 ?")
+        return  v._data
       }else{
+
         return v._data
       }
     },

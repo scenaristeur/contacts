@@ -111,8 +111,8 @@ export default {
 <style>
 .floating-action-button {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
+  bottom: 30px;
+  right: 30px;
   z-index:3;
 }
 </style>

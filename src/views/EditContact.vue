@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <div class="add-item">
-
+      <h4>Main fields </h4>
       <b-img-lazy v-if="vcard['vcard:hasPhoto'] != undefined" :src="vcard['vcard:hasPhoto']" alt="Image" thumbnail fluid rounded="circle"   style="max-width: 10rem;"></b-img-lazy>
       <b-img-lazy v-else src="https://image.flaticon.com/icons/svg/149/149992.svg" alt="Image" thumbnail fluid rounded="circle"   style="max-width: 10rem;"></b-img-lazy>
 
@@ -18,6 +18,18 @@
       <b-form-input v-model="vcard['vcard:hasEmail']"  placeholder="vcard:hasEmail"></b-form-input>
       <b-form-input v-model="vcard['vcard:hasURL']"  placeholder="vcard:hasURL"></b-form-input>
       <b-form-input v-model="vcard['vcard:hasTelephone']"  placeholder="vcard:hasTelephone"></b-form-input>
+
+
+      <hr>
+
+      <h6>All fields</h6>
+      <div v-for="([key,field], i) in Object.entries(vcard)" :key='i'>
+      {{ key}}:
+
+         <b-form-input v-if="key != 'jsonld' && key != 'basic_fields'" v-model="vcard[key]"  :placeholder="key"></b-form-input>
+      </div>
+
+
 
     </div>
     <br><br><br><br>

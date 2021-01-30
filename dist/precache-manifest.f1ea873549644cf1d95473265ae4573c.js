@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/404.html"
   },
   {
-    "revision": "3b166555ce15dd9956af",
+    "revision": "0423c5bef1d6d8b21823",
     "url": "/ldp-workspace/css/app.5565adf7.css"
   },
   {
@@ -24,15 +24,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/css/chunk-vendors.23e2f014.css"
   },
   {
-    "revision": "cfc683ef08b6e7173949",
-    "url": "/ldp-workspace/css/contacts.e6f99f97.css"
+    "revision": "196a85724f5ce8ed389b",
+    "url": "/ldp-workspace/css/contacts.f79d833f.css"
   },
   {
     "revision": "2f92945ba95778d1c34d",
     "url": "/ldp-workspace/css/tests.a66629a4.css"
   },
   {
-    "revision": "796ba0ee55c7b211fa091bb5d6442eaf",
+    "revision": "0018f0757f04ad85cd9ea82c83f2436d",
     "url": "/ldp-workspace/index.html"
   },
   {
@@ -40,8 +40,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/about.132b23b3.js"
   },
   {
-    "revision": "3b166555ce15dd9956af",
-    "url": "/ldp-workspace/js/app.d6a382a0.js"
+    "revision": "0423c5bef1d6d8b21823",
+    "url": "/ldp-workspace/js/app.0aefbb15.js"
   },
   {
     "revision": "9e70130fac0e5063fc5e",
@@ -84,16 +84,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/contact.d99caef3.js"
   },
   {
-    "revision": "cfc683ef08b6e7173949",
-    "url": "/ldp-workspace/js/contacts.3b971f55.js"
+    "revision": "196a85724f5ce8ed389b",
+    "url": "/ldp-workspace/js/contacts.fbe446e9.js"
   },
   {
-    "revision": "be35200932a97776562d",
-    "url": "/ldp-workspace/js/editContact.1dffc729.js"
+    "revision": "7c4297ba4695dc794654",
+    "url": "/ldp-workspace/js/editContact.c0c97a0c.js"
   },
   {
-    "revision": "4e5643fe2f56f5260e4b",
-    "url": "/ldp-workspace/js/import.375a0529.js"
+    "revision": "4d0d973fad851cc89969",
+    "url": "/ldp-workspace/js/import.f306fc9b.js"
   },
   {
     "revision": "3fd22dd5eed3278ce733",
