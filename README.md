@@ -162,3 +162,11 @@ https://bootsnipp.com/snippets/4l0k2
 
 # solid vocabularies
 http://solid.github.io/vocab/
+
+# localstorage / indexdb / solid-rest
+- https://github.com/solid/solid-rest/blob/master/tests/browser-test.html
+- https://developer.mozilla.org/fr/docs/Web/API/API_IndexedDB
+- https://developer.mozilla.org/fr/docs/Web/API/API_IndexedDB/Using_IndexedDB
+- https://developer.mozilla.org/fr/docs/Web/Progressive_web_apps/Offline_Service_workers
+- https://medium.com/js-dojo/how-to-permanently-save-data-with-vuex-localstorage-in-your-vue-app-f1d5c140db69
+- https://auth0.com/blog/vuejs-kanban-board-adding-progressive-web-app-features/#Integrating-Vuex-with-Local-Storage

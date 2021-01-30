@@ -27,6 +27,8 @@ const actions = {
       // //  let content = await fc.readFile(f.url)
       //     return contact
       //   })
+
+
       let contacts = await Promise.all(
         folder.files.map(async f => {
           let contact = await fc.readFile(f.url)
