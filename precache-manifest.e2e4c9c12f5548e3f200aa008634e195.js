@@ -1,5 +1,9 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
+    "revision": "a3065b6ad3b21bf0b860ccc74d7f2879",
+    "url": "/ldp-workspace/404.html"
+  },
+  {
     "revision": "3b166555ce15dd9956af",
     "url": "/ldp-workspace/css/app.5565adf7.css"
   },
