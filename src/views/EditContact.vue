@@ -2,6 +2,16 @@
   <b-container>
     <div class="add-item">
 
+      <b-img-lazy v-if="vcard['vcard:hasPhoto'] != undefined" :src="vcard['vcard:hasPhoto']" alt="Image" thumbnail fluid rounded="circle"   style="max-width: 10rem;"></b-img-lazy>
+      <b-img-lazy v-else src="https://image.flaticon.com/icons/svg/149/149992.svg" alt="Image" thumbnail fluid rounded="circle"   style="max-width: 10rem;"></b-img-lazy>
+
+      <b-form-file
+      ref="fileInput" style="display:none;"
+      accept="image/*"
+      v-model="file"
+      ></b-form-file>
+      <b-icon icon="camera-fill" class="h1 rounded-circle bg-info p-1" variant="dark" type="button" @click="$refs.fileInput.$el.childNodes[0].click()"></b-icon>
+
       <b-form-input v-model="vcard['vcard:given-name']"  placeholder="vcard:given-name" @input="updateName"></b-form-input>
       <b-form-input v-model="vcard['vcard:family-name']"  placeholder="vcard:family-name" @input="updateName"></b-form-input>
       <b-form-input v-model="vcard['vcard:hasName']"  placeholder="vcard:hasName"></b-form-input>
@@ -29,9 +39,21 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
+import auth from 'solid-auth-client';
+import FC from 'solid-file-client'
+const fc = new FC( auth )
+
+
 export default {
   name: 'EditContact',
   props: ['vcard'],
+  data() {
+    return {
+      file: null
+    };
+  },
   created(){
     //  this.from = this.$route.from
     console.log('route', this.$route)
@@ -61,12 +83,23 @@ export default {
       //  this.webId = to.params.webId || "me"
       // réagir au changement de route...
     },
-
+    async  file (file) {
+      let path = this.storage+'contacts-pics/'
+      let uri = file.webkitRelativePath.length > 0 ? path+file.webkitRelativePath : path+file.name
+      console.log(uri, file, file.type)
+      await fc.createFile(uri, file, file.type)
+      this.vcard['vcard:hasPhoto'] = uri
+      // this.$store.dispatch('contacts/add',this.contact)
+      // console.log('todo: must update pic')
+    },
 
   },
-  computed:{
 
-  }
+  computed: mapState({
+    storage: s => s.solid.storage
+
+  }),
+
 }
 </script>
 
