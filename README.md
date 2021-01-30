@@ -1,5 +1,12 @@
 # ldp-workspace
 
+# Contacts formats
+- vcard http://microformats.org/wiki/vcard
+- jcard http://microformats.org/wiki/jcard
+- hcard http://microformats.org/wiki/hcard-fr
+
+
+
 # prerequist
 - install semapps or solid community-server and run with
 ```
