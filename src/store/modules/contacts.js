@@ -17,11 +17,11 @@ const getters = {}
 const actions = {
   async findAll(context){
     //context.commit('setContacts', contacts_temp)
-    console.log('findAll')
+    //console.log('findAll')
     if (context.rootState.solid.storage != null){
     let path = context.rootState.solid.storage+'contacts/'
     await fc.readFolder(path).then(async function(folder){
-      console.log(folder.files.length, folder)
+      //console.log(folder.files.length, folder)
       //   let contacts = await folder.files.map(async function (f) {
       //     let contact = {'@id': f.url, content: JSON.parse(await fc.readFile(f.url))}
       // //  let content = await fc.readFile(f.url)
@@ -34,7 +34,7 @@ const actions = {
         })
       )
       contacts.sort(function (a, b) { return a['vcard:hasName'] > b['vcard:hasName']; });
-      console.log(contacts)
+    //  console.log(contacts)
       context.commit('setContacts', contacts)
 
     })
@@ -42,23 +42,25 @@ const actions = {
 
   },
   async delete (context, contact){
-    let path = context.rootState.solid.storage+'contacts/'
-    console.log('delete',path, contact)
+  //  let path = context.rootState.solid.storage+'contacts/'
+    //console.log('delete',path, contact)
 
-    await fc.deleteFile(contact['@id']).then((content) => {
-      console.log(content)
-    //  context.dispatch('findAll')
-    })
+    await fc.deleteFile(contact['@id'])
+    // .then((content) => {
+    // //  console.log(content)
+    // //  context.dispatch('findAll')
+    // })
     .catch(err => console.error(`Error: ${err}`))
   },
   async add (context, contact){
     let path = context.rootState.solid.storage+'contacts/'
-    console.log('add',path, contact)
+  //  console.log('add',path, contact)
 
     contact['@id'] == null ? contact['@id'] = path+uuidv4()+'.jsonld' :''
 
-    await fc.createFile(contact['@id'], JSON.stringify(contact), 'application/json' ).then((content) => {
-      console.log(content)
+    await fc.createFile(contact['@id'], JSON.stringify(contact), 'application/json' )
+    .then((/*content*/) => {
+    //  console.log(content)
       context.dispatch('findAll')
     })
     .catch(err => console.error(`Error: ${err}`))
@@ -124,12 +126,10 @@ const actions = {
 
 // mutations
 const mutations = {
-
   setContacts(state, contacts){
-    console.log(contacts)
+//    console.log(contacts)
     state.contacts = contacts
   }
-
 }
 
 export default {

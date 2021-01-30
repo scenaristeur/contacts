@@ -29,7 +29,14 @@
 
 
 
-<b-img-lazy :src="contact['picture']" alt="Image" thumbnail fluid rounded="circle"   style="max-width: 10rem;"></b-img-lazy>
+<b-img-lazy v-if="contact['vcard:hasPhoto'] != undefined" :src="contact['vcard:hasPhoto']" alt="Image" thumbnail fluid rounded="circle"   style="max-width: 10rem;"></b-img-lazy>
+<b-img-lazy v-else src="https://image.flaticon.com/icons/svg/149/149992.svg" alt="Image" thumbnail fluid rounded="circle"   style="max-width: 10rem;"></b-img-lazy>
+<b-form-file
+ref="fileInput" style="display:none;"
+accept="image/*"
+v-model="file"
+></b-form-file>
+<b-icon icon="camera-fill" class="h1 rounded-circle bg-info p-1" variant="dark" type="button" @click="$refs.fileInput.$el.childNodes[0].click()"></b-icon>
 <b-card-title>{{ contact['vcard:hasName']}} <a :href="contact['@id']" target="_blank"><b-icon icon="link"></b-icon></a> </b-card-title>
 
 <b-card-sub-title>
@@ -121,9 +128,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import auth from 'solid-auth-client';
+import FC from 'solid-file-client'
+const fc = new FC( auth )
+
 export default {
   name: 'Conatct',
   props: ['contact'],
+  data() {
+    return {
+      file: null
+    };
+  },
   methods: {
     modify() {
       this.$router.push({ name: 'EditContact', params: { vcard: this.contact } })
@@ -133,7 +150,21 @@ export default {
       this.$store.dispatch('contacts/delete',this.contact)
       this.$router.push({ name: 'Contacts' })
     }
-  }
+  },
+  watch:{
+    async  file (file) {
+      let path = this.storage+'contacts-pics/'
+      let uri = file.webkitRelativePath.length > 0 ? path+file.webkitRelativePath : path+file.name
+      console.log(uri, file, file.type)
+      await fc.createFile(uri, file, file.type)
+      this.contact['vcard:hasPhoto'] = uri
+      this.$store.dispatch('contacts/add',this.contact)
+      console.log('todo: must update pic')
+    },
+  },
+  computed: mapState({
+    storage: s => s.solid.storage
+  }),
 }
 </script>
 

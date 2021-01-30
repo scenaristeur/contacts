@@ -10,6 +10,7 @@
       <b-form-input v-model="vcard['vcard:hasTelephone']"  placeholder="vcard:hasTelephone"></b-form-input>
 
     </div>
+    <br><br><br><br>
     <!-- {{ vcard }} -->
 
     <div id="toolbar" style="position: fixed; bottom: 0px; left: 0px; width: 100%; color: #fff; background: #000;">
@@ -22,6 +23,7 @@
         </b-button>
       </b-row >
     </div>
+
 
   </b-container>
 </template>
