@@ -12,6 +12,7 @@ webId<template>
             <b-nav-item to="/export">Export</b-nav-item>
             <b-nav-item to="/about">About</b-nav-item>
             <!-- <b-nav-item href="#" disabled>Disabled</b-nav-item> -->
+            <b-nav-item to="/solidRestTest">SolidRest test</b-nav-item>
 
           </b-navbar-nav>
 

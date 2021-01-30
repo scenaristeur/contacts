@@ -1,7 +1,9 @@
 <template>
   <b-container>
     <h3>Solid Rest Test</h3>
+    result : {{ result}}
 
+    <button @click="test">Test</button>
   </b-container>
 </template>
 
@@ -37,6 +39,7 @@ export default {
       base : "app://bfs/IndexedDB",
       file : this.base + "/test-file.ttl",
       text : "<> a <#test>.",
+      result: "must change"
     };
   },
   async created(){
@@ -44,8 +47,19 @@ export default {
     let res =  await this.GET(file)
     let text = await res.text()
     console.log(text)
+    this.result = text
   },
   methods: {
+    async test(){
+      let data = `<> a <#test>. \n
+      <> dct:dateCreated "${new Date()}" .`
+
+      await this.PUT(file, data)
+      let res =  await this.GET(file)
+      let text = await res.text()
+      console.log(text)
+      this.result = text
+    },
     // /* =========================================================== */
     // /* REST METHODS                                                */
     // /* =========================================================== */
