@@ -1,53 +1,105 @@
 <template>
   <b-container>
-    <div class="add-item">
-      <h4>Main fields </h4>
-      <b-img-lazy v-if="vcard['vcard:hasPhoto'] != undefined" :src="vcard['vcard:hasPhoto']" alt="Image" thumbnail fluid rounded="circle"   style="max-width: 10rem;"></b-img-lazy>
-      <b-img-lazy v-else src="https://image.flaticon.com/icons/svg/149/149992.svg" alt="Image" thumbnail fluid rounded="circle"   style="max-width: 10rem;"></b-img-lazy>
+    <b-row>
+      <b-col>
+        <b-avatar variant="info" :src="vcard['vcard:hasPhoto']" class="mr-3" size="12rem" button @click="$refs.fileInput.$el.childNodes[0].click()"></b-avatar>
+        <!-- <b-icon icon="camera-fill" class="h1 rounded-circle bg-info p-1" variant="dark" type="button" @click="$refs.fileInput.$el.childNodes[0].click()"></b-icon> -->
 
-      <b-form-file
-      ref="fileInput" style="display:none;"
-      accept="image/*"
-      v-model="file"
-      ></b-form-file>
-      <b-icon icon="camera-fill" class="h1 rounded-circle bg-info p-1" variant="dark" type="button" @click="$refs.fileInput.$el.childNodes[0].click()"></b-icon>
-
-      <b-form-input v-model="vcard['vcard:given-name']"  placeholder="vcard:given-name" @input="updateName"></b-form-input>
-      <b-form-input v-model="vcard['vcard:family-name']"  placeholder="vcard:family-name" @input="updateName"></b-form-input>
-      <b-form-input v-model="vcard['vcard:hasName']"  placeholder="vcard:hasName"></b-form-input>
-      <b-form-input v-model="vcard['vcard:hasEmail']"  placeholder="vcard:hasEmail"></b-form-input>
-      <b-form-input v-model="vcard['vcard:hasURL']"  placeholder="vcard:hasURL"></b-form-input>
-      <b-form-input v-model="vcard['vcard:hasTelephone']"  placeholder="vcard:hasTelephone"></b-form-input>
+        <b-form-file
+        ref="fileInput" style="display:none;"
+        accept="image/*"
+        v-model="file"
+        ></b-form-file>
 
 
-      <hr>
+      </b-col>
+      <b-col sm="9">
 
-      <h6>All fields</h6>
+        <h6>Main fields </h6>
+        <b-form-input v-model="vcard['vcard:given-name']"  placeholder="vcard:given-name" @input="updateName"></b-form-input>
+        <b-form-input v-model="vcard['vcard:family-name']"  placeholder="vcard:family-name" @input="updateName"></b-form-input>
+        <b-form-input v-model="vcard['vcard:hasName']"  placeholder="vcard:hasName"></b-form-input>
+        <b-form-input v-model="vcard['vcard:hasEmail']"  placeholder="vcard:hasEmail"></b-form-input>
+        <b-form-input v-model="vcard['vcard:hasURL']"  placeholder="vcard:hasURL"></b-form-input>
+        <b-form-input v-model="vcard['vcard:hasTelephone']"  placeholder="vcard:hasTelephone"></b-form-input>
+      </b-col>
+
+
+    </b-row>
+    <h6>All fields</h6>
+
+
+
+    <b-container fluid>
       <div v-for="([key,field], i) in Object.entries(vcard)" :key='i'>
-      {{ key}}:
-
-         <b-form-input v-if="key != 'jsonld' && key != 'basic_fields'" v-model="vcard[key]"  :placeholder="key"></b-form-input>
+        <b-row class="my-1" v-if="key != 'jsonld' && key != 'basic_fields' && key != '@id' && key != '@type'">
+          <b-col sm="2">
+            <label :for="vcard[key]"> {{ key }}:</label>
+          </b-col>
+          <b-col sm="8">
+            <b-form-input :id="vcard[key]" v-model="vcard[key]"  :placeholder="key"></b-form-input>
+          </b-col>
+          <b-col sm="2">
+            <!-- <b-button variant="outline-success" size="sm"><b-icon icon="plus"></b-icon></b-button> -->
+            <b-button variant="danger" size="sm" @click="del(key)"><b-icon icon="trash"></b-icon></b-button>
+          </b-col>
+        </b-row>
       </div>
+    </b-container>
 
 
 
-    </div>
-    <br><br><br><br>
-    <!-- {{ vcard }} -->
 
-    <div id="toolbar" style="position: fixed; bottom: 0px; left: 0px; width: 100%; color: #fff; background: #000;">
-      <b-row>
-        <b-button variant="outline-light" class="col p-3" style="text-align:center" @click="cancel">
-          <b-icon icon="close"></b-icon> Cancel
-        </b-button>
-        <b-button variant="outline-light" class="col p-3" style="text-align:center" @click="save">
-          <b-icon icon="ok"></b-icon> Save
-        </b-button>
-      </b-row >
-    </div>
+    <!-- <div v-for="([key,field], i) in Object.entries(vcard)" :key='i'>
+
+    <b-input-group class="mt-3" v-if="key != 'jsonld' && key != 'basic_fields' && key != '@id' && key != '@type'">
+    <label :for="vcard[key]"> <code>{{ key }}</code>:</label>
+    <b-form-input :id="vcard[key]" v-model="vcard[key]"  :placeholder="key"></b-form-input>
+    <b-input-group-append>
+    <b-button variant="outline-success"><b-icon icon="plus"></b-icon></b-button>
+    <b-button variant="danger"><b-icon icon="trash"></b-icon></b-button>
+  </b-input-group-append>
+</b-input-group>
+</div> -->
+
+<hr>
+
+<b-form-select v-model="selected" :options="fields"></b-form-select>
+<br>
+<b-input-group v-if="selected != null" class="mt-3">
+  <b-input-group-prepend class="m-2">
+    {{ selected.label }}
+  </b-input-group-prepend>
+  <b-form-input ref="field_input" v-model="vcard[selected['@id']]"  :placeholder="'Add a '+selected.label"></b-form-input>
+
+</b-input-group>
+
+{{ selected}}
+
+<hr>
+<!-- <b-list-group>
+<b-list-group-item v-for="(f,i) in fields" :key="i" variant="warning">{{f}}</b-list-group-item>
+
+</b-list-group> -->
 
 
-  </b-container>
+
+<br><br><br><br>
+<!-- {{ vcard }} -->
+
+<div id="toolbar" style="position: fixed; bottom: 0px; left: 0px; width: 100%; color: #fff; background: #000; z-index:5">
+  <b-row>
+    <b-button variant="outline-light" class="col p-3" style="text-align:center" @click="cancel">
+      <b-icon icon="close"></b-icon> Cancel
+    </b-button>
+    <b-button variant="outline-light" class="col p-3" style="text-align:center" @click="save">
+      <b-icon icon="ok"></b-icon> Save
+    </b-button>
+  </b-row >
+</div>
+
+
+</b-container>
 </template>
 
 <script>
@@ -56,6 +108,8 @@ import { mapState } from 'vuex';
 import auth from 'solid-auth-client';
 import FC from 'solid-file-client'
 const fc = new FC( auth )
+import VCardContext from '@/models/Vcard.jsonld.js'
+//console.log(VCardContext)
 
 
 export default {
@@ -63,15 +117,23 @@ export default {
   props: ['vcard'],
   data() {
     return {
-      file: null
+      file: null,
+      fields : VCardContext.defines.filter(function(f) { return f['@type'] != 'owl:Class' && f.deprecated != true; }).map((x) => {return {value: x, text: x.label}}),
+      selected: null
+
     };
   },
   created(){
     //  this.from = this.$route.from
-    console.log('route', this.$route)
+    //  console.log('route', this.$route)
+    this.fields.unshift({value: null, text:'Add a field'})
     //  console.log('router', this.$router)
   },
   methods: {
+    del(key){
+      this.vcard[key] = null
+      delete this.vcard[key]
+    },
     cancel() {
       //  console.log(this.$router.go(-1))
       this.$router.go(-1) //, {params: { contact: this.vcard }})

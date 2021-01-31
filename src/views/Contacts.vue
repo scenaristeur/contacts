@@ -6,9 +6,7 @@
     <b-list-group>
 
       <b-list-group-item v-for="c in contacts" :key="c['@id']" variant="light" class="text-dark" button @click="open(c)">
-        <b-img v-if="c['vcard:hasPhoto'] != undefined" :src="c['vcard:hasPhoto']" alt="Image" fluid rounded="circle"   style="max-width: 2rem;"></b-img>
-        <b-img v-else src="https://image.flaticon.com/icons/svg/149/149992.svg" alt="Image" fluid rounded="circle"   style="max-width: 2rem;"></b-img>
-
+      <b-avatar variant="info" :src="c['vcard:hasPhoto']" class="mr-3"></b-avatar>
         {{c['vcard:hasName']}}
       </b-list-group-item>
 

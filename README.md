@@ -156,9 +156,9 @@ https://vuejsexamples.com/a-multi-item-card-carousel-in-vue/
 - http://fluidlog.gitlab.io/cartosemapps/#https://data-techcico.semapps.org/sparql
 
 # contacts list
-https://www.bootdey.com/snippets/tagged/contacts
-https://www.bootdey.com/snippets/view/Contact-List
-https://bootsnipp.com/snippets/4l0k2
+- https://www.bootdey.com/snippets/tagged/contacts
+- https://www.bootdey.com/snippets/view/Contact-List
+- https://bootsnipp.com/snippets/4l0k2
 
 # solid vocabularies
 http://solid.github.io/vocab/
@@ -170,3 +170,6 @@ http://solid.github.io/vocab/
 - https://developer.mozilla.org/fr/docs/Web/Progressive_web_apps/Offline_Service_workers
 - https://medium.com/js-dojo/how-to-permanently-save-data-with-vuex-localstorage-in-your-vue-app-f1d5c140db69
 - https://auth0.com/blog/vuejs-kanban-board-adding-progressive-web-app-features/#Integrating-Vuex-with-Local-Storage
+
+# custom service worker
+- https://levelup.gitconnected.com/vue-pwa-example-298a8ea953c9

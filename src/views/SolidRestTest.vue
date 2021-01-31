@@ -3,7 +3,8 @@
     <h3>Solid Rest Test</h3>
     result : {{ result}}
 
-    <button @click="test">Test</button>
+    <b-button @click="create">Create</b-button>
+    <b-button @click="read">Read</b-button>
   </b-container>
 </template>
 
@@ -31,6 +32,11 @@ function show(msg){
   console.log( `<p>${msg}</p>`  )
 }
 
+import { v4 as uuidv4 } from 'uuid';
+// import auth from 'solid-auth-client';
+// import FC from 'solid-file-client'
+// const fc = new FC( auth )
+
 export default {
   name: 'SolidRestTest',
 
@@ -39,7 +45,8 @@ export default {
       base : "app://bfs/IndexedDB",
       file : this.base + "/test-file.ttl",
       text : "<> a <#test>.",
-      result: "must change"
+      result: "must change",
+      contacts_path : ""
     };
   },
   async created(){
@@ -48,9 +55,27 @@ export default {
     let text = await res.text()
     console.log(text)
     this.result = text
+    this.contacts_path = this.base+'/contacts/'
   },
   methods: {
-    async test(){
+    async create(){
+      let contact = {}
+      contact['@id'] = uuidv4()+'.jsonld'
+      contact['schema:dateCreated'] = new Date().toISOString()
+      console.log(contact)
+      await this.PUT(this.contacts_path+contact['@id'], JSON.stringify(contact), "text/plain")
+
+    },
+    async read(){
+      let res = await this.GET(this.contacts_path)
+      console.log(res)
+      // console.log(this.contacts_path)
+      // await fc.readFolder(this.contacts_path).then(async function(folder){
+      //   console.log('folder',folder)
+      // })
+    },
+
+    async test1(){
       let data = `<> a <#test>. \n
       <> dct:dateCreated "${new Date()}" .`
 
@@ -64,13 +89,13 @@ export default {
     // /* REST METHODS                                                */
     // /* =========================================================== */
     async GET(url){
-      return await rest.fetch( url, {method:"GET"} )
+      return await rest.fetch( url, {method:"GET", headers:{"Accept": 'application/json'}} )
     },
     async HEAD(url){
       return await rest.fetch( url, {method:"HEAD"} )
     },
-    async PUT(url,text){
-      return await rest.fetch( url, {method:"PUT",body:text,headers:{"content-type":"text/turtle"}} )
+    async PUT(url,text,content_type = "text/turtle"){
+      return await rest.fetch( url, {method:"PUT",body:text,headers:{"content-type":content_type}} )
     },
     async DELETE(url){
       return await rest.fetch( url, {method:"DELETE"} )

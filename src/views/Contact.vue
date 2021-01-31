@@ -28,9 +28,8 @@
 </b-dropdown>
 
 
+<b-avatar variant="info" :src="contact['vcard:hasPhoto']" class="mr-3" size="12rem"></b-avatar>
 
-<b-img v-if="contact['vcard:hasPhoto'] != undefined" :src="contact['vcard:hasPhoto']" alt="Image" thumbnail fluid rounded="circle"   style="max-width: 10rem;"></b-img>
-<b-img v-else src="https://image.flaticon.com/icons/svg/149/149992.svg" alt="Image" thumbnail fluid rounded="circle"   style="max-width: 10rem;"></b-img>
 <b-card-title>{{ contact['vcard:hasName']}} <a :href="contact['@id']" target="_blank"><b-icon icon="link"></b-icon></a> </b-card-title>
 
 <b-card-sub-title>
@@ -63,8 +62,41 @@
 
 <b-card-text>
   GivenName  : {{ contact['vcard:given-name'] }}<br>
-  FamilyName : {{ contact['vcard:family-name'] }}
+  FamilyName : {{ contact['vcard:family-name'] }}<br>
 </b-card-text>
+
+<b-card-text v-if="contact['vcard:hasAddress']">
+  Address : {{ contact['vcard:hasAddress'] }}
+  <b-button :href="'geo://?q='+contact['vcard:hasAddress']" target="_blank" class="col p-3" style="text-align:center">
+    protocol geo
+    <b-icon icon="geo-alt-fill"  :variant="contact['vcard:hasAddress'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasAddress']}}
+  </b-button>
+
+
+  <b-button :href="'https://nominatim.openstreetmap.org/ui/search.html?q='+contact['vcard:hasAddress']"  target="_blank" class="col p-3" style="text-align:center">
+    open streetmap
+    <b-icon button  icon="geo-alt-fill"  :variant="contact['vcard:hasAddress'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasAddress']}}
+  </b-button>
+
+</b-card-text>
+<b-card-text v-if="contact['vcard:adr']">
+  Address : {{ contact['vcard:adr'] }}
+  <b-button :href="'maps:'+contact['vcard:adr']" target="_blank" class="col p-3" style="text-align:center">
+    protocol maps:
+    <b-icon icon="geo-alt-fill"  :variant="contact['vcard:adr'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:adr']}}
+  </b-button>
+
+  <b-button :href="'https://www.google.com/maps/search/'+contact['vcard:adr']" target="_blank" class="col p-3" style="text-align:center">
+    lien google maps
+    <b-icon icon="geo-alt-fill"  :variant="contact['vcard:adr'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:adr']}}
+  </b-button>
+
+
+
+
+</b-card-text>
+
+
 
 <!-- <b-button href="#" variant="primary">Go somewhere</b-button> -->
 </b-card>

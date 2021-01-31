@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/404.html"
   },
   {
-    "revision": "2d4b3e223f28a677f348",
+    "revision": "993a43647a27224e8d9b",
     "url": "/ldp-workspace/css/app.20f8eef0.css"
   },
   {
@@ -24,7 +24,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/css/chunk-vendors.23e2f014.css"
   },
   {
-    "revision": "64e9f9b1f76a78789e86",
+    "revision": "d49a4f69bdb6898060b0",
     "url": "/ldp-workspace/css/contacts.f79d833f.css"
   },
   {
@@ -32,7 +32,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/css/tests.a66629a4.css"
   },
   {
-    "revision": "a87dbe1ed8d22a4921a78913ac59c7d0",
+    "revision": "bd2f501880fc14428d9c0dd1230380b8",
     "url": "/ldp-workspace/index.html"
   },
   {
@@ -40,8 +40,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/about.db21636e.js"
   },
   {
-    "revision": "2d4b3e223f28a677f348",
-    "url": "/ldp-workspace/js/app.e667fdf1.js"
+    "revision": "993a43647a27224e8d9b",
+    "url": "/ldp-workspace/js/app.262aa975.js"
   },
   {
     "revision": "84c8ab48e572cce30f382692121bd8c3",
@@ -88,16 +88,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/chunk-vendors.a618be53.js"
   },
   {
-    "revision": "6b3eceb97884d7f689a5",
-    "url": "/ldp-workspace/js/contact.0ae57659.js"
+    "revision": "a47b28b925d5655a652d",
+    "url": "/ldp-workspace/js/contact.19442dd5.js"
   },
   {
-    "revision": "64e9f9b1f76a78789e86",
-    "url": "/ldp-workspace/js/contacts.9c8542cf.js"
+    "revision": "d49a4f69bdb6898060b0",
+    "url": "/ldp-workspace/js/contacts.1f324f45.js"
   },
   {
-    "revision": "fdef0490af42f6290db2",
-    "url": "/ldp-workspace/js/editContact.28b48594.js"
+    "revision": "aca34ece6287a75f9467",
+    "url": "/ldp-workspace/js/editContact.0610e988.js"
   },
   {
     "revision": "d8bc8c7a4b70f869bf54",
@@ -112,8 +112,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/solid-rest.js"
   },
   {
-    "revision": "71566711a0a10928e0e4",
-    "url": "/ldp-workspace/js/solidresttest.49956125.js"
+    "revision": "6472ed50973283d671ed",
+    "url": "/ldp-workspace/js/solidresttest.d9f0ce2e.js"
   },
   {
     "revision": "9963d26ef9f836ec596e",
