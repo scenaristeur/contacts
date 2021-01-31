@@ -3,6 +3,12 @@
 
     <!-- <b-button @click="editContact">New Contact</b-button> -->
 
+[[ search filter ]]
+https://codepen.io/AndrewThian/pen/QdeOVa<br>
+https://stackoverflow.com/questions/41712791/search-a-list-while-typing-in-textbox-vuejs-2<br>
+https://stackoverflow.com/questions/52558770/vuejs-search-filter<br>
+
+
     <b-list-group>
 
       <b-list-group-item v-for="c in contacts" :key="c['@id']" variant="light" class="text-dark" button @click="open(c)">

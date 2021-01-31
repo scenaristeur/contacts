@@ -173,3 +173,13 @@ http://solid.github.io/vocab/
 
 # custom service worker
 - https://levelup.gitconnected.com/vue-pwa-example-298a8ea953c9
+
+# use contact picker for import
+- https://contact-picker.glitch.me/ & https://web.dev/contact-picker/
+
+# share media on cantact page
+<b-button>Send audio / video / pic</b-button>
+https://whatwebcando.today/camera-microphone.html
+
+# vuetable or vuetify-table ?
+https://www.vuetable.com/guide/

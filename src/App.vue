@@ -48,6 +48,7 @@ webId<template>
 
   <router-view />
   <!-- <router-link to="/tests" >Tests</router-link> -->
+  <Fab class="fab" />
 </div>
 <div v-else>
   <b-jumbotron header="Contacts" lead="Contacts store your Contacts on your Solid POD in the rootFolder/contacts/ folder.">
@@ -79,7 +80,7 @@ export default {
     //  'Contacts': () => import('@/views/Contacts'),
     'SolidLoginButton': () => import('@/components/solid/SolidLoginButton'),
     'SolidTrackSession': () => import('@/components/solid/SolidTrackSession'),
-
+    'Fab': () => import('@/components/basic/Fab.vue')
     //  'Config': () => import('@/components/config/Config'),
     //  'MenuBar': () => import('@/components/layout/MenuBar'),
     // 'Table': () => import('@/components/table/Table'),
@@ -94,6 +95,15 @@ export default {
 
 
 <style>
+.fab {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index:3;
+}
+/* This is for documentation purposes and will not be needed in your application */
+
+
 /* #app {
 font-family: Avenir, Helvetica, Arial, sans-serif;
 -webkit-font-smoothing: antialiased;
