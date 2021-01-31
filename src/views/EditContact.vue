@@ -2,7 +2,7 @@
   <b-container>
     <b-row>
       <b-col>
-        <b-avatar variant="info" :src="vcard['vcard:hasPhoto']" class="mr-3" size="12rem" button @click="$refs.fileInput.$el.childNodes[0].click()"></b-avatar>
+        <b-avatar variant="info" :src="vcard['vcard:hasPhoto']" class="mr-3" size="3rem" button @click="$refs.fileInput.$el.childNodes[0].click()"></b-avatar>
         <!-- <b-icon icon="camera-fill" class="h1 rounded-circle bg-info p-1" variant="dark" type="button" @click="$refs.fileInput.$el.childNodes[0].click()"></b-icon> -->
 
         <b-form-file

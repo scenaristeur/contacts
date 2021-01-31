@@ -65,7 +65,7 @@ export default {
   methods: {
     editContact() {
       this.vcard = new Vcard()
-      console.log("vcard", this.vcard)
+    //  console.log("vcard", this.vcard)
       this.$router.push({ name: 'EditContact', params: { vcard: this.vcard } })
 
       // this.options = this.vcard.jsonld['@context'].defines.filter(function(f) {
@@ -81,7 +81,7 @@ export default {
     //   this.$store.dispatch('contacts/add',this.vcard)
     // },
     open(c){
-      console.log(c)
+    //  console.log(c)
       this.$router.push({ name: 'Contact', params: { contact: c } })
     }
   },

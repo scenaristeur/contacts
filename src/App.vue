@@ -43,8 +43,7 @@ webId<template>
 </div>
 
 <br><br><br>
-<SolidTrackSession />
-<br>
+
 <div v-if="webId != null">
 
   <router-view />
@@ -64,9 +63,9 @@ webId<template>
 <router-link to="/">Home</router-link> |
 <router-link to="/about">About</router-link>
 </div> -->
-
+<SolidTrackSession />
 <!-- <Config /> -->
-<small><i>0.1</i></small>
+<small><i>0.1-1</i></small>
 </div>
 </template>
 

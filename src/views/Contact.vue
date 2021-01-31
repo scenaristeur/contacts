@@ -28,7 +28,7 @@
 </b-dropdown>
 
 
-<b-avatar variant="info" :src="contact['vcard:hasPhoto']" class="mr-3" size="12rem"></b-avatar>
+<b-avatar variant="info" :src="contact['vcard:hasPhoto']" class="mr-3" size="6rem"></b-avatar>
 
 <b-card-title>{{ contact['vcard:hasName']}} <a :href="contact['@id']" target="_blank"><b-icon icon="link"></b-icon></a> </b-card-title>
 
@@ -66,29 +66,30 @@
 </b-card-text>
 
 <b-card-text v-if="contact['vcard:hasAddress']">
-  Address : {{ contact['vcard:hasAddress'] }}
-  <b-button :href="'geo://?q='+contact['vcard:hasAddress']" target="_blank" class="col p-3" style="text-align:center">
+  Address :
+  <!-- <b-button :href="'geo://?q='+contact['vcard:hasAddress']" target="_blank" class="col p-3" style="text-align:center">
     protocol geo
     <b-icon icon="geo-alt-fill"  :variant="contact['vcard:hasAddress'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasAddress']}}
+  </b-button> -->
+  <b-button :href="'https://www.google.com/maps/search/'+contact['vcard:hasAddress']" target="_blank" style="text-align:center">
+  {{ contact['vcard:hasAddress']}} <b-icon icon="geo-alt-fill"  :variant="contact['vcard:hasAddress'] != undefined ? 'success' : 'danger'"></b-icon>
   </b-button>
 
-
-  <b-button :href="'https://nominatim.openstreetmap.org/ui/search.html?q='+contact['vcard:hasAddress']"  target="_blank" class="col p-3" style="text-align:center">
+  <!-- <b-button :href="'https://nominatim.openstreetmap.org/ui/search.html?q='+contact['vcard:hasAddress']"  target="_blank" class="col p-3" style="text-align:center">
     open streetmap
     <b-icon button  icon="geo-alt-fill"  :variant="contact['vcard:hasAddress'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasAddress']}}
-  </b-button>
+  </b-button> -->
 
 </b-card-text>
 <b-card-text v-if="contact['vcard:adr']">
-  Address : {{ contact['vcard:adr'] }}
-  <b-button :href="'maps:'+contact['vcard:adr']" target="_blank" class="col p-3" style="text-align:center">
+  Address :
+  <!-- <b-button :href="'maps:'+contact['vcard:adr']" target="_blank" class="col p-3" style="text-align:center">
     protocol maps:
     <b-icon icon="geo-alt-fill"  :variant="contact['vcard:adr'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:adr']}}
-  </b-button>
+  </b-button> -->
 
-  <b-button :href="'https://www.google.com/maps/search/'+contact['vcard:adr']" target="_blank" class="col p-3" style="text-align:center">
-    lien google maps
-    <b-icon icon="geo-alt-fill"  :variant="contact['vcard:adr'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:adr']}}
+  <b-button :href="'https://www.google.com/maps/search/'+contact['vcard:adr']" target="_blank" style="text-align:center">
+  {{ contact['vcard:adr']}} <b-icon icon="geo-alt-fill"  :variant="contact['vcard:adr'] != undefined ? 'success' : 'danger'"></b-icon>
   </b-button>
 
 

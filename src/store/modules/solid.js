@@ -15,7 +15,7 @@ const actions = {
     if (webId != null){
       let storage = `${await ldflex.data[webId].storage}`
       context.commit('setStorage', storage)
-      console.log("rootstate",context.rootState.ldp_store)
+    //  console.log("rootstate",context.rootState.ldp_store)
       context.commit('ldp_store/setServer', {name: webId+' storage', url: storage}, { root: true })
     //  context.rootState.ldp_store.commit('setServer', {name: webId+' storage', url: storage})
     }else{
