@@ -12,6 +12,7 @@
       <button @click="post({message: message},{},'todos');message=''">Save Todo</button>
       <div v-for="todo in todos" :key='todo.id'>
         <input v-model="todo.message" @change="$pouch.put(todo,{},'todos')">
+      vcard:name     <input v-model="todo['vcard:hasName']" @change="$pouch.put(todo,{},'todos')">
         <button @click="$pouch.remove(todo,{},'todos')">Remove</button>
       </div>
     </div>
@@ -52,7 +53,7 @@ import FC from 'solid-file-client'
 const fc = new FC( auth )
 
 import { mapState } from 'vuex';
-
+import Vcard from '@/models/Vcard.js'
 
 export default {
   name: 'SolidRestTest',
@@ -72,6 +73,11 @@ export default {
     todos: {/*empty selector*/}
   },
   async created(){
+
+    console.log("databases",this.$databases)
+    let todos =  await this.$pouch.allDocs({/*OPTIONAL options*/}, 'todos')
+    console.log("todos",todos)
+
     await this.PUT(file, this.text)
     let res =  await this.GET(file)
     let text = await res.text()
@@ -95,7 +101,7 @@ export default {
       let contact = {}
       contact['@id'] = uuidv4()+'.json'
       contact['schema:dateCreated'] = new Date().toISOString()
-       contact.message = docs.message
+      contact.message = docs.message
       console.log(contact)
       console.log(contact, this.contacts_path+contact['@id'])
       let res = await fc.createFile(this.contacts_path+contact['@id'], JSON.stringify(contact), "application/json")
@@ -150,7 +156,19 @@ export default {
     async post(message, empty, base){
       //{message: message},{},'todos'
       //  let pouch = this.$pouch
-      this.$pouch.post(message, empty, base)
+
+      let vcard = new Vcard()
+      let path = this.storage+'contacts/'
+      //  console.log('add',path, contact)
+
+      vcard['@id'] == null ? vcard['@id'] = path+uuidv4()+'.jsonld' :''
+      vcard['vcard:hasName'] = message.message
+      console.log("vcard",vcard)
+      // const resultArray = arr.map(elm => ({ Name: elm.id, Data: elm.name}));
+      let pouch_card = Object.assign({}, vcard);
+      pouch_card._id = pouch_card['@id']
+      console.log('pouch_card', pouch_card)
+      this.$pouch.put(pouch_card, empty, base)
 
       let result = this.$pouch.syncToAnything(message)
       console.log("RESULT",result)

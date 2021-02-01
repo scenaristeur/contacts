@@ -18,6 +18,7 @@ const actions = {
   async findAll(context){
     //context.commit('setContacts', contacts_temp)
     //console.log('findAll')
+  
     if (context.rootState.solid.storage != null){
     let path = context.rootState.solid.storage+'contacts/'
     await fc.readFolder(path).then(async function(folder){
