@@ -169,6 +169,7 @@ http://solid.github.io/vocab/
 
 # localstorage / indexdb / solid-rest
 - with vuejs https://www.raymondcamden.com/2019/10/16/using-indexeddb-with-vuejs
+put : with key, post : withoutkey
 - https://github.com/solid/solid-rest/blob/master/tests/browser-test.html
 - https://developer.mozilla.org/fr/docs/Web/API/API_IndexedDB
 - https://developer.mozilla.org/fr/docs/Web/API/API_IndexedDB/Using_IndexedDB
