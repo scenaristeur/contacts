@@ -39,18 +39,25 @@
     feed:, maps:, youtube:
     skype : callto:
     https://stackoverflow.com/questions/26088523/click-to-call-html-->
+
+
+    <b-col v-if="contact['vcard:hasTelephone']" class="col p-3" style="text-align:center">
+      {{ contact['vcard:hasTelephone']}}<br>
+      <b-button :href="'tel:'+contact['vcard:hasTelephone']" style="text-align:center">
+        <b-icon icon="telephone-fill"  :variant="contact['vcard:hasTelephone'] != undefined ? 'success' : 'danger'">
+        </b-icon>
+      </b-button>
+      <b-button :href="'sms:'+contact['vcard:hasTelephone']"  style="text-align:center">
+        <b-icon icon="chat-left-fill"  :variant="contact['vcard:hasTelephone'] != undefined ? 'success' : 'danger'"></b-icon>
+      </b-button>
+    </b-col>
+
     <b-button :href="'mailto:'+contact['vcard:hasEmail']" class="col p-3" style="text-align:center">
       <b-icon icon="envelope-fill" :variant="contact['vcard:hasEmail'] != undefined ? 'success' : 'danger'"></b-icon>
       {{ contact['vcard:hasEmail']}}
     </b-button>
     <b-button :href="contact['vcard:hasURL']" target="_blank" class="col p-3 button" style="text-align:center">
       <b-icon icon="link"  :variant="contact['vcard:hasURL'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasURL']}}
-    </b-button>
-    <b-button :href="'tel:'+contact['vcard:hasTelephone']" class="col p-3" style="text-align:center">
-      <b-icon icon="telephone-fill"  :variant="contact['vcard:hasTelephone'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasTelephone']}}
-    </b-button>
-    <b-button :href="'sms:'+contact['vcard:hasTelephone']" class="col p-3" style="text-align:center">
-      <b-icon icon="chat-left-fill"  :variant="contact['vcard:hasTelephone'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasTelephone']}}
     </b-button>
 
 
@@ -60,37 +67,37 @@
 
 
 
-<b-card-text>
-  GivenName  : {{ contact['vcard:given-name'] }}<br>
-  FamilyName : {{ contact['vcard:family-name'] }}<br>
-</b-card-text>
+<!-- <b-card-text>
+GivenName  : {{ contact['vcard:given-name'] }}<br>
+FamilyName : {{ contact['vcard:family-name'] }}<br>
+</b-card-text> -->
 
 <b-card-text v-if="contact['vcard:hasAddress']">
   Address :
   <!-- <b-button :href="'geo://?q='+contact['vcard:hasAddress']" target="_blank" class="col p-3" style="text-align:center">
-    protocol geo
-    <b-icon icon="geo-alt-fill"  :variant="contact['vcard:hasAddress'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasAddress']}}
-  </b-button> -->
-  <b-button :href="'https://www.google.com/maps/search/'+contact['vcard:hasAddress']" target="_blank" style="text-align:center">
+  protocol geo
+  <b-icon icon="geo-alt-fill"  :variant="contact['vcard:hasAddress'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasAddress']}}
+</b-button> -->
+<b-button :href="'https://www.google.com/maps/search/'+contact['vcard:hasAddress']" target="_blank" style="text-align:center">
   {{ contact['vcard:hasAddress']}} <b-icon icon="geo-alt-fill"  :variant="contact['vcard:hasAddress'] != undefined ? 'success' : 'danger'"></b-icon>
-  </b-button>
+</b-button>
 
-  <!-- <b-button :href="'https://nominatim.openstreetmap.org/ui/search.html?q='+contact['vcard:hasAddress']"  target="_blank" class="col p-3" style="text-align:center">
-    open streetmap
-    <b-icon button  icon="geo-alt-fill"  :variant="contact['vcard:hasAddress'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasAddress']}}
-  </b-button> -->
+<!-- <b-button :href="'https://nominatim.openstreetmap.org/ui/search.html?q='+contact['vcard:hasAddress']"  target="_blank" class="col p-3" style="text-align:center">
+open streetmap
+<b-icon button  icon="geo-alt-fill"  :variant="contact['vcard:hasAddress'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:hasAddress']}}
+</b-button> -->
 
 </b-card-text>
 <b-card-text v-if="contact['vcard:adr']">
   Address :
   <!-- <b-button :href="'maps:'+contact['vcard:adr']" target="_blank" class="col p-3" style="text-align:center">
-    protocol maps:
-    <b-icon icon="geo-alt-fill"  :variant="contact['vcard:adr'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:adr']}}
-  </b-button> -->
+  protocol maps:
+  <b-icon icon="geo-alt-fill"  :variant="contact['vcard:adr'] != undefined ? 'success' : 'danger'"></b-icon> {{ contact['vcard:adr']}}
+</b-button> -->
 
-  <b-button :href="'https://www.google.com/maps/search/'+contact['vcard:adr']" target="_blank" style="text-align:center">
+<b-button :href="'https://www.google.com/maps/search/'+contact['vcard:adr']" target="_blank" style="text-align:center">
   {{ contact['vcard:adr']}} <b-icon icon="geo-alt-fill"  :variant="contact['vcard:adr'] != undefined ? 'success' : 'danger'"></b-icon>
-  </b-button>
+</b-button>
 </b-card-text>
 
 <!-- <b-button>Send audio / video / pic</b-button>
