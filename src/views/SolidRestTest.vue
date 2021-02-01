@@ -12,7 +12,7 @@
       <button @click="post({message: message},{},'todos');message=''">Save Todo</button>
       <div v-for="todo in todos" :key='todo.id'>
         <input v-model="todo.message" @change="$pouch.put(todo,{},'todos')">
-      vcard:name     <input v-model="todo['vcard:hasName']" @change="$pouch.put(todo,{},'todos')">
+        vcard:name     <input v-model="todo['vcard:hasName']" @change="$pouch.put(todo,{},'todos')">
         <button @click="$pouch.remove(todo,{},'todos')">Remove</button>
       </div>
     </div>
@@ -165,9 +165,16 @@ export default {
       vcard['vcard:hasName'] = message.message
       console.log("vcard",vcard)
       // const resultArray = arr.map(elm => ({ Name: elm.id, Data: elm.name}));
+
+      // rename prop jslonld : @id , pouch : _id https://medium.com/front-end-weekly/immutably-rename-object-keys-in-javascript-5f6353c7b6dd
       let pouch_card = Object.assign({}, vcard);
       pouch_card._id = pouch_card['@id']
       console.log('pouch_card', pouch_card)
+
+      vcard.save({option_test: "bla", base: 'contacts'})
+
+
+
       this.$pouch.put(pouch_card, empty, base)
 
       let result = this.$pouch.syncToAnything(message)

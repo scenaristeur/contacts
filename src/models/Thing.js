@@ -12,4 +12,8 @@ export default class Thing {
       'schema:name': "__NEW__THING__"
     }
   }
+
+  save(options = {}){
+    console.log("save",this,  options)
+  }
 }

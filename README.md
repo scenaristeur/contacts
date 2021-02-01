@@ -168,6 +168,7 @@ https://vuejsexamples.com/a-multi-item-card-carousel-in-vue/
 http://solid.github.io/vocab/
 
 # localstorage / indexdb / solid-rest
+- with vuejs https://www.raymondcamden.com/2019/10/16/using-indexeddb-with-vuejs
 - https://github.com/solid/solid-rest/blob/master/tests/browser-test.html
 - https://developer.mozilla.org/fr/docs/Web/API/API_IndexedDB
 - https://developer.mozilla.org/fr/docs/Web/API/API_IndexedDB/Using_IndexedDB
