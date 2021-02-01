@@ -183,3 +183,6 @@ https://whatwebcando.today/camera-microphone.html
 
 # vuetable or vuetify-table ?
 https://www.vuetable.com/guide/
+
+# ouchdb serviceworker
+https://github.com/pouchdb-community/worker-pouch
