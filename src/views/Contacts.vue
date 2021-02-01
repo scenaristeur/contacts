@@ -3,18 +3,21 @@
 
     <!-- <b-button @click="editContact">New Contact</b-button> -->
 
-[[ search filter ]]
-https://codepen.io/AndrewThian/pen/QdeOVa<br>
-https://stackoverflow.com/questions/41712791/search-a-list-while-typing-in-textbox-vuejs-2<br>
-https://stackoverflow.com/questions/52558770/vuejs-search-filter<br>
-
-
+    <!-- [[ search filter ]]
+    https://codepen.io/AndrewThian/pen/QdeOVa<br>
+    https://stackoverflow.com/questions/41712791/search-a-list-while-typing-in-textbox-vuejs-2<br>
+    https://stackoverflow.com/questions/52558770/vuejs-search-filter<br> -->
+    <div class="mb3 add-item">
+      <b-form-input v-model="search" placeholder="Search" variant="" class="mb3"></b-form-input>
+    </div>
+    
     <b-list-group>
-
-      <b-list-group-item v-for="c in contacts" :key="c['@id']" variant="light" class="text-dark" button @click="open(c)">
-      <b-avatar variant="info" :src="c['vcard:hasPhoto']" class="mr-3"></b-avatar>
-        {{c['vcard:hasName']}}
-      </b-list-group-item>
+      <span v-for="c in contacts" :key="c['@id']" >
+        <b-list-group-item v-if="c['vcard:hasName'].toLowerCase().includes(search.toLowerCase()) " variant="secondary" class="text-dark" button @click="open(c)" >
+          <b-avatar variant="info" :src="c['vcard:hasPhoto']" class="mr-3"></b-avatar>
+          {{c['vcard:hasName']}}
+        </b-list-group-item>
+      </span>
 
     </b-list-group>
 
@@ -57,7 +60,8 @@ export default {
   },
   data() {
     return {
-      vcard: {}
+      vcard: {},
+      search: ""
     };
   },
   created(){
@@ -71,7 +75,7 @@ export default {
   methods: {
     editContact() {
       this.vcard = new Vcard()
-    //  console.log("vcard", this.vcard)
+      //  console.log("vcard", this.vcard)
       this.$router.push({ name: 'EditContact', params: { vcard: this.vcard } })
 
       // this.options = this.vcard.jsonld['@context'].defines.filter(function(f) {
@@ -87,7 +91,7 @@ export default {
     //   this.$store.dispatch('contacts/add',this.vcard)
     // },
     open(c){
-    //  console.log(c)
+      //  console.log(c)
       this.$router.push({ name: 'Contact', params: { contact: c } })
     }
   },
@@ -98,7 +102,7 @@ export default {
     contacts(){
 
       // TO DO store in localstorage or local pod
-    //  localStorage.setItem('contacts', JSON.stringify(this.contacts))
+      //  localStorage.setItem('contacts', JSON.stringify(this.contacts))
     }
     // $route(){
     //   this.$store.dispatch('contacts/findAll')
@@ -118,5 +122,17 @@ export default {
   bottom: 30px;
   right: 30px;
   z-index:3;
+}
+.add-item input {
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  width: 100%;
+  transition: all 0.25s;
+  background: inherit;
+  color: white;
+}
+.add-item input:focus {
+  border-bottom-color: rgba(255, 255, 255, 1);
 }
 </style>
