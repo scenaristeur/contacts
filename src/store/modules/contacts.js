@@ -21,6 +21,7 @@ const actions = {
     if (context.rootState.solid.storage != null){
     let path = context.rootState.solid.storage+'contacts/'
     await fc.readFolder(path).then(async function(folder){
+      console.log('folder', folder)
       //console.log(folder.files.length, folder)
       //   let contacts = await folder.files.map(async function (f) {
       //     let contact = {'@id': f.url, content: JSON.parse(await fc.readFile(f.url))}
@@ -31,6 +32,7 @@ const actions = {
 
       let contacts = await Promise.all(
         folder.files.map(async f => {
+          console.log("COMPARE", f.url, f.modified)
           let contact = await fc.readFile(f.url)
           return JSON.parse(contact)
         })

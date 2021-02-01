@@ -10,10 +10,10 @@
     <div class="mb3 add-item">
       <b-form-input v-model="search" placeholder="Search" variant="" class="mb3"></b-form-input>
     </div>
-    
+
     <b-list-group>
       <span v-for="c in contacts" :key="c['@id']" >
-        <b-list-group-item v-if="c['vcard:hasName'].toLowerCase().includes(search.toLowerCase()) " variant="secondary" class="text-dark" button @click="open(c)" >
+        <b-list-group-item v-if="c['vcard:hasName']!= undefined && c['vcard:hasName'].toLowerCase().includes(search.toLowerCase()) " variant="secondary" class="text-dark" button @click="open(c)" >
           <b-avatar variant="info" :src="c['vcard:hasPhoto']" class="mr-3"></b-avatar>
           {{c['vcard:hasName']}}
         </b-list-group-item>
