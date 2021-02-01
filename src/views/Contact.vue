@@ -93,8 +93,8 @@
   </b-button>
 </b-card-text>
 
-<b-button>Send audio / video / pic</b-button>
-https://whatwebcando.today/camera-microphone.html
+<!-- <b-button>Send audio / video / pic</b-button>
+https://whatwebcando.today/camera-microphone.html -->
 
 <!-- <b-button href="#" variant="primary">Go somewhere</b-button> -->
 </b-card>
