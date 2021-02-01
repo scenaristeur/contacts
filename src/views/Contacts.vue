@@ -64,12 +64,14 @@ export default {
       search: ""
     };
   },
-  created(){
+  async created(){
     // let contacts = JSON.stringify(localStorage.getItem('contacts'))
     // if (contacts.length > 0 ){
     // //  this.contacts = JSON.stringify(contacts)
     //   console.log('from storage', contacts)
     // }
+
+    this.$store.dispatch('contacts/init')
     this.$store.dispatch('contacts/findAll')
   },
   methods: {

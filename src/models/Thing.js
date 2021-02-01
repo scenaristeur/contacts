@@ -1,4 +1,3 @@
-import { openDB } from 'idb/with-async-ittr.js';
 
 export default class Thing {
   constructor() {
@@ -19,23 +18,18 @@ export default class Thing {
     this.demo()
   }
   async demo() {
-    const db = await openDB('Articles', 1, {
-      upgrade(db) {
-        // Create a store of objects
-        const store = db.createObjectStore('articles', {
-          // The 'id' property of the object will be the key.
-          keyPath: '@id',
-          // If it isn't explicitly set, create a value by auto incrementing.
-          //  autoIncrement: true,
-        });
-        // Create an index on the 'date' property of the objects.
-        store.createIndex('date', 'date');
-      },
-    });
+
+    let options = {store: 'Articles', indexes: ['date']}
+    let db = this.$openDB(options)
+    console.log("DB",db)
+    let options2 = {store: 'SwingPlop', indexes: ['date']}
+    let db2 = this.$openDB(options2)
+    console.log("DB2", db2)
+
 
     // Add an article:
     await db.add('articles', {
-      '@id': 'boo1',
+      '@id': 'boo1Bip',
       title: 'Article 1',
       date: new Date('2019-01-01'),
       body: 'Article one',

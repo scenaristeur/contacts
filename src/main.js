@@ -37,25 +37,8 @@ PouchDB.plugin(PouchAdaptaterHttp)
 
 PouchDB.plugin(PouchdbSyncToAnything)
 
-// var myDb = new PouchDB('exampleDB')
-//
-// myDb.syncToAnything(function (docs) {
-//   // Sync function receives a document batch
-//   // Should return a promise
-//
-//   // Example:
-//   return $.ajax({
-//     url: 'http://example.com/my-rest-endpoint',
-//     data: JSON.stringify(docs),
-//     method: 'POST'
-//   })
-// }, {
-//   sync_id: 'talkingToMyRestAPI',
-//   batch_size: 10
-// })
-
-import debugPouch from "pouchdb-debug";
-debugPouch(PouchDB);
+// import debugPouch from "pouchdb-debug";
+// debugPouch(PouchDB);
 
 // PouchDB.plugin(require('pouchdb-authentication'));
 
@@ -63,10 +46,12 @@ import PouchVue from 'pouch-vue';
 
 
 
+
+
 Vue.use(PouchVue, {
   pouch: PouchDB,    // optional if `PouchDB` is available on the global object
   defaultDB: 'remoteDbName',  // this is used as a default connect/disconnect database
-//  syncToAnything: syncToAnything,
+  //  syncToAnything: syncToAnything,
   //  optionDB: {}, // this is used to include a custom fetch() method (see TypeScript example)
   fetch: function (url, opts) {
     console.log("8888888888888888888888888888888888888888888888888888888888888888888888FETCH",url, opts)
@@ -78,7 +63,7 @@ Vue.use(PouchVue, {
     opts.credentials = 'include';
     return PouchDB.post(url, opts);
   },
-//  debug: '*' // optional - See `https://pouchdb.com/api.html#debug_mode` for valid settings (will be a separate Plugin in PouchDB 7.0)
+  //  debug: '*' // optional - See `https://pouchdb.com/api.html#debug_mode` for valid settings (will be a separate Plugin in PouchDB 7.0)
 });
 
 

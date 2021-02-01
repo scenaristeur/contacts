@@ -176,6 +176,10 @@ put : with key, post : withoutkey
 - https://developer.mozilla.org/fr/docs/Web/Progressive_web_apps/Offline_Service_workers
 - https://medium.com/js-dojo/how-to-permanently-save-data-with-vuex-localstorage-in-your-vue-app-f1d5c140db69
 - https://auth0.com/blog/vuejs-kanban-board-adding-progressive-web-app-features/#Integrating-Vuex-with-Local-Storage
+- impossible to index JSON-LD https://lists.w3.org/Archives/Public/public-webapps/2013JulSep/0211.html
+
+# jsonld expanded query
+https://www.npmjs.com/package/ld-query
 
 # custom service worker
 - https://levelup.gitconnected.com/vue-pwa-example-298a8ea953c9
@@ -192,3 +196,10 @@ https://www.vuetable.com/guide/
 
 # ouchdb serviceworker
 https://github.com/pouchdb-community/worker-pouch
+
+# jsonml
+- store XHTML as json http://www.jsonml.org/ https://github.com/mckamey/jsonml
+
+# rdf store
+- https://npmdoc.github.io/node-npmdoc-rdfstore/build/apidoc.html
+- https://github.com/antoniogarrote/rdfstore-js#documentation
