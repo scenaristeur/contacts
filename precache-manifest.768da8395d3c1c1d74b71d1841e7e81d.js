@@ -8,11 +8,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/css/about.c880b8ce.css"
   },
   {
-    "revision": "b2cbf65577b4b7f8032e",
+    "revision": "4df000f3cdd50f811a28",
     "url": "/ldp-workspace/css/app.a2952c0e.css"
   },
   {
-    "revision": "253aca5f295a20be87ff",
+    "revision": "9a4a0bc9a9da4d83bc14",
     "url": "/ldp-workspace/css/chunk-2ea70690.2a9fb7c3.css"
   },
   {
@@ -44,7 +44,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/css/chunk-vendors.23e2f014.css"
   },
   {
-    "revision": "8d2e37626ba5c11a50ea",
+    "revision": "15862165472d24bb333b",
     "url": "/ldp-workspace/css/contacts.c92ac7d4.css"
   },
   {
@@ -52,7 +52,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/dexie.html"
   },
   {
-    "revision": "287f61d3610b71d5d6b9cd624af2ba65",
+    "revision": "486be5cac3b93f27f108112b75f98321",
     "url": "/ldp-workspace/index.html"
   },
   {
@@ -60,8 +60,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/about.da9232d6.js"
   },
   {
-    "revision": "b2cbf65577b4b7f8032e",
-    "url": "/ldp-workspace/js/app.72777d0a.js"
+    "revision": "4df000f3cdd50f811a28",
+    "url": "/ldp-workspace/js/app.3e6e0b34.js"
   },
   {
     "revision": "84c8ab48e572cce30f382692121bd8c3",
@@ -92,8 +92,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/chunk-2d226c5a.7424fc6d.js"
   },
   {
-    "revision": "253aca5f295a20be87ff",
-    "url": "/ldp-workspace/js/chunk-2ea70690.d9ee0e1a.js"
+    "revision": "9a4a0bc9a9da4d83bc14",
+    "url": "/ldp-workspace/js/chunk-2ea70690.da3fa82c.js"
   },
   {
     "revision": "c52068380ab3b2c0ca86",
@@ -124,8 +124,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/chunk-e6039560.c40df0e9.js"
   },
   {
-    "revision": "74e0c05794e376371218",
-    "url": "/ldp-workspace/js/chunk-e9106412.02e2f5f3.js"
+    "revision": "3e2575e504a894629529",
+    "url": "/ldp-workspace/js/chunk-e9106412.fcea0909.js"
   },
   {
     "revision": "c1c300a475a1cb5b54ee",
@@ -136,16 +136,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/contact.3531b7cc.js"
   },
   {
-    "revision": "8d2e37626ba5c11a50ea",
-    "url": "/ldp-workspace/js/contacts.5861229b.js"
+    "revision": "15862165472d24bb333b",
+    "url": "/ldp-workspace/js/contacts.aa15e1c6.js"
   },
   {
-    "revision": "559d723a57f5b887ff53",
-    "url": "/ldp-workspace/js/editContact.0d20b506.js"
+    "revision": "e65d2fe784cbe282ff62",
+    "url": "/ldp-workspace/js/editContact.e0b4b134.js"
   },
   {
-    "revision": "abb4fd9ab88771fc8f04",
-    "url": "/ldp-workspace/js/import.cbeb18dd.js"
+    "revision": "d50e8e21baac6d83bd3f",
+    "url": "/ldp-workspace/js/import.e91f831f.js"
   },
   {
     "revision": "c8dd138f3536a293299e",
@@ -156,8 +156,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/solid-rest.js"
   },
   {
-    "revision": "3cb3894d6f6b3ee91946",
-    "url": "/ldp-workspace/js/solidresttest.65ce362e.js"
+    "revision": "fb8afd982fac60672b68",
+    "url": "/ldp-workspace/js/solidresttest.25aad89d.js"
   },
   {
     "revision": "fc3b696e2e4b2e7bf361",
