@@ -1,35 +1,29 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
 
-import Home from '../components/Home.vue'
-import Frequent from '../components/Frequent.vue'
-import Duplicates from '../components/Duplicates.vue'
+Vue.use(VueRouter)
 
-Vue.use(Router)
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  }
+]
 
-export default new Router({
+const router = new VueRouter({
   mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home,
-      redirect: '/contacts'
-    },
-    {
-      path: '/contacts',
-      name: 'contacts',
-      component: Home
-    },
-    {
-      path: '/frequent',
-      name: 'frequent',
-      component: Frequent
-    },
-    {
-      path: '/merge',
-      name: 'merge',
-      component: Duplicates
-    }
-  ]
+  base: process.env.BASE_URL,
+  routes
 })
+
+export default router
