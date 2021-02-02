@@ -180,6 +180,13 @@ put : with key, post : withoutkey
 - alternative webdb https://www.npmjs.com/package/@beaker/webdb
 - indexdb dynamically upgrade base version number https://stackoverflow.com/questions/20097662/how-to-create-multiple-object-stores-in-indexeddb
 - dive in indexdb https://flaviocopes.com/indexeddb/
+- indexeddb n'accepterait pas @id come keyPath : https://stackoverflow.com/questions/43273983/invalid-key-path-in-indexeddb-restrictions
+- dexie universal id @id  https://dexie.org/cloud/
+- + https://publift.com/what-is-universal-id/
+- avec callbacks https://www.codemag.com/Article/1411041/Introduction-to-IndexedDB-The-In-Browser-Database
+
+
+
 
 # jsonld expanded query
 https://www.npmjs.com/package/ld-query

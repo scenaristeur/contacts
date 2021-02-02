@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/css/about.c880b8ce.css"
   },
   {
-    "revision": "ac299ef87c33da1315fd",
+    "revision": "5face99111037aa4909f",
     "url": "/ldp-workspace/css/app.a2952c0e.css"
   },
   {
@@ -48,7 +48,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/css/contacts.c92ac7d4.css"
   },
   {
-    "revision": "8be600f7b51c36cfe9f039af90b2976f",
+    "revision": "e3df02e9315d06ff271805c33326b767",
+    "url": "/ldp-workspace/dexie.html"
+  },
+  {
+    "revision": "917c3a2fa26a56ac99b6416047d67e0e",
     "url": "/ldp-workspace/index.html"
   },
   {
@@ -56,8 +60,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/about.da9232d6.js"
   },
   {
-    "revision": "ac299ef87c33da1315fd",
-    "url": "/ldp-workspace/js/app.23c8c4f1.js"
+    "revision": "5face99111037aa4909f",
+    "url": "/ldp-workspace/js/app.9fdcc192.js"
   },
   {
     "revision": "84c8ab48e572cce30f382692121bd8c3",

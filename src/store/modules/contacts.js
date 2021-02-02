@@ -6,7 +6,8 @@ import auth from 'solid-auth-client';
 import FC from 'solid-file-client'
 const fc = new FC( auth )
 import { openDB, deleteDB } from 'idb/with-async-ittr.js';
-import idb from '@/api/idb';
+//import idb from '@/api/idb';
+
 
 
 // initial state
@@ -23,11 +24,11 @@ const getters = {}
 const actions = {
   async deleteItem(context, item) {
       console.log('store is being asked to delete '+item.id);
-      await idb.deleteItem('contacts',item);
+      await this._vm.$deleteItem('contacts',item);
     },
     async getItems(context) {
       context.state.items = [];
-      let items = await idb.getItems('contacts');
+      let items = await this._vm.$getItems('contacts');
       items.forEach(i => {
         context.state.items.push(i);
       });
@@ -35,7 +36,7 @@ const actions = {
 
     },
     async saveItem(context, item) {
-      await idb.saveItem('contacts',item);
+      await this._vm.$saveItem('contacts',item);
       console.log('saved', item)
     },
 

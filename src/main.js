@@ -3,6 +3,11 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
+//import idb from '@/api/idb';
+
+import IndexedDBPlugin from "@/plugins/IndexedDBPlugin.js";
+
+Vue.use(IndexedDBPlugin);
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'  // Install BootstrapVue
 
@@ -71,6 +76,7 @@ Vue.use(PouchVue, {
 new Vue({
   router,
   store,
+  //  idb,
   render: h => h(App),
   vuetify,
 
