@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+      <!-- Include Dexie -->
+      <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+
+      <script>
+          //
+          // Define your database
+          //
+          var db = new Dexie("wlop");
+          db.version(1).stores({
+              friends: 'id,name,shoeSize'
+          });
+
+          //
+          // Put some data into it
+          //
+          db.friends.put({'id':'boo',name: "Mik", shoeSize: 89}).then (function(){
+              //
+              // Then when data is stored, read from it
+              //
+              return db.friends.get('boo');
+          }).then(function (friend) {
+              //
+              // Display the result
+              //
+              alert ("Nicolas has shoe size " + friend.shoeSize);
+          }).catch(function(error) {
+             //
+             // Finally don't forget to catch any error
+             // that could have happened anywhere in the
+             // code blocks above.
+             //
+             alert ("Ooops: " + error);
+          });
+      </script>
+  </head>
+</html>
