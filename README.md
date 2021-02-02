@@ -219,3 +219,23 @@ https://github.com/pouchdb-community/worker-pouch
 - https://egghead.io/lessons/vue-js-intro-to-offline-first-progressive-web-apps-in-vue-js
 - https://hackernoon.com/build-a-progressive-web-app-in-vuejs-from-zero-to-hero-part-2-the-service-worker-d9babc3d756f
 - https://www.freecodecamp.org/news/how-to-make-your-app-work-offline-with-the-power-of-javascript-685d968bcfbb/
+
+# extend vcard with socialprofil like solid
+
+```
+socialProfile;type=linkedin:http://www.linkedin.com/in/barryleiba
+socialProfile;type=facebook:http://www.facebook.com/barackobama
+socialProfile;type=solid:https://www.spoggy-test5.solidcommunity.net/profile/card#me
+```
+- https://tools.ietf.org/id/draft-george-vcarddav-vcard-extension-02.html
+- https://forum.solidproject.org/t/in-which-vocabulary-is-the-solid-haswebid-predicate-defined/3884/13
+- https://apple.stackexchange.com/questions/355047/how-do-you-add-a-custom-social-profile-in-contacts-on-macos/400432
+- https://alessandrorossini.org/the-sad-story-of-the-vcard-format-and-its-lack-of-interoperability/
+- https://fr.wikipedia.org/wiki/CardDAV client-serveur protocol
+- jcard / vcard https://www.npmjs.com/package/jcard-to-vcard
+
+# Contacts vue apps
+- https://vuejsexamples.com/mobile-contacts-component-for-vue/ & https://github.com/chiaweilee/vue-contacts
+- https://kots.pro/contacts & https://github.com/floydkots/contacts
+- https://github.com/hemantsinghi/contacts-app
+- vue3 contact app https://www.reddit.com/r/vuejs/comments/kl6nz5/vue_3_composition_api_tutorial_lets_refactor_a/

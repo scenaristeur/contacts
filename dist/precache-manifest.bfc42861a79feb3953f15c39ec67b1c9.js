@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/css/about.c880b8ce.css"
   },
   {
-    "revision": "4df000f3cdd50f811a28",
+    "revision": "b09fb73d2641f17bc144",
     "url": "/ldp-workspace/css/app.a2952c0e.css"
   },
   {
@@ -52,7 +52,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/dexie.html"
   },
   {
-    "revision": "486be5cac3b93f27f108112b75f98321",
+    "revision": "c51b17d67cfbbe9184cebaa2aa10f244",
     "url": "/ldp-workspace/index.html"
   },
   {
@@ -60,8 +60,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/about.da9232d6.js"
   },
   {
-    "revision": "4df000f3cdd50f811a28",
-    "url": "/ldp-workspace/js/app.3e6e0b34.js"
+    "revision": "b09fb73d2641f17bc144",
+    "url": "/ldp-workspace/js/app.bb3bd302.js"
   },
   {
     "revision": "84c8ab48e572cce30f382692121bd8c3",
@@ -158,6 +158,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "fb8afd982fac60672b68",
     "url": "/ldp-workspace/js/solidresttest.25aad89d.js"
+  },
+  {
+    "revision": "5f8d5affff1e07411ae1",
+    "url": "/ldp-workspace/js/synchronisation.adf910fe.js"
   },
   {
     "revision": "fc3b696e2e4b2e7bf361",
