@@ -32,12 +32,12 @@ const actions = {
       items.forEach(i => {
         context.state.items.push(i);
       });
-      console.log('all', items)
+      this._vm.$log('all', items)
 
     },
     async saveItem(context, item) {
       await this._vm.$saveItem('contacts',item);
-      console.log('saved', item)
+      this._vm.$log('saved', item)
     },
 
 

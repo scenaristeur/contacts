@@ -16,16 +16,16 @@ export default {
 
 
     // create a mixin
-    Vue.mixin({
-      created() {
-        console.log(Vue);
-      }
-    });
+    // Vue.mixin({
+    //   created() {
+    //     console.log(Vue);
+    //   }
+    // });
 
 
     // define an instance method
-    Vue.prototype.$log = function (text) {
-      return console.log("LOG",text);
+    Vue.prototype.$log = function () {
+      return console.info(arguments); //https://stackoverflow.com/questions/4116608/pass-unknown-number-of-arguments-into-javascript-function
     }
 
     // define an instance method
@@ -42,11 +42,11 @@ export default {
     })
 
     // idb
-    Vue.prototype.$getDb = async function (key) {
+    Vue.prototype.$getDb = async function () {
       return new Promise((resolve, reject) => {
-        console.log('TESTING EXIST DB', Vue.DB);
+        console.info('TESTING EXIST DB', Vue.DB);
         if(Vue.DB) { return resolve(Vue.DB); }
-        console.log('OPENING DB', Vue.DB);
+        console.info('OPENING DB', Vue.DB);
         let request = window.indexedDB.open(Vue.DB_NAME, Vue.DB_VERSION);
 
         request.onerror = e => {
@@ -60,15 +60,17 @@ export default {
         };
 
         request.onupgradeneeded = e => {
-          console.log('onupgradeneeded');
+          console.info('onupgradeneeded');
           let db = e.target.result;
-          db.createObjectStore(key, { autoIncrement: true, keyPath:'id' });
+          db.createObjectStore('contacts', { autoIncrement: true, keyPath:'id' });
+          db.createObjectStore('webid', { autoIncrement: true, keyPath:'uri' });
+          console.log('DB upgraded',Vue.DB)
         };
       });
     },
     Vue.prototype.$deleteItem = async function (key,item) {
 
-      let db = await this.$getDb(key);
+      let db = await this.$getDb();
 
       return new Promise(resolve => {
 
@@ -83,7 +85,7 @@ export default {
     },
     Vue.prototype.$getItems = async function (key) {
 
-      let db = await this.$getDb(key);
+      let db = await this.$getDb();
 
       return new Promise(resolve => {
 
@@ -108,7 +110,7 @@ export default {
 
     Vue.prototype.$saveItem = async function (key, item) {
 
-      let db = await this.$getDb(key);
+      let db = await this.$getDb();
 
       return new Promise(resolve => {
 
