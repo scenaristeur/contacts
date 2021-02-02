@@ -177,6 +177,9 @@ put : with key, post : withoutkey
 - https://medium.com/js-dojo/how-to-permanently-save-data-with-vuex-localstorage-in-your-vue-app-f1d5c140db69
 - https://auth0.com/blog/vuejs-kanban-board-adding-progressive-web-app-features/#Integrating-Vuex-with-Local-Storage
 - impossible to index JSON-LD https://lists.w3.org/Archives/Public/public-webapps/2013JulSep/0211.html
+- alternative webdb https://www.npmjs.com/package/@beaker/webdb
+- indexdb dynamically upgrade base version number https://stackoverflow.com/questions/20097662/how-to-create-multiple-object-stores-in-indexeddb
+- dive in indexdb https://flaviocopes.com/indexeddb/
 
 # jsonld expanded query
 https://www.npmjs.com/package/ld-query

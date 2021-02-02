@@ -13,7 +13,7 @@ import idb from '@/api/idb';
 const state = () => ({
   contacts: [],
   db: [],
-  cats: []
+  items: []
 })
 
 // getters
@@ -21,22 +21,22 @@ const getters = {}
 
 // actions
 const actions = {
-  async deleteCat(context, cat) {
-      console.log('store is being asked to delete '+cat.id);
-      await idb.deleteCat(cat);
+  async deleteItem(context, item) {
+      console.log('store is being asked to delete '+item.id);
+      await idb.deleteItem('contacts',item);
     },
-    async getCats(context) {
-      context.state.cats = [];
-      let cats = await idb.getCats();
-      cats.forEach(c => {
-        context.state.cats.push(c);
+    async getItems(context) {
+      context.state.items = [];
+      let items = await idb.getItems('contacts');
+      items.forEach(i => {
+        context.state.items.push(i);
       });
-      console.log('all', cats)
+      console.log('all', items)
 
     },
-    async saveCat(context, cat) {
-      await idb.saveCat(cat);
-      console.log('saved', cat)
+    async saveItem(context, item) {
+      await idb.saveItem('contacts',item);
+      console.log('saved', item)
     },
 
 

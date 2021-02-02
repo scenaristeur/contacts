@@ -5,15 +5,15 @@
       <v-container>
         <v-row>
           <v-col>
-            <v-text-field v-model="cat.name" label="Name" required />
+            <v-text-field v-model="item.name" label="Name" required />
           </v-col>
           <v-col>
-            <v-text-field v-model="cat.age" label="Age" required type="numeric" min="0" max="30" />
+            <v-text-field v-model="item.age" label="Age" required type="numeric" min="0" max="30" />
           </v-col>
         </v-row>
         <v-row>
           <v-col>
-            <v-btn color="green" @click="save">Save Cat</v-btn>
+            <v-btn color="green" @click="save">Save Item</v-btn>
           </v-col>
         </v-row>
       </v-container>
@@ -26,19 +26,19 @@
 export default {
   data() {
     return {
-      cat:null
+      item:null
     }
   },
   created() {
-    if(this.$route.params.cat) {
-      this.cat = this.$route.params.cat;
+    if(this.$route.params.item) {
+      this.item = this.$route.params.item;
     } else {
-      this.cat = { name:'', age: 0 };
+      this.item = { name:'', age: 0 };
     }
   },
   methods: {
     async save() {
-      await this.$store.dispatch('contacts/saveCat', this.cat);
+      await this.$store.dispatch('contacts/saveItem', this.item);
       console.log('back');
       this.$router.push('/solidRestTest');
     }

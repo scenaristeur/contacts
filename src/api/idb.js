@@ -6,7 +6,7 @@ let DB;
 
 export default {
 
-	async getDb() {
+	async getDb(key) {
 		return new Promise((resolve, reject) => {
 
 			if(DB) { return resolve(DB); }
@@ -26,43 +26,43 @@ export default {
 			request.onupgradeneeded = e => {
 				console.log('onupgradeneeded');
 				let db = e.target.result;
-				db.createObjectStore("cats", { autoIncrement: true, keyPath:'id' });
+				db.createObjectStore(key, { autoIncrement: true, keyPath:'id' });
 			};
 		});
 	},
-	async deleteCat(cat) {
+	async deleteItem(key,item) {
 
-		let db = await this.getDb();
+		let db = await this.getDb(key);
 
 		return new Promise(resolve => {
 
-			let trans = db.transaction(['cats'],'readwrite');
+			let trans = db.transaction([key],'readwrite');
 			trans.oncomplete = () => {
 				resolve();
 			};
 
-			let store = trans.objectStore('cats');
-			store.delete(cat.id);
+			let store = trans.objectStore(key);
+			store.delete(item.id);
 		});
 	},
-	async getCats() {
+	async getItems(key) {
 
-		let db = await this.getDb();
+		let db = await this.getDb(key);
 
 		return new Promise(resolve => {
 
-			let trans = db.transaction(['cats'],'readonly');
+			let trans = db.transaction([key],'readonly');
 			trans.oncomplete = () => {
-				resolve(cats);
+				resolve(items);
 			};
 
-			let store = trans.objectStore('cats');
-			let cats = [];
+			let store = trans.objectStore(key);
+			let items = [];
 
 			store.openCursor().onsuccess = e => {
 				let cursor = e.target.result;
 				if (cursor) {
-					cats.push(cursor.value)
+					items.push(cursor.value)
 					cursor.continue();
 				}
 			};
@@ -70,19 +70,19 @@ export default {
 		});
 	},
 
-	async saveCat(cat) {
+	async saveItem(key, item) {
 
-		let db = await this.getDb();
+		let db = await this.getDb(key);
 
 		return new Promise(resolve => {
 
-			let trans = db.transaction(['cats'],'readwrite');
+			let trans = db.transaction([key],'readwrite');
 			trans.oncomplete = () => {
 				resolve();
 			};
 
-			let store = trans.objectStore('cats');
-			store.put(cat);
+			let store = trans.objectStore(key);
+			store.put(item);
 
 		});
 

@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <Cats />
+    <Items />
 
 
   </b-container>
@@ -62,7 +62,7 @@ import Vcard from '@/models/Vcard.js'
 export default {
   name: 'SolidRestTest',
   components: {
-    'Cats': () => import('@/views/Cats'),
+    'Items': () => import('@/views/Items'),
   },
   data() {
     return {
@@ -79,7 +79,6 @@ export default {
     todos: {/*empty selector*/}
   },
   async created(){
-    this.$store.dispatch('contacts/getCats');
     console.log("databases",this.$databases)
     let todos =  await this.$pouch.allDocs({/*OPTIONAL options*/}, 'todos')
     console.log("todos",todos)
@@ -258,23 +257,10 @@ export default {
       let link ='<http://www.w3.org/ns/ldp#BasicContainer>; rel="type"'
       return this.POST(parent,folder,'',link)
     },
-    addCat() {
-      this.$router.push({ name: 'edit' });
-    },
-    async deleteCat(cat) {
-      console.log('delete', cat.id);
-      await this.$store.dispatch('contacts/deleteCat', cat);
-      this.$store.dispatch('contacts/getCats');
-    },
-    editCat(cat) {
-      console.log('edit', cat.id);
-      this.$router.push({ name: 'edit', params: {cat: cat} });
-    }
   },
   computed: mapState({
     contacts: s =>  s.contacts.contacts,
     storage: s => s.solid.storage,
-    cats: s => s.contacts.cats
   }),
 }
 </script>
