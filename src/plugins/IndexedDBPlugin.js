@@ -62,7 +62,7 @@ export default {
         request.onupgradeneeded = e => {
           console.log('onupgradeneeded');
           let db = e.target.result;
-          db.createObjectStore(key, { autoIncrement: true, keyPath:'@d' });
+          db.createObjectStore(key, { autoIncrement: true, keyPath:'id' });
         };
       });
     },
