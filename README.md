@@ -213,3 +213,9 @@ https://github.com/pouchdb-community/worker-pouch
 # rdf store
 - https://npmdoc.github.io/node-npmdoc-rdfstore/build/apidoc.html
 - https://github.com/antoniogarrote/rdfstore-js#documentation
+
+
+# progressive web app caching
+- https://egghead.io/lessons/vue-js-intro-to-offline-first-progressive-web-apps-in-vue-js
+- https://hackernoon.com/build-a-progressive-web-app-in-vuejs-from-zero-to-hero-part-2-the-service-worker-d9babc3d756f
+- https://www.freecodecamp.org/news/how-to-make-your-app-work-offline-with-the-power-of-javascript-685d968bcfbb/

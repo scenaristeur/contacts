@@ -1,20 +1,30 @@
 //https://learnvue.co/2020/01/how-to-make-your-first-vuejs-plugin/
 //https://stackoverflow.com/questions/52978013/how-to-use-vue-plugin-in-store
+//https://medium.com/swlh/how-to-create-a-vue-plugin-36d5987d4768
 const defaultOptions = {
-  cutoff: 50
+  cutoff: 50,
+  DB_NAME: 'workspace',
+  DB_VERSION: 1,
+  stores : [
+    { name:'contacts', schema:{ autoIncrement: true, keyPath:'id' }},
+    { name:'webid', schema:{ autoIncrement: true, keyPath:'uri' }}
+  ]
 };
 
 
 export default {
   // called by Vue.use(FirstPlugin)
-  install(Vue, options) {
-    Vue.DB_NAME = 'workspace';
-    Vue.DB_VERSION = 1;
+  install(Vue, customOptions) {
     Vue.DB;
     Vue.VERSION = 'v0.0.1';
-    let userOptions = {...defaultOptions, ...options};
+    let options = {...defaultOptions, ...customOptions};
+
+    console.warn("IndexedDBPlugin\nOPTIONS",options)
+    Vue.DB_NAME = options.DB_NAME;
+    Vue.DB_VERSION = options.DB_VERSION;
 
 
+    console.warn(Vue)
     // create a mixin
     // Vue.mixin({
     //   created() {
@@ -38,7 +48,7 @@ export default {
       if (!value) {
         return '';
       }
-      return value.substring(0, userOptions.cutoff) + '...';
+      return value.substring(0, options.cutoff) + '...';
     })
 
     // idb
@@ -62,8 +72,25 @@ export default {
         request.onupgradeneeded = e => {
           console.info('onupgradeneeded');
           let db = e.target.result;
-          db.createObjectStore('contacts', { autoIncrement: true, keyPath:'id' });
-          db.createObjectStore('webid', { autoIncrement: true, keyPath:'uri' });
+          //  db.createObjectStore('contacts', { autoIncrement: true, keyPath:'id' });
+          //  db.createObjectStore('webid', { autoIncrement: true, keyPath:'uri' });
+          //https://developers.google.com/web/ilt/pwa/working-with-indexeddb#defining_indexes
+          //        var peopleOS = upgradeDb.createObjectStore('people', {keyPath: 'email'});
+          // peopleOS.createIndex('gender', 'gender', {unique: false});
+          // peopleOS.createIndex('ssn', 'ssn', {unique: true});
+
+          options.stores.forEach((s) => {
+            console.log(s, 'todo, check modif')
+            if (!db.objectStoreNames.contains(s.name)) {
+            let objectStore = db.createObjectStore(s.name, s.schema)
+            s.indexes != undefined && s.indexes.forEach(( i) => {
+               objectStore.createIndex(i.name, i.key, i.options)
+            });
+
+            }
+
+
+          });
           console.log('DB upgraded',Vue.DB)
         };
       });

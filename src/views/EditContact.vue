@@ -32,7 +32,7 @@
 
     <b-container fluid>
       <div v-for="([key,field], i) in Object.entries(vcard)" :key='i'>
-        <b-row class="my-1" v-if="key != 'jsonld' && key != 'basic_fields' && key != '@id' && key != '@type'">
+        <b-row class="my-1" v-if="key != '@context' && key != '@id' && key != '@type'">
           <b-col sm="2">
             <label :for="vcard[key]"> {{ key }}:</label>
           </b-col>

@@ -1,16 +1,16 @@
 
 export default class Thing {
   constructor() {
-    this.jsonld = {
-      '@context': {
+  //  this.jsonld = {
+      this['@context'] =  {
         owl: "http://www.w3.org/2002/07/owl#",
         as: "https://www.w3.org/ns/activitystreams",
         schema: "http://schema.org/"
       },
-      '@id': null,
-      '@type': "owl:Thing",
-      'schema:name': "__NEW__THING__"
-    }
+      this['@id'] = null,
+      this['@type'] = "owl:Thing"
+    //  this['schema:name'] = "__NEW__THING__"
+    //}
   }
 
   save(options = {}){

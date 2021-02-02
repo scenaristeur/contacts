@@ -7,7 +7,25 @@ import store from './store'
 
 import IndexedDBPlugin from "@/plugins/IndexedDBPlugin.js";
 
-Vue.use(IndexedDBPlugin);
+let indexedDB_options = {
+
+  DB_NAME: 'https://spoggy-test9.solidcommunity.net/',
+  DB_VERSION: 1, // must incremente each time it is changed
+  stores : [
+    { name:'contacts', schema:{ autoIncrement: true, keyPath:'id' }, indexes: [] /*[{name: 'name', key: 'vcard:hasName', options:{ unique: false }}]*/},
+    //objectStore.createIndex(nomIndex, nomCle, parametresIndexOptionnel);
+    //  { name:'webids', schema:{ autoIncrement: true, keyPath:'uri' }},
+      { name:'workspaces', schema:{ autoIncrement: true, keyPath:'uri' }},
+    //    { name:'things', schema:{ autoIncrement: true, keyPath:'uri' }},
+    //  { name:'vcards', schema:{ autoIncrement: true, keyPath:'uri' }},
+    //  { name:'fictive_store', schema:{ autoIncrement: true, keyPath:'uri' }}
+  ],
+    cutoff: 100,
+}
+
+
+
+Vue.use(IndexedDBPlugin, indexedDB_options);
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'  // Install BootstrapVue
 

@@ -23,22 +23,23 @@ const getters = {}
 // actions
 const actions = {
   async deleteItem(context, item) {
-      console.log('store is being asked to delete '+item.id);
-      await this._vm.$deleteItem('contacts',item);
-    },
-    async getItems(context) {
-      context.state.items = [];
-      let items = await this._vm.$getItems('contacts');
-      items.forEach(i => {
-        context.state.items.push(i);
-      });
-      this._vm.$log('all', items)
+    console.log('store is being asked to delete '+item.id);
+    await this._vm.$deleteItem('contacts',item);
+  },
+  async getItems(context) {
+    context.state.items = [];
+    let items = await this._vm.$getItems('contacts');
+    items.forEach(i => {
+      context.state.items.push(i);
+    });
+    this._vm.$log('all', items)
 
-    },
-    async saveItem(context, item) {
-      await this._vm.$saveItem('contacts',item);
-      this._vm.$log('saved', item)
-    },
+  },
+  async saveItem(context, item) {
+    item.id = item['@id']
+    await this._vm.$saveItem('contacts',item);
+    this._vm.$log('saved', item)
+  },
 
 
 
@@ -59,7 +60,7 @@ const actions = {
     // });
 
 
-   await deleteDB('Contacts')
+    await deleteDB('Contacts')
 
     const db = await openDB('Contacts', 12, {
       upgrade(db) {
@@ -68,7 +69,7 @@ const actions = {
           // The 'id' property of the object will be the key.
           keyPath: 'id',
           // If it isn't explicitly set, create a value by auto incrementing.
-         autoIncrement: true,
+          autoIncrement: true,
         });
         // Create an index on the 'date' property of the objects.
         store.createIndex('date', 'date');
@@ -87,7 +88,7 @@ const actions = {
     console.log("DB",db)
     // Add an contact:
     await db.add('contacts', {
-    //  id: uuidv4(),
+      //  id: uuidv4(),
       title: 'contact 1',
       date: new Date(),
       body: 'premier',
@@ -184,6 +185,8 @@ const actions = {
     //  console.log('add',path, contact)
 
     contact['@id'] == null ? contact['@id'] = path+uuidv4()+'.jsonld' :''
+
+    context.dispatch('saveItem', contact)
 
     await fc.createFile(contact['@id'], JSON.stringify(contact), 'application/json' )
     .then((/*content*/) => {

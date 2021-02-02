@@ -8,7 +8,7 @@ let default_options = {
   '@type': "vcard:VCard",
   'vcard:given-name': "",
   'vcard:family-name': "",
-  'vcard:hasPhoto': 'https://image.flaticon.com/icons/svg/149/149992.svg'
+//  'vcard:hasPhoto': 'https://image.flaticon.com/icons/svg/149/149992.svg'
 
 }
 //https://raw.githubusercontent.com/lanthaler/vCardOntology/master/Vcard.jsonld
