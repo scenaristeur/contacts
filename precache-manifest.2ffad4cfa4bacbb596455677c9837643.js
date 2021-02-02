@@ -4,7 +4,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/404.html"
   },
   {
-    "revision": "3dc230cd3ea6998ca80d",
+    "revision": "63e9c5dacd0a817b2aca",
+    "url": "/ldp-workspace/css/about.c880b8ce.css"
+  },
+  {
+    "revision": "ac299ef87c33da1315fd",
     "url": "/ldp-workspace/css/app.a2952c0e.css"
   },
   {
@@ -20,16 +24,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/css/chunk-671cfafc.e1aadb65.css"
   },
   {
-    "revision": "299c51149dd67ae9dcf8",
-    "url": "/ldp-workspace/css/chunk-6d4207fa.509272a8.css"
+    "revision": "09786870e90410e533ff",
+    "url": "/ldp-workspace/css/chunk-6ae1ee2e.1bbdaac2.css"
+  },
+  {
+    "revision": "02256fc3b61c91955610",
+    "url": "/ldp-workspace/css/chunk-80fc5770.4342f808.css"
   },
   {
     "revision": "a11ede99a577e4e3992d",
     "url": "/ldp-workspace/css/chunk-8f4d58cc.2148ba08.css"
-  },
-  {
-    "revision": "a5692528cb1dd7252aa0",
-    "url": "/ldp-workspace/css/chunk-9d821cc2.5becf16b.css"
   },
   {
     "revision": "19bfd2e38e3d5d86b8fd",
@@ -44,20 +48,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/css/contacts.c92ac7d4.css"
   },
   {
-    "revision": "f5183c483d0385376c46",
-    "url": "/ldp-workspace/css/tests.509272a8.css"
-  },
-  {
-    "revision": "7b6f59699cd6d99b1bedea178c98b8ba",
+    "revision": "8be600f7b51c36cfe9f039af90b2976f",
     "url": "/ldp-workspace/index.html"
   },
   {
-    "revision": "4d5a011fab22da5918cc",
-    "url": "/ldp-workspace/js/about.d16f1ae3.js"
+    "revision": "63e9c5dacd0a817b2aca",
+    "url": "/ldp-workspace/js/about.da9232d6.js"
   },
   {
-    "revision": "3dc230cd3ea6998ca80d",
-    "url": "/ldp-workspace/js/app.7e9b893c.js"
+    "revision": "ac299ef87c33da1315fd",
+    "url": "/ldp-workspace/js/app.23c8c4f1.js"
   },
   {
     "revision": "84c8ab48e572cce30f382692121bd8c3",
@@ -66,6 +66,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "53abe4ff9e0995b988a4dab830ac52af",
     "url": "/ldp-workspace/js/browserfs.min.js"
+  },
+  {
+    "revision": "1042c8c8cfc051830924",
+    "url": "/ldp-workspace/js/chunk-2c8fe036.a18a186b.js"
   },
   {
     "revision": "ec719f7617af50e31625",
@@ -96,20 +100,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/chunk-671cfafc.18ab1a09.js"
   },
   {
-    "revision": "299c51149dd67ae9dcf8",
-    "url": "/ldp-workspace/js/chunk-6d4207fa.6f4b5cc8.js"
+    "revision": "09786870e90410e533ff",
+    "url": "/ldp-workspace/js/chunk-6ae1ee2e.7bb6d52c.js"
+  },
+  {
+    "revision": "02256fc3b61c91955610",
+    "url": "/ldp-workspace/js/chunk-80fc5770.aa7690f7.js"
   },
   {
     "revision": "a11ede99a577e4e3992d",
     "url": "/ldp-workspace/js/chunk-8f4d58cc.e8fd3452.js"
   },
   {
-    "revision": "a5692528cb1dd7252aa0",
-    "url": "/ldp-workspace/js/chunk-9d821cc2.35b8efe7.js"
-  },
-  {
     "revision": "19bfd2e38e3d5d86b8fd",
     "url": "/ldp-workspace/js/chunk-b79fe53c.681fc309.js"
+  },
+  {
+    "revision": "adaf632e5ce82d95a1fc",
+    "url": "/ldp-workspace/js/chunk-e6039560.c40df0e9.js"
   },
   {
     "revision": "74e0c05794e376371218",
@@ -144,12 +152,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ldp-workspace/js/solid-rest.js"
   },
   {
-    "revision": "9cf4d00f23353a520cf9",
-    "url": "/ldp-workspace/js/solidresttest.12410183.js"
+    "revision": "3cb3894d6f6b3ee91946",
+    "url": "/ldp-workspace/js/solidresttest.65ce362e.js"
   },
   {
-    "revision": "f5183c483d0385376c46",
-    "url": "/ldp-workspace/js/tests.5b79307f.js"
+    "revision": "fc3b696e2e4b2e7bf361",
+    "url": "/ldp-workspace/js/tests.6f136ab3.js"
   },
   {
     "revision": "547b7f506a9c8e6385ae43d21fb87166",
