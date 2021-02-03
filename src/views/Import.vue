@@ -13,7 +13,6 @@
 
 
 
-
     <!-- Checkboxes list -->
     <!-- https://makitweb.com/check-uncheck-all-checkboxes-with-vue-js/ -->
     <!-- <ul>

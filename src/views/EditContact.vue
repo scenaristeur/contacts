@@ -63,8 +63,10 @@
 </div> -->
 
 <hr>
-
-<b-form-select v-model="selected" :options="fields"></b-form-select>
+<b-row>
+  <b-form-select class="col" v-model="selected" :options="fields"></b-form-select>
+  <b-form-select class="col" v-model="selected" :options="socials"></b-form-select>
+</b-row>
 <br>
 <b-input-group v-if="selected != null" class="mt-3">
   <b-input-group-prepend class="m-2">
@@ -77,6 +79,10 @@
 {{ selected}}
 
 <hr>
+
+
+
+{{ social_selected }}
 <!-- <b-list-group>
 <b-list-group-item v-for="(f,i) in fields" :key="i" variant="warning">{{f}}</b-list-group-item>
 
@@ -87,12 +93,12 @@
 <br><br><br><br>
 <!-- {{ vcard }} -->
 
-<div id="toolbar" style="position: fixed; bottom: 0px; left: 0px; width: 100%; color: #fff; background: #000; z-index:5">
+<div id="toolbar" style="position: fixed; bottom: 0px; left: 0px; width: 100%; color: #fff; background: #000;">
   <b-row>
-    <b-button variant="outline-light" class="col p-3" style="text-align:center" @click="cancel">
+    <b-button class="col p-3" style="text-align:center" @click="cancel">
       <b-icon icon="close"></b-icon> Cancel
     </b-button>
-    <b-button variant="outline-light" class="col p-3" style="text-align:center" @click="save">
+    <b-button class="col p-3" style="text-align:center" @click="save">
       <b-icon icon="ok"></b-icon> Save
     </b-button>
   </b-row >
@@ -119,60 +125,84 @@ export default {
     return {
       file: null,
       fields : VCardContext.defines.filter(function(f) { return f['@type'] != 'owl:Class' && f.deprecated != true; }).map((x) => {return {value: x, text: x.label}}),
-      selected: null
+      selected: null,
+      social_selected: null,
+      socials: [{value: null, text: 'Add a Social Profil'},
+      { value: { "@id": "socialProfile;type=solid", "label": "Solid Pod"}, text: 'Solid Pod'},
+      { value: { "@id": "socialProfile;type=linkedin", "label": "Linkedin"}, text: 'Linkedin'},
+      { value: { "@id": "socialProfile;type=facebook", "label": "Facebook"}, text: 'Facebook'},
+      { value: { "@id": "socialProfile;type=twitter", "label": "Twitter"}, text: 'Twitter'},
+      { value: { "@id": "socialProfile;type=instagram", "label": "Instagram"}, text: 'Instagram'},
+      { value: { "@id": "socialProfile;type=hangouts", "label": "Hangouts"}, text: 'Hangouts'},
+      { value: { "@id": "socialProfile;type=qq", "label": "QQ"}, text: 'QQ'},
+      { value: { "@id": "socialProfile;type=skype", "label": "Skype"}, text: 'Skype'},
+      { value: { "@id": "socialProfile;type=yahoo", "label": "Yahoo"}, text: 'Yahoo'},
+      { value: { "@id": "socialProfile;type=aim", "label": "AIM"}, text: 'AIM'},
+      { value: { "@id": "socialProfile;type=icq", "label": "ICQ"}, text: 'ICQ'},
+      { value: { "@id": "socialProfile;type=jabber", "label": "Jabber"}, text: 'Jabber'},
+      { value: { "@id": "socialProfile;type=windowsLive'", "label": "Windows Live'"}, text: 'Windows Live'},
+      { value: { "@id": "socialProfile;type=other", "label": "Other"}, text: 'Other'}
 
-    };
-  },
-  created(){
-    //  this.from = this.$route.from
-    //  console.log('route', this.$route)
-    this.fields.unshift({value: null, text:'Add a field'})
-    //  console.log('router', this.$router)
-  },
-  methods: {
-    del(key){
-      this.vcard[key] = null
-      delete this.vcard[key]
-    },
-    cancel() {
-      //  console.log(this.$router.go(-1))
-      this.$router.go(-1) //, {params: { contact: this.vcard }})
-      //this.$router.back({params: { contact: this.vcard }})
-    },
-    save(){
-      this.$store.dispatch('contacts/add',this.vcard)
-      this.$router.push({ name: 'Contact', params: { contact: this.vcard } })
-    },
-    updateName(){
-      console.log('update')
-      let gn = this.vcard['vcard:given-name'] || ""
-      let fn = this.vcard['vcard:family-name'] || ""
-      this.vcard['vcard:hasName'] = gn+" "+fn
-    }
-  },
-  watch: {
-    '$route' (to, from) {
-      console.log("from",from)
-      console.log("to",to)
-      //  this.webId = to.params.webId || "me"
-      // réagir au changement de route...
-    },
-    async  file (file) {
-      let path = this.storage+'contacts-pics/'
-      let uri = file.webkitRelativePath.length > 0 ? path+file.webkitRelativePath : path+file.name
-      console.log(uri, file, file.type)
-      await fc.createFile(uri, file, file.type)
-      this.vcard['vcard:hasPhoto'] = uri
-      // this.$store.dispatch('contacts/add',this.contact)
-      // console.log('todo: must update pic')
-    },
+    ]
+    // ```
+    // socialProfile;type=linkedin:http://www.linkedin.com/in/barryleiba
+    // socialProfile;type=facebook:http://www.facebook.com/barackobama
+    // socialProfile;type=solid:https://www.spoggy-test5.solidcommunity.net/profile/card#me
+    // ```
 
+  };
+},
+created(){
+  //  this.from = this.$route.from
+  //  console.log('route', this.$route)
+  this.fields.unshift({value: null, text:'Add a field'})
+  //  console.log('router', this.$router)
+},
+methods: {
+  del(key){
+    this.vcard[key] = null
+    delete this.vcard[key]
+  },
+  cancel() {
+    //  console.log(this.$router.go(-1))
+    this.$router.go(-1) //, {params: { contact: this.vcard }})
+    //this.$router.back({params: { contact: this.vcard }})
+  },
+  save(){
+    console.log(this.vcard)
+    this.$store.dispatch('contacts/add',this.vcard)
+    this.$router.push({ name: 'Contact', params: { contact: this.vcard } })
+  },
+  updateName(){
+    console.log('update')
+    let gn = this.vcard['vcard:given-name'] || ""
+    let fn = this.vcard['vcard:family-name'] || ""
+    this.vcard['vcard:hasName'] = gn+" "+fn
+  }
+},
+watch: {
+  '$route' (to, from) {
+    console.log("from",from)
+    console.log("to",to)
+    //  this.webId = to.params.webId || "me"
+    // réagir au changement de route...
+  },
+  async  file (file) {
+    let path = this.storage+'contacts-pics/'
+    let uri = file.webkitRelativePath.length > 0 ? path+file.webkitRelativePath : path+file.name
+    console.log(uri, file, file.type)
+    await fc.createFile(uri, file, file.type)
+    this.vcard['vcard:hasPhoto'] = uri
+    // this.$store.dispatch('contacts/add',this.contact)
+    // console.log('todo: must update pic')
   },
 
-  computed: mapState({
-    storage: s => s.solid.storage
+},
 
-  }),
+computed: mapState({
+  storage: s => s.solid.storage
+
+}),
 
 }
 </script>
