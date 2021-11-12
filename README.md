@@ -1,7 +1,9 @@
-# ldp-workspace
-[Use LDP-workspace](https://scenaristeur.github.io/ldp-workspace/)
-
-
+# contacts
+Replace your current multi-device contact application with
+[Contacts](https://scenaristeur.github.io/contacts/) .
+with [Contacts](https://scenaristeur.github.io/contacts/), your informations are not stored on any GAFAM server,
+they are stored on your SOLID POD and you choose who can access it.
+Please be aware of Solid Security restrictions or ask on [Solid Community Forum](https://forum.solidproject.org/)
 
 
 # Contacts formats
