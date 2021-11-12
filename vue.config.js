@@ -1,9 +1,9 @@
-const publicPath = process.env.NODE_ENV === 'production' ? '/ldp-workspace/' : '/'
+const publicPath = process.env.NODE_ENV === 'production' ? '/contacts/' : '/'
 
 module.exports = {
   "publicPath": publicPath,
   "pwa": {
-    "name": "LDP Workspace",
+    "name": "Contacts",
     "themeColor": "#4db6ba",
     "msTileColor": "red",
     "appleMobileWebAppCapable": "yes",

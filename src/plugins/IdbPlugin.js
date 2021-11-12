@@ -44,7 +44,7 @@ export default store => {
 //     });
 //
 //     Vue.openDB = async function (params) {
-//       return await openDB('LDP-WORKSPACE', 1, {
+//       return await openDB('CONTACTS', 1, {
 //         upgrade(db) {
 //           // Create a store of objects
 //           const store = db.createObjectStore(params.store, {

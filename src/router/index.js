@@ -92,7 +92,7 @@ const routes = [
 //   routes
 // })
 
-const publicPath = process.env.NODE_ENV === 'production' ? '/ldp-workspace' : ''
+const publicPath = process.env.NODE_ENV === 'production' ? '/contacts' : ''
 const router = new VueRouter({
   routes, mode: 'history', base: publicPath,  linkActiveClass: 'active'
 })

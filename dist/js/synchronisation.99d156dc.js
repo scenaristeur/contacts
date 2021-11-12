@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["synchronisation"],{"2c94":function(n,o,t){"use strict";t.r(o);var c=function(){var n=this,o=n.$createElement,t=n._self._c||o;return t("b-container",[t("b-button",{on:{click:n.synchro}},[n._v("Synchronisation")])],1)},e=[],i={name:"Synchronisation",methods:{synchro:function(){}}},s=i,r=t("2877"),a=Object(r["a"])(s,c,e,!1,null,null,null);o["default"]=a.exports}}]);
+//# sourceMappingURL=synchronisation.99d156dc.js.map
