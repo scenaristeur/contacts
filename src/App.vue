@@ -66,6 +66,7 @@ webId<template>
 <router-link to="/about">About</router-link>
 </div> -->
 <SolidTrackSession />
+<!-- <OfflineNotes /> -->
 <!-- <Config /> -->
 <small><i>0.1-1</i></small>
 </div>
@@ -81,6 +82,7 @@ export default {
     //  'Contacts': () => import('@/views/Contacts'),
     'SolidLoginButton': () => import('@/components/solid/SolidLoginButton'),
     'SolidTrackSession': () => import('@/components/solid/SolidTrackSession'),
+    // 'OfflineNotes': () => import('@/views/offline/OfflineNotes'),
     //  'Fab': () => import('@/components/basic/Fab.vue')
     //  'Config': () => import('@/components/config/Config'),
     //  'MenuBar': () => import('@/components/layout/MenuBar'),

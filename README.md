@@ -11,6 +11,26 @@ Please be aware of Solid Security restrictions or ask on [Solid Community Forum]
 - jcard http://microformats.org/wiki/jcard
 - hcard http://microformats.org/wiki/hcard-fr
 
+#vue-offline
+- https://github.com/filrak/vue-offline
+
+
+# offline first
+- https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Offline_Service_workers
+- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage#storing_complex_data_%E2%80%94_indexeddb
+--> /tutoidb
+ou https://schoovaertswout.medium.com/offline-first-with-progressive-web-apps-part-1-3-102e61992567
+ou https://okode.com/offline-first-progressive-web-applications/
+ou https://www.pgs-soft.com/blog/how-to-build-offline-first-progressive-web-apps-pwas-with-react-redux/
+
+__________________________________
+#### Note from another project, todo : migartion
+___________________________________
+
+# error with npm update
+Syntax Error: TypeError: eslint.CLIEngine is not a constructor
+
+delete in package cli-plugin-eslint, remove package.json, & node_modules
 
 
 # prerequist
