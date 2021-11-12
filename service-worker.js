@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/contacts/precache-manifest.7bc8917f23d95eacbd20e1407eaf78e7.js"
+  "/contacts/precache-manifest.35d5a00e8f306924ce12a42e4b7952f3.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "ldp-workspace"});
+workbox.core.setCacheNameDetails({prefix: "contacts"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
